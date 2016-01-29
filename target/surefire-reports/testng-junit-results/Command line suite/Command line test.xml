@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite hostname="administrators-MacBook-Air-6.local" name="oyo.webdesktop.AppTest" tests="1" failures="0" timestamp="29 Jan 2016 07:05:19 GMT" time="0.021" errors="0">
+  <testcase name="testApp on instance testApp(oyo.webdesktop.AppTest)" time="0.01" classname="oyo.webdesktop.AppTest"/>
+</testsuite>

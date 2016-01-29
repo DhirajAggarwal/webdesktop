@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite hostname="administrators-MacBook-Air-6.local" name="oyo.webdesktop.HomePageTest" tests="1" failures="0" timestamp="29 Jan 2016 07:05:19 GMT" time="6.791" errors="0">
+  <testcase name="f" time="0.001" classname="oyo.webdesktop.HomePageTest"/>
+</testsuite>
