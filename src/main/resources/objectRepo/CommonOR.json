@@ -1,5 +1,13 @@
 {
-  "checkInDateCalendar":"js-checkin",
-  "checkOut":"js-checkout",
-  "cityCount":168
+  "checkInDateCalendar"	:	"js-checkin" ,
+  "checkOut"			:	"js-checkout" ,
+  "cityCount"			:	168 ,
+  "myAccountCssId"		:	".header__mybooking__link.icon.icon-account.header__support--icon" ,
+  "logInId"				:	"js-login" ,
+  "mobileTextCssId"		:	".loginmodule__mobile.loginmodule__input" ,
+  "mobileNumber"		:	"9899890123" ,
+  "password"			:	"12345678" ,
+  "passwordTextCssId"	:	".loginmodule__password.loginmodule__input" ,
+  "submitButtonClassId"	:	"loginmodule__submit" ,
+  "userNameId"			:	"js-loggedUserName"
 }

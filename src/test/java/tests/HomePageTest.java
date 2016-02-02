@@ -1,23 +1,38 @@
 package tests;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class HomePageTest {
+import pages.CommonMethods;
+import utils.BaseUtils;
+import utils.BrowserFactory;
+import utils.Helper;
 
-	WebDriver driver = new FirefoxDriver();
+public class HomePageTest extends BaseUtils {
+
+	static WebDriver driver;
+
+	static BrowserFactory browserFactory = new BrowserFactory();
+	Helper helper = new Helper();
+	CommonMethods commonMethods = new CommonMethods();
+
+	String filePathHardData, userName;
 
 	@BeforeClass
 	public void beforeClass() {
-		driver.get("http://www.oyorooms.com");
+		driver = browserFactory.initializeBrowser("firefox");
+		BaseUtils.launchBrowser(driver, true);
+		filePathHardData = "./src/main/resources/data/HardData";
+		userName = helper.parseJSONToString("userName", filePathHardData);
 	}
 
 	@Test
-	public void foo() {
-		}
+	public void testLogInToOyoRooms() {
+		Assert.assertEquals(userName, commonMethods.logInToOyoRooms(driver));
+	}
 
 	@AfterClass
 	public void afterClass() {
