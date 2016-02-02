@@ -1,6 +1,6 @@
 {
-  "BrowserType"			: 	"firefox" ,
-  "OyoRoomsURL"			: 	"https://www.oyorooms.com/" ,
+  "browserType"			: 	"firefox" ,
+  "oyoRoomsURL"			: 	"https://www.oyorooms.com/" ,
   "explicitWaitMS"		: 	5000 ,
   "mochaTimeoutMS"		: 	30000 ,
   "waitForElement"		: 	10000
