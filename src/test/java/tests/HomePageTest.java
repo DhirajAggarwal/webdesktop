@@ -19,16 +19,13 @@ public class HomePageTest extends BaseUtils {
 	Helper helper = new Helper();
 	CommonMethods commonMethods = new CommonMethods();
 
-	String filePathHardData, filePathConfig, userName, browserType;
+	String filePathHardData = "./src/main/resources/data/HardData",
+			userName = helper.parseJSONToString("userName", filePathHardData);
 
 	@BeforeClass
 	public void beforeClass() {
-		filePathConfig = "./src/main/resources/config/config.json";
-		browserType = helper.parseJSONToString("browserType", filePathConfig);
-		driver = browserFactory.initializeBrowser(browserType);
+		driver = browserFactory.initializeBrowser();
 		BaseUtils.launchBrowser(driver, true);
-		filePathHardData = "./src/main/resources/data/HardData";
-		userName = helper.parseJSONToString("userName", filePathHardData);
 	}
 
 	@Test

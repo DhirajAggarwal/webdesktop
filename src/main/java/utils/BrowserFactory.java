@@ -7,8 +7,13 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 public class BrowserFactory {
 
 	WebDriver driver;
+	String filePathConfig = null;
+	Helper helper = new Helper();
+	String browserType;
 
-	public WebDriver initializeBrowser(String browserType) {
+	public WebDriver initializeBrowser() {
+		filePathConfig = "./src/main/resources/config/config.json";
+		browserType = helper.parseJSONToString("browserType", filePathConfig);
 		try {
 			driver = setDriver(browserType);
 		} catch (Exception e) {
