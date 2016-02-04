@@ -9,11 +9,11 @@ public class HomePage extends BasePage {
 	String filePathCommonOR = "./src/main/resources/objectRepo/CommonOR.json",
 			MOBILE_NUM = helper.parseJSONToString("mobileNumber",filePathCommonOR), 
 			PASSWORD = helper.parseJSONToString("password", filePathCommonOR), 
-			myAccountCss = helper.parseJSONToString("myAccountCssId", filePathCommonOR),
+			myAccountCss = helper.parseJSONToString("myAccountCss", filePathCommonOR),
 			logInId = helper.parseJSONToString("logInId", filePathCommonOR),
-			mobileTextCss = helper.parseJSONToString("mobileTextCssId",filePathCommonOR), 
-			passwordTextCss = helper.parseJSONToString("passwordTextCssId", filePathCommonOR),
-			submitButtonClassName = helper.parseJSONToString("submitButtonClassId", filePathCommonOR),
+			mobileTextCss = helper.parseJSONToString("mobileTextCss",filePathCommonOR), 
+			passwordTextCss = helper.parseJSONToString("passwordTextCss", filePathCommonOR),
+			submitButtonClassName = helper.parseJSONToString("submitButtonClassName", filePathCommonOR),
 			userNameId = helper.parseJSONToString("userNameId",filePathCommonOR);
 
 	public void isValid() {
