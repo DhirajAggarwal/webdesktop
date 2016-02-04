@@ -1,14 +1,23 @@
 package utils;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 
 public class BrowserFactory {
 
-	WebDriver driver;
+	static WebDriver driver;
+	String filePathHardData, filePathConfig, browserType;
+	Helper helper = new Helper();
 
-	public WebDriver initializeBrowser(String browserType) {
+	@BeforeClass
+	public WebDriver initializeBrowser() {
+		filePathConfig = "./src/main/resources/config/config.json";
+		browserType = helper.parseJSONToString("browserType", filePathConfig);
 		try {
 			driver = setDriver(browserType);
 		} catch (Exception e) {
@@ -35,6 +44,7 @@ public class BrowserFactory {
 	public WebDriver initFireFoxDriver() {
 		driver = new FirefoxDriver();
 		driver.manage().window().maximize();
+		//driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 		return driver;
 	}
 
@@ -42,6 +52,11 @@ public class BrowserFactory {
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		return driver;
+	}
+	
+	@AfterClass
+	public void tearDown() {
+		driver.quit();
 	}
 
 }

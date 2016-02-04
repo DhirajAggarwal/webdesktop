@@ -1,5 +1,7 @@
 package utils;
 
+import static utils.BrowserFactory.driver;
+
 import java.io.FileReader;
 import java.io.IOException;
 
@@ -7,12 +9,29 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Helper {
+	
 	Object obj = null;
+	
+	private static String filePathConfig = "./src/main/resources/config/config.json";
+	String URL;
+
+	public void openURL(boolean visit, String URL) {
+		if (visit == true) {
+			driver.get(URL);
+		}
+	}
+
+	public void openURL(boolean visit) {
+		URL = parseJSONToString("oyoRoomsURL", filePathConfig);
+		if (visit == true) {
+			driver.get(URL);
+		}
+	}
 
 	public String parseJSONToString(String keyVal, String filePath) {
 		JSONParser parser = new JSONParser();
@@ -25,7 +44,7 @@ public class Helper {
 		return (String) jsonObj.get(keyVal);
 	}
 
-	public void waitForElement(WebDriver driver, By locator, int timeOut) {
+	public void waitForElement(By locator, int timeOut) {
 		WebDriverWait wait = null;
 		wait = new WebDriverWait(driver, timeOut);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
@@ -57,5 +76,37 @@ public class Helper {
 
 	public By locateByXpath(String element) {
 		return By.xpath(element);
+	}
+
+	public WebElement findElementById(String element) {
+		return driver.findElement(By.id(element));
+	}
+
+	public WebElement findElementByClassName(String element) {
+		return driver.findElement(By.className(element));
+	}
+
+	public WebElement findElementByTagName(String element) {
+		return driver.findElement(By.tagName(element));
+	}
+
+	public WebElement findElementByXpath(String element) {
+		return driver.findElement(By.xpath(element));
+	}
+
+	public WebElement findElementByCss(String element) {
+		return driver.findElement(By.cssSelector(element));
+	}
+
+	public WebElement findElementByLinkText(String element) {
+		return driver.findElement(By.linkText(element));
+	}
+
+	public WebElement findElementByPartialLinkText(String element) {
+		return driver.findElement(By.partialLinkText(element));
+	}
+
+	public WebElement findElementsByClassName(String element) {
+		return driver.findElement(By.className(element));
 	}
 }
