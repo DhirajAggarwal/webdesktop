@@ -25,11 +25,7 @@
   "loginSubmitButton": "loginmodule__submit",
   "megaDDlink": "DELHI",
   "megaDropDown": "megadropdown",
-  "myBookings": "My Bookings",
   "officialBlog": "Official OYO Blog",
-  "oyoLogo": "header__logo",
-  "oyoReservationNumber": "phone__number",
-  "phoneIcon": "phone__icon",
   "signUp": "js-sign-up",
   "signUpEmail": "email",
   "signUpEmailErrorId": "email-error",
@@ -41,6 +37,5 @@
   "submitButton": "enquirySubmit",
   "userLoginPassword": "password",
   "userLoginPhone": "phone",
-  "userNameAfterLogin": "js-loggedUserName",
   "viewAllLink": "View All"
 }
