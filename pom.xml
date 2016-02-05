@@ -38,14 +38,10 @@
 			<artifactId>json-simple</artifactId>
 			<version>1.1.1</version>
 		</dependency>
-	</dependencies>
-	<dependencyManagement>
-		<dependencies>
 			<dependency>
 				<groupId>org.testng</groupId>
 				<artifactId>testng</artifactId>
 				<version>6.8</version>
 			</dependency>
-		</dependencies>
-	</dependencyManagement>
+	</dependencies>
 </project>
