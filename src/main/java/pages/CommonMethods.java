@@ -11,4 +11,8 @@ public class CommonMethods {
 		homePage.setPasswordForLogin();
 		homePage.clickOnLoginSubmitButton();
 	}
+	
+	public void payAtHotel(){
+		
+	}
 }

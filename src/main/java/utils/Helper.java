@@ -14,9 +14,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Helper {
-	
+
 	Object obj = null;
-	
+
 	private static String filePathConfig = "./src/main/resources/config/config.json";
 	String URL;
 

@@ -46,7 +46,27 @@ public class HomePage extends BasePage {
 	public String getLoggedInUserName() {
 		String userName = helper.findElementById(userNameId).getText().toString();
 		return userName;
-
 	}
+	
+	public void setLocation() {
+		
+	}
+	
+	public void setCheckInDate() {
+		
+	}
+	
+	public void setCheckOutDate() {
+		
+	}
+	
+	public void setGuestCount(){
+		
+	}
+	
+	public void clickOnSearchSubmitButton(){
+		
+	}
+	
 
 }

@@ -1,7 +1,5 @@
 package utils;
 
-import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -44,7 +42,7 @@ public class BrowserFactory {
 	public WebDriver initFireFoxDriver() {
 		driver = new FirefoxDriver();
 		driver.manage().window().maximize();
-		//driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+		// driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 		return driver;
 	}
 
@@ -53,7 +51,7 @@ public class BrowserFactory {
 		driver.manage().window().maximize();
 		return driver;
 	}
-	
+
 	@AfterClass
 	public void tearDown() {
 		driver.quit();

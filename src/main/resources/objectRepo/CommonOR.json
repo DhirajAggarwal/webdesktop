@@ -15,5 +15,5 @@
   "oyoAppDownloadLinkClassName"	:	"header__appdownload",
   "oyoHelpIconClassName"	:	"header__support",
   "oyoReservationNumberClassName"	: "phone__number",
-  "phoneIconClassName"	: "phone__icon",
+  "phoneIconClassName"	: "phone__icon"
 }
