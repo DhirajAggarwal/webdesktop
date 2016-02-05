@@ -7,7 +7,7 @@ public class HotelSearchPage extends BasePage {
 
 	}
 
-	public void clickSortByPrice() {
+	public void clickSortByPriceAscending() {
 
 	}
 

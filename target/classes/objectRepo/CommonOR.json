@@ -1,5 +1,19 @@
 {
-  "checkInDateCalendar":"js-checkin",
-  "checkOut":"js-checkout",
-  "cityCount":168
+  "checkInDateCalendar"	:	"js-checkin" ,
+  "checkOut"			:	"js-checkout" ,
+  "cityCount"			:	168 ,
+  "myAccountCss"		:	".header__mybooking__link.icon.icon-account.header__support--icon" ,
+  "logInId"				:	"js-login" ,
+  "mobileTextCss"		:	".loginmodule__mobile.loginmodule__input" ,
+  "mobileNumber"		:	"9899890123" ,
+  "password"			:	"12345678" ,
+  "passwordTextCss"	:	".loginmodule__password.loginmodule__input" ,
+  "submitButtonClassName"	:	"loginmodule__submit" ,
+  "userNameId"			:	"js-loggedUserName",
+  "oyoTagLineClassName"	:	"header__byline",
+  "oyoLogoClassName"	: "header__logo",
+  "oyoAppDownloadLinkClassName"	:	"header__appdownload",
+  "oyoHelpIconClassName"	:	"header__support",
+  "oyoReservationNumberClassName"	: "phone__number",
+  "phoneIconClassName"	: "phone__icon"
 }

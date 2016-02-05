@@ -7,14 +7,14 @@ public class HomePage extends BasePage {
 	Helper helper = new Helper();
 
 	String filePathCommonOR = "./src/main/resources/objectRepo/CommonOR.json",
-			MOBILE_NUM = helper.parseJSONToString("mobileNumber",filePathCommonOR), 
-			PASSWORD = helper.parseJSONToString("password", filePathCommonOR), 
+			MOBILE_NUM = helper.parseJSONToString("mobileNumber", filePathCommonOR),
+			PASSWORD = helper.parseJSONToString("password", filePathCommonOR),
 			myAccountCss = helper.parseJSONToString("myAccountCss", filePathCommonOR),
 			logInId = helper.parseJSONToString("logInId", filePathCommonOR),
-			mobileTextCss = helper.parseJSONToString("mobileTextCss",filePathCommonOR), 
+			mobileTextCss = helper.parseJSONToString("mobileTextCss", filePathCommonOR),
 			passwordTextCss = helper.parseJSONToString("passwordTextCss", filePathCommonOR),
 			submitButtonClassName = helper.parseJSONToString("submitButtonClassName", filePathCommonOR),
-			userNameId = helper.parseJSONToString("userNameId",filePathCommonOR);
+			userNameId = helper.parseJSONToString("userNameId", filePathCommonOR);
 
 	public void isValid() {
 		// TODO Auto-generated method stub
@@ -47,26 +47,25 @@ public class HomePage extends BasePage {
 		String userName = helper.findElementById(userNameId).getText().toString();
 		return userName;
 	}
-	
+
 	public void setLocation() {
-		
+
 	}
-	
+
 	public void setCheckInDate() {
-		
+
 	}
-	
+
 	public void setCheckOutDate() {
-		
+
 	}
-	
-	public void setGuestCount(){
-		
+
+	public void setGuestCount() {
+
 	}
-	
-	public void clickOnSearchSubmitButton(){
-		
+
+	public void clickOnSearchSubmitButton() {
+
 	}
-	
 
 }

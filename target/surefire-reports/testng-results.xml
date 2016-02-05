@@ -2,16 +2,18 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="tests.HomePageTest" duration-ms="3575" started-at="2016-01-29T17:25:13Z" finished-at="2016-01-29T17:25:17Z">
+  <suite name="tests.HomePageTest" duration-ms="19314" started-at="2016-02-05T09:50:12Z" finished-at="2016-02-05T09:50:31Z">
     <groups>
     </groups>
-    <test name="Command line test" duration-ms="3575" started-at="2016-01-29T17:25:13Z" finished-at="2016-01-29T17:25:17Z">
+    <test name="Command line test" duration-ms="19314" started-at="2016-02-05T09:50:12Z" finished-at="2016-02-05T09:50:31Z">
       <class name="tests.HomePageTest">
-        <test-method status="PASS" signature="beforeClass()" name="beforeClass" is-config="true" duration-ms="3444" started-at="2016-01-29T17:25:13Z" finished-at="2016-01-29T17:25:17Z">
+        <test-method status="PASS" signature="initializeBrowser()" name="initializeBrowser" is-config="true" duration-ms="10099" started-at="2016-02-05T09:50:12Z" finished-at="2016-02-05T09:50:22Z">
         </test-method>
-        <test-method status="PASS" signature="foo()" name="foo" duration-ms="8" started-at="2016-01-29T17:25:17Z" finished-at="2016-01-29T17:25:17Z">
+        <test-method status="PASS" signature="openURL()" name="openURL" is-config="true" duration-ms="3722" started-at="2016-02-05T09:50:22Z" finished-at="2016-02-05T09:50:25Z">
         </test-method>
-        <test-method status="PASS" signature="afterClass()" name="afterClass" is-config="true" duration-ms="109" started-at="2016-01-29T17:25:17Z" finished-at="2016-01-29T17:25:17Z">
+        <test-method status="PASS" signature="verifySuccessFulLogin()" name="verifySuccessFulLogin" duration-ms="5309" started-at="2016-02-05T09:50:25Z" finished-at="2016-02-05T09:50:31Z">
+        </test-method>
+        <test-method status="PASS" signature="tearDown()" name="tearDown" is-config="true" duration-ms="165" started-at="2016-02-05T09:50:31Z" finished-at="2016-02-05T09:50:31Z">
         </test-method>
       </class>
     </test>
