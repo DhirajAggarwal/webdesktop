@@ -32,7 +32,7 @@ public class HomePageTest extends BrowserFactory {
 	
 	@Test
 	public void verifyHotelsDisplayedOnSearch(){
-		commonMethods.searchHotels();
+		commonMethods.searchHotels("Delhi","23","24");
 		//Assert.assertEquals("", userName);
 	}
 
