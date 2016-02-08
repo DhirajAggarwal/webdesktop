@@ -1,6 +1,7 @@
 package pages;
 
 import org.openqa.selenium.Keys;
+import org.testng.Assert;
 
 import utils.Helper;
 
@@ -9,28 +10,45 @@ public class HomePage extends BasePage {
 	Helper helper = new Helper();
 
 	String filePathCommonOR = "./src/main/resources/objectRepo/CommonOR.json",
-			// MOBILE_NUM = helper.parseJSONToString("mobileNumber",
-			// filePathCommonOR),
-			// PASSWORD = helper.parseJSONToString("password",
-			// filePathCommonOR),
+
+			oyoLogoClassName = helper.parseJSONToString("oyoLogoClassName",filePathCommonOR),
+			oyoTagLineClassName = helper.parseJSONToString("oyoTagLineClassName",filePathCommonOR),
+			oyoAppDownloadLinkClassName = helper.parseJSONToString("oyoAppDownloadLinkClassName", filePathCommonOR),
 			myAccountCss = helper.parseJSONToString("myAccountCss", filePathCommonOR),
+			oyoHelpIconClassName = helper.parseJSONToString("oyoHelpIconClassName", filePathCommonOR),
+			oyoReservationNumberClassName = helper.parseJSONToString("oyoReservationNumberClassName", filePathCommonOR),
+			phoneIconClassName = helper.parseJSONToString("phoneIconClassName", filePathCommonOR),
 			logInId = helper.parseJSONToString("logInId", filePathCommonOR),
 			mobileTextCss = helper.parseJSONToString("mobileTextCss", filePathCommonOR),
 			passwordTextCss = helper.parseJSONToString("passwordTextCss", filePathCommonOR),
 			submitButtonClassName = helper.parseJSONToString("submitButtonClassName", filePathCommonOR),
-			// userNameId = helper.parseJSONToString("userNameId",
-			// filePathCommonOR);
-			userNameId = helper.parseJSONToString("userNameId", filePathCommonOR),
-			locationId = helper.parseJSONToString("locationTextboxId", filePathCommonOR),
-			checkInId = helper.parseJSONToString("checkInDateId", filePathCommonOR),
-			checkOutId = helper.parseJSONToString("checkOutDateId", filePathCommonOR),
-			searchButtonId = helper.parseJSONToString("searchButtonId", filePathCommonOR),
-			locationSuggestionsId = helper.parseJSONToString("locationSuggestionId", filePathCommonOR),
-			hotelClassName = helper.parseJSONToString("hotelClassName", filePathCommonOR);
-
+			userNameId = helper.parseJSONToString("userNameId",filePathCommonOR),
+			locationId =helper.parseJSONToString("locationTextboxId", filePathCommonOR),
+			checkInId=helper.parseJSONToString("checkInDateId", filePathCommonOR),
+			checkOutId=helper.parseJSONToString("checkOutDateId", filePathCommonOR),
+			searchButtonId=helper.parseJSONToString("searchButtonId", filePathCommonOR),
+			locationSuggestionsId=helper.parseJSONToString("locationSuggestionId", filePathCommonOR),
+			hotelClassName=helper.parseJSONToString("hotelClassName", filePathCommonOR),
+			leftFooterClassName = helper.parseJSONToString("leftFooterClassName", filePathCommonOR),
+			rightFooterClassName = helper.parseJSONToString("rightFooterClassName", filePathCommonOR);
+	
 	public void isValid() {
-		// TODO Auto-generated method stub
-
+		validateHeaderElements();
+		validateFooterElements();
+	}
+	
+	public void validateHeaderElements(){
+		Assert.assertTrue(helper.findElementByClassName(oyoLogoClassName).isDisplayed());
+		Assert.assertTrue(helper.findElementByClassName(oyoTagLineClassName).isDisplayed());
+		Assert.assertTrue(helper.findElementByClassName(oyoAppDownloadLinkClassName).isDisplayed());
+		Assert.assertTrue(helper.findElementByClassName(oyoHelpIconClassName).isDisplayed());
+		Assert.assertTrue(helper.findElementByClassName(oyoReservationNumberClassName).isDisplayed());
+		Assert.assertTrue(helper.findElementByClassName(phoneIconClassName).isDisplayed());
+	}
+	
+	public void validateFooterElements(){
+		Assert.assertTrue(helper.findElementByClassName(leftFooterClassName).isDisplayed());
+		Assert.assertTrue(helper.findElementByClassName(rightFooterClassName).isDisplayed());
 	}
 
 	public void clickOnMyAccounts() {

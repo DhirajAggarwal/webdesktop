@@ -16,9 +16,10 @@
   "oyoHelpIconClassName"	:	"header__support",
   "oyoReservationNumberClassName"	: "phone__number",
   "phoneIconClassName"	: "phone__icon",
+  "leftFooterClassName"	:	"footer__left",
+  "rightFooterClassName"	:	"footer__right"
   "locationTextboxId":	"js-searchbar-input-location",
   "locationSuggestionId":"js-placesDropdown",
   "searchButtonId":		"js-submit",
   "hotelClassName":		"hotelsnippetSmall__overlay",
-  
 }

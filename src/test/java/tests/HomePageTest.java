@@ -15,7 +15,13 @@ public class HomePageTest extends BrowserFactory {
 	Helper helper = new Helper();
 
 	String filePathHardData = "./src/main/resources/data/HardData",
-			userName = helper.parseJSONToString("userName", filePathHardData);
+	loginmobileNumber=helper.parseJSONToString("mobileNumber", filePathHardData),
+	loginpassword=helper.parseJSONToString("password", filePathHardData),
+	userName= helper.parseJSONToString("userName", filePathHardData),
+	location= helper.parseJSONToString("location", filePathHardData),
+	checkinDate= helper.parseJSONToString("checkinDate", filePathHardData),
+	checkoutDate= helper.parseJSONToString("checkoutDate", filePathHardData);
+	
 
 	CommonMethods commonMethods = new CommonMethods();
 	HomePage homePage = new HomePage();
@@ -28,7 +34,7 @@ public class HomePageTest extends BrowserFactory {
 
 	@Test(priority = 1)
 	public void verifySuccessFulLogin() {
-		commonMethods.logInToOyoRooms("9899890123", "12345678");
+		commonMethods.logInToOyoRooms(loginmobileNumber,loginpassword);
 		Assert.assertEquals(homePage.getLoggedInUserName(), userName);
 	}
 
@@ -38,8 +44,8 @@ public class HomePageTest extends BrowserFactory {
 		 * Assert in this function is incomplete. So this has been commented
 		 * Out.
 		 */
-		commonMethods.searchHotels();
-		// Assert.assertEquals("", userName);
+		commonMethods.searchHotels(location,checkinDate,checkoutDate);
+		//Assert.assertEquals("", userName);
 	}
 
 	@Test(priority = 2)

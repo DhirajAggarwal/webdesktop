@@ -17,16 +17,14 @@ public class CommonMethods {
 		homePage.setPasswordForLogin(password);
 		homePage.clickOnLoginSubmitButton();
 	}
-
-	public void searchHotels() {
-		homePage.setLocation("Delhi");
-		homePage.setCheckInDate("23");
-		homePage.setCheckOutDate("24");
-		homePage.clickOnSearchButton();
+	public void searchHotels(String location,String checkinDate,String checkoutDate) {
+		homePage.setLocation(location);
+		homePage.setCheckInDate(checkinDate);
+		homePage.setCheckInDate(checkoutDate);
+		homePage.clickOnSearchButton();		
 	}
 
 	public String bookingConfirmation() {
-		searchHotels();
 		hotelSerachPage.clickPriceSortByAscending();
 		hotelSerachPage.clickFirstHotel();
 		hotelPage.clickBookNow();
