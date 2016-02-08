@@ -27,11 +27,9 @@ public class Helper {
 		}
 	}
 
-	public void openURL(boolean visit) {
+	public void openURL() {
 		URL = parseJSONToString("oyoRoomsURL", filePathConfig);
-		if (visit == true) {
-			driver.get(URL);
-		}
+			driver.get(URL);	
 	}
 	
 	public void openHotelPage(String hotelId, String hotelType, String hotelName){
@@ -51,17 +49,23 @@ public class Helper {
 		return (String) jsonObj.get(keyVal);
 	}
 
-	public void waitForElement(By locator, int timeOut) {
+	public void waitForElement(By locator, int timeOut,String message) {
+		try{
 		WebDriverWait wait = null;
 		wait = new WebDriverWait(driver, timeOut);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+		}
+		catch(Exception e)
+		{
+			System.out.println(message);
+		}
 	}
 
 	public By locateById(String element) {
 		return By.id(element);
 	}
 
-	public By locateByClassId(String element) {
+	public By locateByClassName(String element) {
 		return By.className(element);
 	}
 

@@ -21,13 +21,19 @@ public class HomePageTest extends BrowserFactory {
 
 	@BeforeClass
 	public void openURL() {
-		helper.openURL(true);
+		helper.openURL();
 	}
 
 	@Test
 	public void verifySuccessFulLogin() {
-		commonMethods.logInToOyoRooms();
+		commonMethods.logInToOyoRooms("9899890123","12345678");
 		Assert.assertEquals(homePage.getLoggedInUserName(), userName);
+	}
+	
+	@Test
+	public void verifyHotelsDisplayedOnSearch(){
+		commonMethods.searchHotels();
+		//Assert.assertEquals("", userName);
 	}
 
 }
