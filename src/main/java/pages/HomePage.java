@@ -49,7 +49,7 @@ public class HomePage extends BasePage {
 		validateHeaderElements();
 		validateFooterElements();
 		Assert.assertTrue(helper.findElementByClassName(dealsClassName).isDisplayed());
-		Assert.assertTrue(helper.findElementById(corporateEnquiryId).isDisplayed());
+		Assert.assertTrue(helper.findElementById(corporateEnquiryFormLabelId).isDisplayed());
 		List<WebElement> links = helper.findElementsByClassName(hotelLinksClassName);
 		for (int i = 0; i < links.size(); i++) {
 			Assert.assertTrue(links.get(i).isEnabled());
