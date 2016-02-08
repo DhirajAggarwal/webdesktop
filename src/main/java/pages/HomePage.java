@@ -41,7 +41,6 @@ public class HomePage extends BasePage {
 		Assert.assertTrue(helper.findElementByClassName(oyoLogoClassName).isDisplayed());
 		Assert.assertTrue(helper.findElementByClassName(oyoTagLineClassName).isDisplayed());
 		Assert.assertTrue(helper.findElementByClassName(oyoAppDownloadLinkClassName).isDisplayed());
-		Assert.assertTrue(helper.findElementByCss(myAccountCss).isDisplayed());
 		Assert.assertTrue(helper.findElementByClassName(oyoHelpIconClassName).isDisplayed());
 		Assert.assertTrue(helper.findElementByClassName(oyoReservationNumberClassName).isDisplayed());
 		Assert.assertTrue(helper.findElementByClassName(phoneIconClassName).isDisplayed());
