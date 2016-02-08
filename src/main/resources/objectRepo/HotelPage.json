@@ -1,5 +1,9 @@
 {
-  "hotelClassID"		:	"hotelsnippetSmall__overlay" ,
-  "bookNowId"			:	"js-book-submit" ,
-  "userNameId"			:	"js-user-name"
+	"hotelGalleryClassName"	:	"gallery",
+	"hotelBookingBlockId"	:	"js-bookingBlock",
+	"hotelLocalityDetailsClassName"	:	"aboutHotel__topSection",
+	"hotelAmenitiesSectionClassName"	:	"aboutHotel__amenities__wrap",
+	"hotelHouseRulesSectionClassName"	:	"aboutHotel__HouseRulesWrap",
+	"hotelDescriptionSectionClassName"	:	"aboutHotel__DescriptionDiv",
+	"hotelNearByHotelsSectionClassName"	:	"nearbyOyo_hotels"
 }
