@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite hostname="administrators-MacBook-Air-6.local" name="tests.HomePageTest" tests="1" failures="0" timestamp="5 Feb 2016 04:20:31 GMT" time="19.314" errors="0">
-  <testcase name="verifySuccessFulLogin" time="5.309" classname="tests.HomePageTest"/>
-</testsuite>

@@ -1,5 +1,6 @@
 {
-  "hotelClassID"		:	"hotelsnippetSmall__overlay" ,
   "bookNowId"			:	"js-book-submit" ,
-  "userNameId"			:	"js-user-name"
+  "userNameId"			:	"js-user-name" ,
+  "payAtHotelId"		:	"js-pay-hotel" ,
+  "requiredIdClassName"	:	"icon-check"
 }

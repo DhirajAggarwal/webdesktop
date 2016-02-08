@@ -1,7 +1,7 @@
 {
-  "checkInDateCalendar"	:	"js-checkin" ,
-  "checkOut"			:	"js-checkout" ,
-  "cityCount"			:	168 ,
+  "checkInDateId"	:	"js-checkin" ,
+  "checkOutDateId"			:	"js-checkout" ,
+  "cityCountId"			:	168 ,
   "myAccountCss"		:	".header__mybooking__link.icon.icon-account.header__support--icon" ,
   "logInId"				:	"js-login" ,
   "mobileTextCss"		:	".loginmodule__mobile.loginmodule__input" ,
@@ -15,5 +15,10 @@
   "oyoAppDownloadLinkClassName"	:	"header__appdownload",
   "oyoHelpIconClassName"	:	"header__support",
   "oyoReservationNumberClassName"	: "phone__number",
-  "phoneIconClassName"	: "phone__icon"
+  "phoneIconClassName"	: "phone__icon",
+  "locationTextboxId":	"js-searchbar-input-location",
+  "locationSuggestionId":"js-placesDropdown",
+  "searchButtonId":		"js-submit",
+  "hotelClassName":		"hotelsnippetSmall__overlay",
+  
 }
