@@ -4,6 +4,7 @@ import static utils.BrowserFactory.driver;
 
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.List;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -28,7 +29,7 @@ public class Helper {
 
 	public void openURL() {
 		URL = parseJSONToString("oyoRoomsURL", filePathConfig);
-			driver.get(URL);	
+		driver.get(URL);
 	}
 
 	public String parseJSONToString(String keyVal, String filePath) {
@@ -42,14 +43,12 @@ public class Helper {
 		return (String) jsonObj.get(keyVal);
 	}
 
-	public void waitForElement(By locator, int timeOut,String message) {
-		try{
-		WebDriverWait wait = null;
-		wait = new WebDriverWait(driver, timeOut);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
-		}
-		catch(Exception e)
-		{
+	public void waitForElement(By locator, int timeOut, String message) {
+		try {
+			WebDriverWait wait = null;
+			wait = new WebDriverWait(driver, timeOut);
+			wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+		} catch (Exception e) {
 			System.out.println(message);
 		}
 	}
@@ -110,7 +109,7 @@ public class Helper {
 		return driver.findElement(By.partialLinkText(element));
 	}
 
-	public WebElement findElementsByClassName(String element) {
-		return driver.findElement(By.className(element));
+	public List<WebElement> findElementsByClassName(String element) {
+		return driver.findElements(By.className(element));
 	}
 }
