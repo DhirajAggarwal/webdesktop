@@ -12,13 +12,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.NoSuchElementException;
 
 public class Helper {
 
 	Object obj = null;
 
 	private static String filePathConfig = "./src/main/resources/config/config.json";
-	String URL;
+	String URL, customURL;
 
 	public void openURL(boolean visit, String URL) {
 		if (visit == true) {
@@ -31,6 +32,12 @@ public class Helper {
 		if (visit == true) {
 			driver.get(URL);
 		}
+	}
+	
+	public void openHotelPage(String hotelId, String hotelType, String hotelName){
+		URL = parseJSONToString("oyoRoomsURL", filePathConfig);
+		customURL = URL + hotelId + "-" + hotelType + "-" + hotelName;
+		driver.get(customURL);
 	}
 
 	public String parseJSONToString(String keyVal, String filePath) {
@@ -108,5 +115,15 @@ public class Helper {
 
 	public WebElement findElementsByClassName(String element) {
 		return driver.findElement(By.className(element));
+	}
+	
+	public boolean isElementPresent(By by) {
+	    try {
+	      driver.findElement(by);
+	      return true;
+	    } 
+	    catch (NoSuchElementException e) {
+	      return false;
+	    }
 	}
 }
