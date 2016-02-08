@@ -12,10 +12,10 @@ public class CommonMethods {
 		homePage.clickOnLoginSubmitButton();
 	}
 	
-	public void searchHotels() {
-		homePage.setLocation("Delhi");
-		homePage.setCheckInDate("23");
-		homePage.setCheckInDate("24");
+	public void searchHotels(String location,String checkinDate,String checkoutDate) {
+		homePage.setLocation(location);
+		homePage.setCheckInDate(checkinDate);
+		homePage.setCheckInDate(checkoutDate);
 		homePage.clickOnSearchButton();		
 	}
 	
