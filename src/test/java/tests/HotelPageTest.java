@@ -35,7 +35,6 @@ public class HotelPageTest extends BrowserFactory{
 	public void verifyBulkBookingMessage(){
 		hotelPage.setRoomsCount(roomsCount);
 		String bulkBookingMessageActual = hotelPage.getBulkBookingMessage();
-		System.out.println(bulkBookingMessageActual);
 		Assert.assertEquals(bulkBookingMessageActual, bulkBookingMessageExpected);
 	}
 }
