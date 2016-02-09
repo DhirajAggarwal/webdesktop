@@ -11,8 +11,9 @@ public class HomePage extends BasePage {
 
 	Helper helper = new Helper();
 
-	String filePathCommonOR = "./src/main/resources/objectRepo/CommonOR.json";
-	String filePathHomePage = "./src/main/resources/objectRepo/HomePage.json",
+
+	String filePathCommonOR = "./src/main/resources/objectRepo/CommonOR.json",
+			filePathHomePage = "./src/main/resources/objectRepo/HomePage.json",
 			userNameId = helper.parseJSONToString("userNameId",filePathCommonOR),
 			locationId =helper.parseJSONToString("locationTextboxId", filePathCommonOR),
 			checkInId=helper.parseJSONToString("checkInDateId", filePathCommonOR),
@@ -51,7 +52,7 @@ public class HomePage extends BasePage {
 		Assert.assertTrue(helper.findElementByClassName(dealsClassName).isDisplayed());
 		Assert.assertTrue(helper.findElementById(corporateEnquiryFormLabelId).isDisplayed());
 		List<WebElement> links = helper.findElementsByClassName(hotelLinksClassName);
-		for (int i = 0; i < links.size(); i++) {
+ 		for (int i = 0; i < links.size(); i++) {
 			Assert.assertTrue(links.get(i).isEnabled());
 		}
 		Assert.assertTrue(helper.findElementByClassName(megadropdownClassName).isDisplayed());
@@ -117,7 +118,6 @@ public class HomePage extends BasePage {
 		helper.waitForElement(helper.locateById(locationSuggestionsId), 5, "No Suggestions on Search");
 		helper.findElementById(locationId).sendKeys(Keys.DOWN);
 		helper.findElementById(locationId).sendKeys(Keys.ENTER);
-
 	}
 
 	public String getLocation() {
@@ -164,7 +164,6 @@ public class HomePage extends BasePage {
 	public void clickOnCorporateenquirySubmit() {
 		helper.findElementById(corporateEnquirySubmitButtonId).click();
 		// TODO Auto-generated method stub
-		
 	}
 
 }

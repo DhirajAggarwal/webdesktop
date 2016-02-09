@@ -4,6 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import pages.BookingConfirmationPage;
 import pages.CommonMethods;
 import pages.HomePage;
 import utils.BrowserFactory;
@@ -13,8 +14,8 @@ public class HomePageTest extends BrowserFactory {
 
 	Helper helper = new Helper();
 
-	String filePathHardData = "./src/main/resources/data/HardData";
-	String	filePathHomePageData = "./src/main/resources/data/HomePageData.json",
+	String filePathHardData = "./src/main/resources/data/HardData",
+			filePathHomePageData = "./src/main/resources/data/HomePageData.json",
 			loginmobileNumber = helper.parseJSONToString("mobileNumber", filePathHardData),
 			loginpassword = helper.parseJSONToString("password", filePathHardData),
 			userName = helper.parseJSONToString("userName", filePathHardData),
@@ -29,6 +30,7 @@ public class HomePageTest extends BrowserFactory {
 
 	CommonMethods commonMethods = new CommonMethods();
 	HomePage homePage = new HomePage();
+	BookingConfirmationPage bookingConfirmation = new BookingConfirmationPage();
 
 	@BeforeClass
 	public void openURL() {
@@ -58,9 +60,11 @@ public class HomePageTest extends BrowserFactory {
 
 	@Test
 	public void verifyHotelsDisplayedOnSearch() {
-
+		/*
+		 * Assert in this function is incomplete. So this has been commented
+		 * Out.
+		 */
 		commonMethods.searchHotels(location, checkinDate, checkoutDate);
 		// Assert.assertEquals("", userName);
 	}
-
 }

@@ -1,4 +1,8 @@
 {
+  "bookNowId"			:	"js-book-submit" ,
+  "userNameId"			:	"js-user-name" ,
+  "payAtHotelId"		:	"js-pay-hotel" ,
+  "requiredIdClassName"	:	"icon-check"
 	"hotelGalleryClassName"	:	"gallery",
 	"hotelBookingBlockId"	:	"js-bookingBlock",
 	"hotelLocalityDetailsClassName"	:	"aboutHotel__topSection",
