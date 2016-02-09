@@ -30,7 +30,7 @@ public class Helper {
 
 	public void openURL() {
 		URL = parseJSONToString("oyoRoomsURL", filePathConfig);
-			driver.get(URL);	
+		driver.get(URL);
 	}
 	
 	public void openHotelPage(String hotelId, String hotelType, String hotelName){
@@ -50,14 +50,12 @@ public class Helper {
 		return (String) jsonObj.get(keyVal);
 	}
 
-	public void waitForElement(By locator, int timeOut,String message) {
-		try{
-		WebDriverWait wait = null;
-		wait = new WebDriverWait(driver, timeOut);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
-		}
-		catch(Exception e)
-		{
+	public void waitForElement(By locator, int timeOut, String message) {
+		try {
+			WebDriverWait wait = null;
+			wait = new WebDriverWait(driver, timeOut);
+			wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+		} catch (Exception e) {
 			System.out.println(message);
 		}
 	}
@@ -120,8 +118,7 @@ public class Helper {
 	}
 
 	public List<WebElement> findElementsByClassName(String element) {
-		List<WebElement> elements = driver.findElements(By.className(element));
-		return elements;
+		return driver.findElements(By.className(element));
 	}
 	
 	public boolean isElementPresent(By by) {

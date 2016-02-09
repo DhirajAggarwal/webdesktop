@@ -15,13 +15,18 @@ public class HomePageTest extends BrowserFactory {
 	Helper helper = new Helper();
 
 	String filePathHardData = "./src/main/resources/data/HardData",
-			loginMobileNumber=helper.parseJSONToString("mobileNumber", filePathHardData),
-			loginPassword=helper.parseJSONToString("password", filePathHardData),
-			userName= helper.parseJSONToString("userName", filePathHardData),
-			location= helper.parseJSONToString("location", filePathHardData),
-			checkinDate= helper.parseJSONToString("checkinDate", filePathHardData),
-			checkoutDate= helper.parseJSONToString("checkoutDate", filePathHardData);
-	
+			filePathHomePageData = "./src/main/resources/data/HomePageData.json",
+			loginmobileNumber = helper.parseJSONToString("mobileNumber", filePathHardData),
+			loginpassword = helper.parseJSONToString("password", filePathHardData),
+			userName = helper.parseJSONToString("userName", filePathHardData),
+			location = helper.parseJSONToString("location", filePathHardData),
+			checkinDate = helper.parseJSONToString("checkinDate", filePathHardData),
+			checkoutDate = helper.parseJSONToString("checkoutDate", filePathHardData),
+			corporateName = helper.parseJSONToString("corporateName", filePathHomePageData),
+			corporatePhoneNo = helper.parseJSONToString("corporatePhoneNo", filePathHomePageData),
+			corporateEmail = helper.parseJSONToString("corporateEmail", filePathHomePageData),
+			corporateEnquiry = helper.parseJSONToString("corporateEnquiry", filePathHomePageData),
+			corporateSuccessMessage = helper.parseJSONToString("corporateSuccessMessage", filePathHomePageData);
 
 	CommonMethods commonMethods = new CommonMethods();
 	HomePage homePage = new HomePage();
@@ -32,19 +37,34 @@ public class HomePageTest extends BrowserFactory {
 		helper.openURL();
 	}
 
-	@Test(priority = 1)
+	@Test
+	public void isValid() {
+		homePage.isValid();
+	}
+
+	@Test
 	public void verifySuccessFulLogin() {
-		commonMethods.logInToOyoRooms(loginMobileNumber,loginPassword);
+		commonMethods.logInToOyoRooms(loginmobileNumber, loginpassword);
 		Assert.assertEquals(homePage.getLoggedInUserName(), userName);
 	}
 
-	@Test(priority = 2)
+	@Test
+	public void verifySubmissionOfCorporateEnquiry() {
+		homePage.clickOnCorporateEnquiry();
+		homePage.fillCorporateForm(corporateName,corporatePhoneNo,corporateEmail,corporateEnquiry);
+		homePage.clickOnCorporateenquirySubmit();
+		Assert.assertEquals(homePage.getCorporateEnquirySuccessMessage(),corporateSuccessMessage);
+		
+
+	}
+
+	@Test
 	public void verifyHotelsDisplayedOnSearch() {
 		/*
 		 * Assert in this function is incomplete. So this has been commented
 		 * Out.
 		 */
-		commonMethods.searchHotels(location,checkinDate,checkoutDate);
-		//Assert.assertEquals("", userName);
+		commonMethods.searchHotels(location, checkinDate, checkoutDate);
+		// Assert.assertEquals("", userName);
 	}
 }
