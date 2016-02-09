@@ -5,7 +5,7 @@ import utils.Helper;
 public class CommonMethods {
 
 	HomePage homePage = new HomePage();
-	SearchPage hotelSerachPage = new SearchPage();
+	SearchPage serachPage = new SearchPage();
 	HotelPage hotelPage = new HotelPage();
 	BookingConfirmationPage bookingConfirmation = new BookingConfirmationPage();
 	Helper helper = new Helper();
@@ -25,8 +25,8 @@ public class CommonMethods {
 	}
 
 	public String bookingConfirmation() {
-		hotelSerachPage.clickPriceSortByAscending();
-		hotelSerachPage.clickFirstHotel();
+		serachPage.clickPriceSortByAscending();
+		serachPage.clickFirstHotel();
 		hotelPage.clickBookNow();
 		hotelPage.clickRequiredId();
 		hotelPage.clickPayAtHotel();

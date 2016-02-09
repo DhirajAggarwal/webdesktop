@@ -52,7 +52,7 @@ public class HomePage extends BasePage {
 		Assert.assertTrue(helper.findElementByClassName(dealsClassName).isDisplayed());
 		Assert.assertTrue(helper.findElementById(corporateEnquiryFormLabelId).isDisplayed());
 		List<WebElement> links = helper.findElementsByClassName(hotelLinksClassName);
- 		for (int i = 0; i < helper.findElementsByClassName(hotelLinksClassName).size(); i++) {
+ 		for (int i = 0; i < links.size(); i++) {
 			Assert.assertTrue(links.get(i).isEnabled());
 		}
 		Assert.assertTrue(helper.findElementByClassName(megadropdownClassName).isDisplayed());
