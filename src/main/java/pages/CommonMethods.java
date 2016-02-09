@@ -7,7 +7,7 @@ public class CommonMethods {
 	HomePage homePage = new HomePage();
 	SearchPage hotelSerachPage = new SearchPage();
 	HotelPage hotelPage = new HotelPage();
-	BookingConfirmation bookingConfirmation = new BookingConfirmation();
+	BookingConfirmationPage bookingConfirmation = new BookingConfirmationPage();
 	Helper helper = new Helper();
 
 	public void logInToOyoRooms(String mobileNumber, String password) {

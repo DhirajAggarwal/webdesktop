@@ -6,9 +6,9 @@ public class SearchPage extends BasePage {
 
 	Helper helper = new Helper();
 	
-	String filePathHotelSearchPage = "./src/main/resources/objectRepo/HotelSearchPage.json",
-			priceClassName = helper.parseJSONToString("priceClassName", filePathHotelSearchPage),
-			hotelClassName  = helper.parseJSONToString("hotelClassName", filePathHotelSearchPage);
+	String filePathSearchPage = "./src/main/resources/objectRepo/SearchPage.json",
+			priceClassName = helper.parseJSONToString("priceClassName", filePathSearchPage),
+			hotelClassName  = helper.parseJSONToString("hotelClassName", filePathSearchPage);
 
 	public void isValid() {
 		// TODO Auto-generated method stub

@@ -4,7 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import pages.BookingConfirmation;
+import pages.BookingConfirmationPage;
 import pages.CommonMethods;
 import pages.HomePage;
 import utils.BrowserFactory;
@@ -15,17 +15,17 @@ public class HomePageTest extends BrowserFactory {
 	Helper helper = new Helper();
 
 	String filePathHardData = "./src/main/resources/data/HardData",
-	loginmobileNumber=helper.parseJSONToString("mobileNumber", filePathHardData),
-	loginpassword=helper.parseJSONToString("password", filePathHardData),
-	userName= helper.parseJSONToString("userName", filePathHardData),
-	location= helper.parseJSONToString("location", filePathHardData),
-	checkinDate= helper.parseJSONToString("checkinDate", filePathHardData),
-	checkoutDate= helper.parseJSONToString("checkoutDate", filePathHardData);
+			loginMobileNumber=helper.parseJSONToString("mobileNumber", filePathHardData),
+			loginPassword=helper.parseJSONToString("password", filePathHardData),
+			userName= helper.parseJSONToString("userName", filePathHardData),
+			location= helper.parseJSONToString("location", filePathHardData),
+			checkinDate= helper.parseJSONToString("checkinDate", filePathHardData),
+			checkoutDate= helper.parseJSONToString("checkoutDate", filePathHardData);
 	
 
 	CommonMethods commonMethods = new CommonMethods();
 	HomePage homePage = new HomePage();
-	BookingConfirmation bookingConfirmation = new BookingConfirmation();
+	BookingConfirmationPage bookingConfirmation = new BookingConfirmationPage();
 
 	@BeforeClass
 	public void openURL() {
@@ -34,11 +34,11 @@ public class HomePageTest extends BrowserFactory {
 
 	@Test(priority = 1)
 	public void verifySuccessFulLogin() {
-		commonMethods.logInToOyoRooms(loginmobileNumber,loginpassword);
+		commonMethods.logInToOyoRooms(loginMobileNumber,loginPassword);
 		Assert.assertEquals(homePage.getLoggedInUserName(), userName);
 	}
 
-	@Test
+	@Test(priority = 2)
 	public void verifyHotelsDisplayedOnSearch() {
 		/*
 		 * Assert in this function is incomplete. So this has been commented
@@ -46,16 +46,5 @@ public class HomePageTest extends BrowserFactory {
 		 */
 		commonMethods.searchHotels(location,checkinDate,checkoutDate);
 		//Assert.assertEquals("", userName);
-	}
-
-	@Test(priority = 2)
-	public void verifySuccessfulBookingConfirmation() {
-		/*
-		 * Below code is to make Successful Booking and assert it. Currently
-		 * this is commented, so it doesn't make unnecessary bookings. This will
-		 * be uncommented as cancelBooking() is ready.
-		 */
-		// Assert.assertEquals("YOUR BOOKING IS COMPLETE!",
-		// commonMethods.bookingConfirmation());
 	}
 }

@@ -1,8 +1,8 @@
 {
 	"successfulTextClassName"	:	"BookingConfirmation__elementOne" ,
 	"bookingTitleClassName"		:	"BookingConfirmation__bookingNumber--title" ,
-	"bookingNumberClassname"	:	"" ,
 	"oyohotelNameClassname"		:	"BookingConfirmation__hotelName" ,
 	"realHotelNameId"			:	"js-bookingConfirmation-address" ,
-	"contactNumberClassName"	:	"BookingConfirmation__positionfix"	
+	"contactNumberClassName"	:	"BookingConfirmation__positionfix" ,
+	"successfulBookingMessage"	:	"YOUR BOOKING IS COMPLETE!"
 }

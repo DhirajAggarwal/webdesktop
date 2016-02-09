@@ -1,10 +1,8 @@
 {
-<<<<<<< HEAD
   "bookNowId"			:	"js-book-submit" ,
   "userNameId"			:	"js-user-name" ,
   "payAtHotelId"		:	"js-pay-hotel" ,
   "requiredIdClassName"	:	"icon-check"
-=======
 	"hotelGalleryClassName"	:	"gallery",
 	"hotelBookingBlockId"	:	"js-bookingBlock",
 	"hotelLocalityDetailsClassName"	:	"aboutHotel__topSection",
@@ -12,5 +10,4 @@
 	"hotelHouseRulesSectionClassName"	:	"aboutHotel__HouseRulesWrap",
 	"hotelDescriptionSectionClassName"	:	"aboutHotel__DescriptionDiv",
 	"hotelNearByHotelsSectionClassName"	:	"nearbyOyo_hotels"
->>>>>>> 59d6a277c00815e10d3c40c1c5ec7c0bb8961ccd
 }
