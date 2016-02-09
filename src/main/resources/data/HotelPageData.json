@@ -1,0 +1,9 @@
+{
+	"hotelId"	:	"469",
+	"hotelType"	:	"premium",
+	"hotelName" :	"hotel-vaishali-nagar-jaipur",
+	"roomsCount" :	"6+",
+	"bulkBookingMessageExpected" :	"For Bulk Booking, leave your phone number. We'll call you back shortly.",
+	"phoneNumberForRequestCallback" : "1234567890",
+	"confirmationMsgOnRequestCallbackExpected" : "We have received your request and will get in touch with you shortly."
+}
