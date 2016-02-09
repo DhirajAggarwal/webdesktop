@@ -17,8 +17,8 @@ public class HotelPageTest extends BrowserFactory{
 		helper.openHotelPage("469", "premium", "hotel-vaishali-nagar-jaipur");
 	}
 
-	@Test
+	@Test(priority=0)
 	public void verifyValidHotelPage(){
-		hotelPage.isValid();;
+		hotelPage.isValid();
 	}
 }

@@ -1,7 +1,7 @@
 package tests;
 
 import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import pages.CommonMethods;
@@ -30,35 +30,31 @@ public class HomePageTest extends BrowserFactory {
 	CommonMethods commonMethods = new CommonMethods();
 	HomePage homePage = new HomePage();
 
-	@BeforeClass
+	@BeforeMethod
 	public void openURL() {
 		helper.openURL();
 	}
 
-	@Test
+	@Test(priority=0)
 	public void isValid() {
 		homePage.isValid();
 	}
 
-	@Test
+	@Test(priority=2)
+	public void verifySubmissionOfCorporateEnquiry() {
+		homePage.clickOnCorporateEnquiry();
+		homePage.fillCorporateForm(corporateName,corporatePhoneNo,corporateEmail,corporateEnquiry);
+		homePage.clickOnCorporatEnquirySubmit();
+		Assert.assertEquals(homePage.getCorporateEnquirySuccessMessage(),corporateSuccessMessage);
+	}
+	@Test(priority=1)
 	public void verifySuccessFulLogin() {
 		commonMethods.logInToOyoRooms(loginmobileNumber, loginpassword);
 		Assert.assertEquals(homePage.getLoggedInUserName(), userName);
 	}
-
-	@Test
-	public void verifySubmissionOfCorporateEnquiry() {
-		homePage.clickOnCorporateEnquiry();
-		homePage.fillCorporateForm(corporateName,corporatePhoneNo,corporateEmail,corporateEnquiry);
-		homePage.clickOnCorporateenquirySubmit();
-		Assert.assertEquals(homePage.getCorporateEnquirySuccessMessage(),corporateSuccessMessage);
-		
-
-	}
-
-	@Test
+	
+	@Test(priority=3)
 	public void verifyHotelsDisplayedOnSearch() {
-
 		commonMethods.searchHotels(location, checkinDate, checkoutDate);
 		// Assert.assertEquals("", userName);
 	}
