@@ -17,7 +17,6 @@ public class HomePageTest extends BrowserFactory {
 	String filePathHardData = "./src/main/resources/data/HardData";
 	String filePathHomePageData = "./src/main/resources/data/HomePageData.json",
 
-
 			loginmobileNumber = helper.parseJSONToString("mobileNumber", filePathHardData),
 			loginPassword = helper.parseJSONToString("password", filePathHardData),
 			userName = helper.parseJSONToString("userName", filePathHardData),
@@ -31,11 +30,7 @@ public class HomePageTest extends BrowserFactory {
 			corporateSuccessMessage = helper.parseJSONToString("corporateSuccessMessage", filePathHomePageData),
 			blankMobileNumber = helper.parseJSONToString("blankMobileNumber", filePathHardData),
 			blankLoginPassword = helper.parseJSONToString("blankLoginPassword", filePathHardData),
-			blankValidationMessage= helper.parseJSONToString("blankValidationMessage", filePathHardData);
-
-
-	
-
+			blankValidationMessage = helper.parseJSONToString("blankValidationMessage", filePathHardData);
 
 	@BeforeMethod
 	public void openURL() {
@@ -60,36 +55,31 @@ public class HomePageTest extends BrowserFactory {
 		commonMethods.logInToOyoRooms(blankMobileNumber, blankLoginPassword);
 		Assert.assertEquals(homePage.getBlankLoginValidationMessage(), blankValidationMessage);
 	}
-	
+
 	@Test(priority = 3)
 	public void verifySuccessFulLogin() {
 		commonMethods.logInToOyoRooms(loginmobileNumber, loginPassword);
 		Assert.assertEquals(homePage.getLoggedInUserName(), userName);
+		homePage.hoverOnUserName(userName);
+		homePage.logoutUser();
 	}
 
-	@Test(priority = 4)
-	public void verifyHotelsDisplayedOnSearch() {
+	// @Test(priority = 4)
+	// public void verifyHotelsDisplayedOnSearch() {
+	//
+	// commonMethods.searchHotels(location, checkinDate, checkoutDate);
+	// Assert.assertEquals("", userName);
+	// Assert in this function is incomplete. So this has been commentedOut.
+	// }
 
-		commonMethods.searchHotels(location, checkinDate, checkoutDate);
-		// Assert.assertEquals("", userName);
-/*
- * Assert in this function is incomplete. So this has been commented
- * Out.
- */
-	}
-	
 	@Test(priority = 5)
 	public void verifyViewAllLinkInMDD() {
 		homePage.hoverOnMDDLink();
 		homePage.clickOnMDDViewAllLink();
 	}
+
 	@Test(priority = 6)
 	public void verifyAllCitiesLinkInMDD() {
 		homePage.clickOnAllCitiesLink();
 	}
-
-		
-		
-	
-
 }

@@ -2,7 +2,7 @@
   "checkInDateId"	:	"js-checkin" ,
   "checkOutDateId"			:	"js-checkout" ,
   "cityCountId"			:	168 ,
-  "myAccountCss"		:	".header__mybooking__link.icon.icon-account.header__support--icon" ,
+  "myAccountLinkText"		:"My Account" ,
   "logInId"				:	"js-login" ,
   "mobileTextCss"		:	".loginmodule__mobile.loginmodule__input" ,
   "mobileNumber"		:	"9899890123" ,
@@ -23,4 +23,5 @@
   "locationSuggestionId":"js-placesDropdown",
   "searchButtonId":		"js-submit",
   "hotelClassName":		"hotelsnippetSmall__overlay",
+  "logoutLinkText" :"Logout",
 }

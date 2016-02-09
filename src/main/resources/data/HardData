@@ -8,4 +8,5 @@
 	"blankLoginPassword"	:"",
 	"blankMobileNumber"		:"",
 	"blankValidationMessage" : "Invalid Mobile Number/Password"
+
 }

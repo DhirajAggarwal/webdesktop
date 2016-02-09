@@ -24,7 +24,7 @@ public class HomePage extends BasePage {
 			oyoLogoClassName = helper.parseJSONToString("oyoLogoClassName", filePathCommonOR),
 			oyoTagLineClassName = helper.parseJSONToString("oyoTagLineClassName", filePathCommonOR),
 			oyoAppDownloadLinkClassName = helper.parseJSONToString("oyoAppDownloadLinkClassName", filePathCommonOR),
-			myAccountCss = helper.parseJSONToString("myAccountCss", filePathCommonOR),
+			myAccountLinkText = helper.parseJSONToString("myAccountLinkText", filePathCommonOR),
 			oyoHelpIconClassName = helper.parseJSONToString("oyoHelpIconClassName", filePathCommonOR),
 			oyoReservationNumberClassName = helper.parseJSONToString("oyoReservationNumberClassName", filePathCommonOR),
 			phoneIconClassName = helper.parseJSONToString("phoneIconClassName", filePathCommonOR),
@@ -46,7 +46,8 @@ public class HomePage extends BasePage {
 			blankLoginValidationMessageId = helper.parseJSONToString("blankLoginValidationMessageId", filePathCommonOR),
 			megaDDLink = helper.parseJSONToString("megaDDLinkText", filePathHomePage),
 			viewAllLinkText = helper.parseJSONToString("viewAllLinkText", filePathHomePage),
-			allCitiesLinkText = helper.parseJSONToString("allCitiesLinkText", filePathHomePage);
+			allCitiesLinkText = helper.parseJSONToString("allCitiesLinkText", filePathHomePage),
+			logoutLinkText =helper.parseJSONToString("logoutLinkText",filePathCommonOR );
 
 	public void isValid() {
 		validateHeaderElements();
@@ -66,6 +67,16 @@ public class HomePage extends BasePage {
 		String loginValidationMessage = helper.findElementById(blankLoginValidationMessageId).getText();
 		return loginValidationMessage;
 
+	}
+	public void logoutUser() {
+		helper.findElementByLinkText(logoutLinkText).click();
+		helper.waitForElement(helper.locateByLinkText("myAccountLinkText"), 15, "User not getting logged out");
+		
+	}
+	
+	public void hoverOnUserName(String user) {
+		WebElement userName = helper.findElementByLinkText(user);
+		helper.hoverOnElement(userName);
 	}
 
 	public void clickOnMDDViewAllLink() {
@@ -95,7 +106,8 @@ public class HomePage extends BasePage {
 	}
 
 	public void clickOnMyAccounts() {
-		helper.findElementByCss(myAccountCss).click();
+		helper.waitForElement(helper.locateByLinkText(myAccountLinkText), 3, "My Account Link Not found");
+		helper.findElementByLinkText(myAccountLinkText).click();
 	}
 
 	public void clickOnLoginButton() {
@@ -158,10 +170,12 @@ public class HomePage extends BasePage {
 	}
 
 	public void setCheckInDate(String checkInDate) {
+		helper.waitForElement(helper.locateByLinkText(checkInDate), 2, "No checkin date displayed");
 		helper.findElementByLinkText(checkInDate).click();
 	}
 
 	public void setCheckOutDate(String checkOutDate) {
+		helper.waitForElement(helper.locateByLinkText(checkOutDate), 2, "No checkout date displayed");
 		helper.findElementByLinkText(checkOutDate).click();
 	}
 
