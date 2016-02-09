@@ -162,7 +162,7 @@ public class HomePage extends BasePage {
 		helper.waitForElement(helper.locateByClassName(hotelClassName), 20, "Hotels Not Displayed After Search");
 	}
 
-	public void clickOnCorporatEnquirySubmit() {
+	public void clickOnCorporateEnquirySubmit() {
 		helper.findElementById(corporateEnquirySubmitButtonId).click();
 		// TODO Auto-generated method stub
 

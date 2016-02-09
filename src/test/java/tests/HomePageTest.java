@@ -44,7 +44,7 @@ public class HomePageTest extends BrowserFactory {
 	public void verifySubmissionOfCorporateEnquiry() {
 		homePage.clickOnCorporateEnquiry();
 		homePage.fillCorporateForm(corporateName,corporatePhoneNo,corporateEmail,corporateEnquiry);
-		homePage.clickOnCorporatEnquirySubmit();
+		homePage.clickOnCorporateEnquirySubmit();
 		Assert.assertEquals(homePage.getCorporateEnquirySuccessMessage(),corporateSuccessMessage);
 	}
 	@Test(priority=1)
