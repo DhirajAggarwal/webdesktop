@@ -16,6 +16,8 @@ public class HomePageTest extends BrowserFactory {
 
 	String filePathHardData = "./src/main/resources/data/HardData";
 	String filePathHomePageData = "./src/main/resources/data/HomePageData.json",
+
+
 			loginmobileNumber = helper.parseJSONToString("mobileNumber", filePathHardData),
 			loginPassword = helper.parseJSONToString("password", filePathHardData),
 			userName = helper.parseJSONToString("userName", filePathHardData),
@@ -31,7 +33,9 @@ public class HomePageTest extends BrowserFactory {
 			blankLoginPassword = helper.parseJSONToString("blankLoginPassword", filePathHardData),
 			blankValidationMessage= helper.parseJSONToString("blankValidationMessage", filePathHardData);
 
+
 	
+
 
 	@BeforeMethod
 	public void openURL() {
@@ -65,8 +69,13 @@ public class HomePageTest extends BrowserFactory {
 
 	@Test(priority = 4)
 	public void verifyHotelsDisplayedOnSearch() {
+
 		commonMethods.searchHotels(location, checkinDate, checkoutDate);
 		// Assert.assertEquals("", userName);
+/*
+ * Assert in this function is incomplete. So this has been commented
+ * Out.
+ */
 	}
 	
 	@Test(priority = 5)
@@ -78,5 +87,9 @@ public class HomePageTest extends BrowserFactory {
 	public void verifyAllCitiesLinkInMDD() {
 		homePage.clickOnAllCitiesLink();
 	}
+
+		
+		
+	
 
 }

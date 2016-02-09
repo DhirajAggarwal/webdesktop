@@ -98,6 +98,7 @@ public class Helper {
 	}
 
 	public WebElement findElementByClassName(String element) {
+		waitForElement(locateByClassName(element), 10, element.toString() + " not found");
 		return driver.findElement(By.className(element));
 	}
 

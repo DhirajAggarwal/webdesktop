@@ -55,7 +55,7 @@ public class HomePage extends BasePage {
 		Assert.assertTrue(helper.findElementById(corporateEnquiryFormLabelId).isDisplayed());
 		Assert.assertTrue(helper.findElementByClassName(megadropdownClassName).isDisplayed());
 		List<WebElement> links = helper.findElementsByClassName(hotelLinksClassName);
-		for (int i = 0; i < links.size(); i++) {
+ 		for (int i = 0; i < links.size(); i++) {
 			Assert.assertTrue(links.get(i).isEnabled());
 		}
 	}
@@ -143,7 +143,6 @@ public class HomePage extends BasePage {
 		helper.waitForElement(helper.locateById(locationSuggestionsId), 5, "No Suggestions on Search");
 		helper.findElementById(locationId).sendKeys(Keys.DOWN);
 		helper.findElementById(locationId).sendKeys(Keys.ENTER);
-
 	}
 
 	public String getLocation() {
@@ -191,7 +190,6 @@ public class HomePage extends BasePage {
 	public void clickOnCorporateEnquirySubmit() {
 		helper.findElementById(corporateEnquirySubmitButtonId).click();
 		// TODO Auto-generated method stub
-
 	}
 
 }
