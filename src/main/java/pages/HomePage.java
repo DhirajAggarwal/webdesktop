@@ -40,9 +40,9 @@ public class HomePage extends BasePage {
 			corporatePhoneId = helper.parseJSONToString("corporatePhoneId", filePathHomePage),
 			corporateEmailId = helper.parseJSONToString("corporateEmailId", filePathHomePage),
 			corporateEnquiryId = helper.parseJSONToString("corporateEnquiryId", filePathHomePage),
-			corporateEnquirySubmitButtonId = helper.parseJSONToString("corporateEnquirySubmitButtonId",
-					filePathHomePage),
-			corporateEnquirySuccessId = helper.parseJSONToString("corporateEnquirySuccessId", filePathHomePage);
+			corporateEnquirySubmitButtonId = helper.parseJSONToString("corporateEnquirySubmitButtonId",filePathHomePage),
+			corporateEnquirySuccessId = helper.parseJSONToString("corporateEnquirySuccessId", filePathHomePage),
+			blankLoginValidationMessageId = helper.parseJSONToString("blankLoginValidationMessageId",filePathCommonOR);
 
 	public void isValid() {
 		validateHeaderElements();
@@ -54,6 +54,12 @@ public class HomePage extends BasePage {
 		for (int i = 0; i < links.size(); i++) {
 			Assert.assertTrue(links.get(i).isEnabled());
 		}	
+	}
+	public String getBlankLoginValidationMessage(){
+		helper.waitForElement(helper.locateById(blankLoginValidationMessageId), 5, "Blank Login Validation message not displayed");
+		String loginValidationMessage = helper.findElementById(blankLoginValidationMessageId).getText();
+		return loginValidationMessage;
+		
 	}
 
 	public void clickOnCorporateEnquiry() {
@@ -124,6 +130,8 @@ public class HomePage extends BasePage {
 		String myLocation = helper.findElementById(locationId).getText();
 		return myLocation;
 	}
+	
+	
 
 	public String getCorporateEnquirySuccessMessage() {
 		helper.waitForElement(helper.locateById(corporateEnquirySuccessId), 3,
