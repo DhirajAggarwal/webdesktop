@@ -5,5 +5,8 @@
 	"hotelAmenitiesSectionClassName"	:	"aboutHotel__amenities__wrap",
 	"hotelHouseRulesSectionClassName"	:	"aboutHotel__HouseRulesWrap",
 	"hotelDescriptionSectionClassName"	:	"aboutHotel__DescriptionDiv",
-	"hotelNearByHotelsSectionClassName"	:	"nearbyOyo_hotels"
+	"hotelNearByHotelsSectionClassName"	:	"nearbyOyo_hotels",
+	"hotelRoomsCountId"	:	"js-rooms-count",
+	"bulkBookingMessageId"	:	"js-bulkbookingMsg",
+	"hotelTermsAndConditionsLinkId"	:	"js-tnc"
 }

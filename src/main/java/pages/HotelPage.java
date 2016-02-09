@@ -1,5 +1,7 @@
 package pages;
 
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
 import utils.Helper;
@@ -17,14 +19,27 @@ public class HotelPage extends BasePage{
 			hotelAmenitiesSectionClassName = helper.parseJSONToString("hotelAmenitiesSectionClassName", filePathHotelPageOR),
 			hotelHouseRulesSectionClassName = helper.parseJSONToString("hotelHouseRulesSectionClassName", filePathHotelPageOR),
 			hotelDescriptionSectionClassName = helper.parseJSONToString("hotelDescriptionSectionClassName", filePathHotelPageOR),
-			hotelNearByHotelsSectionClassName = helper.parseJSONToString("hotelNearByHotelsSectionClassName", filePathHotelPageOR);
+			hotelNearByHotelsSectionClassName = helper.parseJSONToString("hotelNearByHotelsSectionClassName", filePathHotelPageOR),
+			hotelRoomsCountId = helper.parseJSONToString("hotelRoomsCountId", filePathHotelPageOR),
+			bulkBookingMessageId = helper.parseJSONToString("bulkBookingMessageId", filePathHotelPageOR),
+			hotelTermsAndConditionsLinkId	= helper.parseJSONToString("hotelTermsAndConditionsLinkId", filePathHotelPageOR);
 			
-	
-	
+			
 	public void isValid() {
 		homePage.validateHeaderElements();
 		validateHotelPageElements();
 		homePage.validateFooterElements();
+	}
+	
+	public void setRoomsCount(String rooms){
+		helper.findElementById(hotelRoomsCountId).sendKeys(rooms);
+		helper.findElementById(hotelRoomsCountId).sendKeys(Keys.ENTER);
+		helper.waitForElement(helper.locateById(hotelTermsAndConditionsLinkId), 5,"Terms and Conditions link not Found");
+	}
+	
+	public String getBulkBookingMessage(){
+		String message = helper.findElementById(bulkBookingMessageId).getText();
+		return message;
 	}
 
 	private void validateHotelPageElements() {
