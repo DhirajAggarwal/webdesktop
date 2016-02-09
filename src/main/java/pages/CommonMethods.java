@@ -24,6 +24,11 @@ public class CommonMethods {
 		homePage.clickOnSearchButton();		
 	}
 
+	
+	
+	public void payAtHotel(){
+	}
+
 	public String bookingConfirmation() {
 		serachPage.clickPriceSortByAscending();
 		serachPage.clickFirstHotel();
@@ -31,6 +36,6 @@ public class CommonMethods {
 		hotelPage.clickRequiredId();
 		hotelPage.clickPayAtHotel();
 		return bookingConfirmation.getBookingSuccessMessage();
-	}
 
-}
+
+}}
