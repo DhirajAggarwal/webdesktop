@@ -8,5 +8,8 @@
 	"hotelNearByHotelsSectionClassName"	:	"nearbyOyo_hotels",
 	"hotelRoomsCountId"	:	"js-rooms-count",
 	"bulkBookingMessageId"	:	"js-bulkbookingMsg",
+	"requestCallBackTextFieldId"	:	"js-callback-mobile-phone",
+	"requestCallBackButtonId"	:	"js-call-back",
+	"confirmationMessageOnRequestCallBackId" :	"js-message-box",
 	"hotelTermsAndConditionsLinkId"	:	"js-tnc"
 }

@@ -18,7 +18,9 @@ public class HotelPageTest extends BrowserFactory{
 			hotelType	= helper.parseJSONToString("hotelType", filePathHotelPageData),
 			hotelName	= helper.parseJSONToString("hotelName", filePathHotelPageData),
 			roomsCount	= helper.parseJSONToString("roomsCount", filePathHotelPageData),
-			bulkBookingMessageExpected = helper.parseJSONToString("bulkBookingMessageExpected", filePathHotelPageData);
+			bulkBookingMessageExpected = helper.parseJSONToString("bulkBookingMessageExpected", filePathHotelPageData),
+			phoneNumberForRequestCallback = helper.parseJSONToString("phoneNumberForRequestCallback", filePathHotelPageData),
+			confirmationMsgOnRequestCallbackExpected = helper.parseJSONToString("confirmationMsgOnRequestCallbackExpected", filePathHotelPageData);
 	
 
 	@BeforeClass
@@ -36,5 +38,18 @@ public class HotelPageTest extends BrowserFactory{
 		hotelPage.setRoomsCount(roomsCount);
 		String bulkBookingMessageActual = hotelPage.getBulkBookingMessage();
 		Assert.assertEquals(bulkBookingMessageActual, bulkBookingMessageExpected);
+	}
+	
+	@Test
+	public void verifyMessageOnRequestCallback(){
+		hotelPage.setRoomsCount(roomsCount);
+		hotelPage.setNumberForRequestCallBack(phoneNumberForRequestCallback);
+		String confirmationMsgOnRequestCallbackActual = hotelPage.clickOnRequestCallBackButtonAndReturnMessage();
+		Assert.assertEquals(confirmationMsgOnRequestCallbackActual, confirmationMsgOnRequestCallbackExpected);
+	}
+	
+	@Test
+	public void verifyMessageForRoomsNotAvailable(){
+		
 	}
 }
