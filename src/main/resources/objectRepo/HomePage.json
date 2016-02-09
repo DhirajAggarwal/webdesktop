@@ -26,7 +26,7 @@
   "loginButton": "js-login",
   "loginErrorMsg": "js-login-failed-text",
   "loginSubmitButton": "loginmodule__submit",
-  "megaDDlink": "DELHI",
+  "megaDDLinkText": "KOLKATA",
   "megaDropDown": "megadropdown",
   "officialBlog": "Official OYO Blog",
   "signUp": "js-sign-up",
@@ -39,5 +39,7 @@
   "signUpSubmitButton": "signupmodule__submit",
   "userLoginPassword": "password",
   "userLoginPhone": "phone",
-  "viewAllLink": "View All"
+  "allCitiesLinkText":"ALL CITIES",
+  "viewAllLinkText": "View All"
+  
 }

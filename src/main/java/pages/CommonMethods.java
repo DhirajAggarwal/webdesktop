@@ -19,6 +19,7 @@ public class CommonMethods {
 		homePage.clickOnSearchButton();		
 	}
 	
+	
 	public void payAtHotel(){
 		
 	}

@@ -40,9 +40,13 @@ public class HomePage extends BasePage {
 			corporatePhoneId = helper.parseJSONToString("corporatePhoneId", filePathHomePage),
 			corporateEmailId = helper.parseJSONToString("corporateEmailId", filePathHomePage),
 			corporateEnquiryId = helper.parseJSONToString("corporateEnquiryId", filePathHomePage),
-			corporateEnquirySubmitButtonId = helper.parseJSONToString("corporateEnquirySubmitButtonId",filePathHomePage),
+			corporateEnquirySubmitButtonId = helper.parseJSONToString("corporateEnquirySubmitButtonId",
+					filePathHomePage),
 			corporateEnquirySuccessId = helper.parseJSONToString("corporateEnquirySuccessId", filePathHomePage),
-			blankLoginValidationMessageId = helper.parseJSONToString("blankLoginValidationMessageId",filePathCommonOR);
+			blankLoginValidationMessageId = helper.parseJSONToString("blankLoginValidationMessageId", filePathCommonOR),
+			megaDDLink = helper.parseJSONToString("megaDDLinkText", filePathHomePage),
+			viewAllLinkText = helper.parseJSONToString("viewAllLinkText", filePathHomePage),
+			allCitiesLinkText = helper.parseJSONToString("allCitiesLinkText", filePathHomePage);
 
 	public void isValid() {
 		validateHeaderElements();
@@ -53,15 +57,25 @@ public class HomePage extends BasePage {
 		List<WebElement> links = helper.findElementsByClassName(hotelLinksClassName);
 		for (int i = 0; i < links.size(); i++) {
 			Assert.assertTrue(links.get(i).isEnabled());
-		}	
-	}
-	public String getBlankLoginValidationMessage(){
-		helper.waitForElement(helper.locateById(blankLoginValidationMessageId), 5, "Blank Login Validation message not displayed");
-		String loginValidationMessage = helper.findElementById(blankLoginValidationMessageId).getText();
-		return loginValidationMessage;
-		
+		}
 	}
 
+	public String getBlankLoginValidationMessage() {
+		helper.waitForElement(helper.locateById(blankLoginValidationMessageId), 5,
+				"Blank Login Validation message not displayed");
+		String loginValidationMessage = helper.findElementById(blankLoginValidationMessageId).getText();
+		return loginValidationMessage;
+
+	}
+
+	public void clickOnMDDViewAllLink() {
+		helper.waitForElement(helper.locateByLinkText(viewAllLinkText), 2, "MDD View All Link Not Found");
+		helper.findElementByLinkText(viewAllLinkText).click();
+	}
+	public void clickOnAllCitiesLink() {
+		helper.waitForElement(helper.locateByLinkText(allCitiesLinkText), 2, "MDD All Cities Link Not Found");
+		helper.findElementByLinkText(allCitiesLinkText).click();
+	}
 	public void clickOnCorporateEnquiry() {
 		helper.findElementById(corporateEnquiryFormLabelId).click();
 	}
@@ -96,19 +110,25 @@ public class HomePage extends BasePage {
 
 	}
 
+	public void hoverOnMDDLink() {
+		helper.waitForElement(helper.locateByLinkText(megaDDLink), 3, "MDD City Link Not found");
+		WebElement mDDLink = helper.findElementByLinkText(megaDDLink);
+		helper.hoverOnElement(mDDLink);
+	}
+
 	public void setMobileNumberForLogin(String mobileNumber) {
 		helper.findElementByCss(mobileTextCss).sendKeys(mobileNumber);
 	}
 
 	public void setPasswordForLogin(String password) {
 		helper.findElementByCss(passwordTextCss).sendKeys(password);
-		
+
 	}
 
 	public void clickOnLoginSubmitButton() {
 		helper.waitForElement(helper.locateByClassName(loginSubmitButtonClassName), 5, "Login Submit button not Found");
 		helper.findElementByClassName(loginSubmitButtonClassName).click();
-		
+
 	}
 
 	public String getLoggedInUserName() {
@@ -130,8 +150,6 @@ public class HomePage extends BasePage {
 		String myLocation = helper.findElementById(locationId).getText();
 		return myLocation;
 	}
-	
-	
 
 	public String getCorporateEnquirySuccessMessage() {
 		helper.waitForElement(helper.locateById(corporateEnquirySuccessId), 3,

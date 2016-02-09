@@ -11,6 +11,8 @@ import utils.Helper;
 public class HomePageTest extends BrowserFactory {
 
 	Helper helper = new Helper();
+	CommonMethods commonMethods = new CommonMethods();
+	HomePage homePage = new HomePage();
 
 	String filePathHardData = "./src/main/resources/data/HardData";
 	String filePathHomePageData = "./src/main/resources/data/HomePageData.json",
@@ -28,10 +30,8 @@ public class HomePageTest extends BrowserFactory {
 			blankMobileNumber = helper.parseJSONToString("blankMobileNumber", filePathHardData),
 			blankLoginPassword = helper.parseJSONToString("blankLoginPassword", filePathHardData),
 			blankValidationMessage= helper.parseJSONToString("blankValidationMessage", filePathHardData);
-			
 
-	CommonMethods commonMethods = new CommonMethods();
-	HomePage homePage = new HomePage();
+	
 
 	@BeforeMethod
 	public void openURL() {
@@ -51,22 +51,32 @@ public class HomePageTest extends BrowserFactory {
 		Assert.assertEquals(homePage.getCorporateEnquirySuccessMessage(), corporateSuccessMessage);
 	}
 
+	@Test(priority = 2)
+	public void verifyBlankLoginValidation() {
+		commonMethods.logInToOyoRooms(blankMobileNumber, blankLoginPassword);
+		Assert.assertEquals(homePage.getBlankLoginValidationMessage(), blankValidationMessage);
+	}
+	
 	@Test(priority = 3)
 	public void verifySuccessFulLogin() {
 		commonMethods.logInToOyoRooms(loginmobileNumber, loginPassword);
 		Assert.assertEquals(homePage.getLoggedInUserName(), userName);
 	}
 
-	@Test(priority = 2)
-	public void verifyBlankLoginValidation() {
-		commonMethods.logInToOyoRooms(blankMobileNumber, blankLoginPassword);
-		Assert.assertEquals(homePage.getBlankLoginValidationMessage(), blankValidationMessage);
-	}
-
 	@Test(priority = 4)
 	public void verifyHotelsDisplayedOnSearch() {
 		commonMethods.searchHotels(location, checkinDate, checkoutDate);
 		// Assert.assertEquals("", userName);
+	}
+	
+	@Test(priority = 5)
+	public void verifyViewAllLinkInMDD() {
+		homePage.hoverOnMDDLink();
+		homePage.clickOnMDDViewAllLink();
+	}
+	@Test(priority = 6)
+	public void verifyAllCitiesLinkInMDD() {
+		homePage.clickOnAllCitiesLink();
 	}
 
 }
