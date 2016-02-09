@@ -5,13 +5,17 @@ import org.testng.Assert;
 
 import utils.Helper;
 
-public class HotelPage extends BasePage{
+public class HotelPage extends BasePage {
 	
 	Helper helper = new Helper();
 	HomePage homePage = new HomePage();
+
 	
-	String filePathCommonOR = "./src/main/resources/objectRepo/CommonOR.json",
+	String 	filePathCommonOR = "./src/main/resources/objectRepo/CommonOR.json",
 			filePathHotelPageOR = "./src/main/resources/objectRepo/HotelPage.json",
+			bookNowId = helper.parseJSONToString("bookNowId", filePathHotelPageOR),
+			payAtHotelId  = helper.parseJSONToString("payAtHotelId", filePathHotelPageOR),
+			requiredIdClassName   = helper.parseJSONToString("requiredIdClassName", filePathHotelPageOR),
 			hotelGalleryClassName = helper.parseJSONToString("hotelGalleryClassName",filePathHotelPageOR),
 			hotelBookingBlockId = helper.parseJSONToString("hotelBookingBlockId",filePathHotelPageOR),
 			hotelLocalityDetailsClassName = helper.parseJSONToString("hotelLocalityDetailsClassName", filePathHotelPageOR),
@@ -64,5 +68,35 @@ public class HotelPage extends BasePage{
 		Assert.assertTrue(helper.findElementByClassName(hotelHouseRulesSectionClassName).isDisplayed());
 		Assert.assertTrue(helper.findElementByClassName(hotelDescriptionSectionClassName).isDisplayed());
 		Assert.assertTrue(helper.findElementByClassName(hotelNearByHotelsSectionClassName).isDisplayed());
+	}
+
+	public void clickBookNow() {
+		helper.findElementById(bookNowId).click();
+	}
+
+	public void clickRequiredId() {
+		if( helper.findElementByClassName(requiredIdClassName)!= null){
+			helper.findElementByClassName(requiredIdClassName).click();
+		}
+	}
+
+	public void setCoupon() {
+
+	}
+
+	public void clickApplyCoupon() {
+
+	}
+
+	public void setVerificationCode() {
+
+	}
+
+	public void clickConfirmAndBook() {
+
+	}
+
+	public void clickPayAtHotel() {
+		helper.findElementById(payAtHotelId).click();
 	}
 }

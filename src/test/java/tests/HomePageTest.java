@@ -1,9 +1,8 @@
 package tests;
 
 import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
 import pages.CommonMethods;
 import pages.HomePage;
 import utils.BrowserFactory;
@@ -12,11 +11,14 @@ import utils.Helper;
 public class HomePageTest extends BrowserFactory {
 
 	Helper helper = new Helper();
+	CommonMethods commonMethods = new CommonMethods();
+	HomePage homePage = new HomePage();
 
 	String filePathHardData = "./src/main/resources/data/HardData";
-	String	filePathHomePageData = "./src/main/resources/data/HomePageData.json",
+	String filePathHomePageData = "./src/main/resources/data/HomePageData.json",
+
 			loginmobileNumber = helper.parseJSONToString("mobileNumber", filePathHardData),
-			loginpassword = helper.parseJSONToString("password", filePathHardData),
+			loginPassword = helper.parseJSONToString("password", filePathHardData),
 			userName = helper.parseJSONToString("userName", filePathHardData),
 			location = helper.parseJSONToString("location", filePathHardData),
 			checkinDate = helper.parseJSONToString("checkinDate", filePathHardData),
@@ -25,42 +27,59 @@ public class HomePageTest extends BrowserFactory {
 			corporatePhoneNo = helper.parseJSONToString("corporatePhoneNo", filePathHomePageData),
 			corporateEmail = helper.parseJSONToString("corporateEmail", filePathHomePageData),
 			corporateEnquiry = helper.parseJSONToString("corporateEnquiry", filePathHomePageData),
-			corporateSuccessMessage = helper.parseJSONToString("corporateSuccessMessage", filePathHomePageData);
+			corporateSuccessMessage = helper.parseJSONToString("corporateSuccessMessage", filePathHomePageData),
+			blankMobileNumber = helper.parseJSONToString("blankMobileNumber", filePathHardData),
+			blankLoginPassword = helper.parseJSONToString("blankLoginPassword", filePathHardData),
+			blankValidationMessage = helper.parseJSONToString("blankValidationMessage", filePathHardData);
 
-	CommonMethods commonMethods = new CommonMethods();
-	HomePage homePage = new HomePage();
-
-	@BeforeClass
+	@BeforeMethod
 	public void openURL() {
 		helper.openURL();
 	}
 
-	@Test
+	@Test(priority = 0)
 	public void isValid() {
 		homePage.isValid();
 	}
 
-	@Test
-	public void verifySuccessFulLogin() {
-		commonMethods.logInToOyoRooms(loginmobileNumber, loginpassword);
-		Assert.assertEquals(homePage.getLoggedInUserName(), userName);
-	}
-
-	@Test
+	@Test(priority = 1)
 	public void verifySubmissionOfCorporateEnquiry() {
 		homePage.clickOnCorporateEnquiry();
-		homePage.fillCorporateForm(corporateName,corporatePhoneNo,corporateEmail,corporateEnquiry);
-		homePage.clickOnCorporateenquirySubmit();
-		Assert.assertEquals(homePage.getCorporateEnquirySuccessMessage(),corporateSuccessMessage);
-		
-
+		homePage.fillCorporateForm(corporateName, corporatePhoneNo, corporateEmail, corporateEnquiry);
+		homePage.clickOnCorporateEnquirySubmit();
+		Assert.assertEquals(homePage.getCorporateEnquirySuccessMessage(), corporateSuccessMessage);
 	}
 
-	@Test
-	public void verifyHotelsDisplayedOnSearch() {
-
-		commonMethods.searchHotels(location, checkinDate, checkoutDate);
-		// Assert.assertEquals("", userName);
+	@Test(priority = 2)
+	public void verifyBlankLoginValidation() {
+		commonMethods.logInToOyoRooms(blankMobileNumber, blankLoginPassword);
+		Assert.assertEquals(homePage.getBlankLoginValidationMessage(), blankValidationMessage);
 	}
 
+	@Test(priority = 3)
+	public void verifySuccessFulLogin() {
+		commonMethods.logInToOyoRooms(loginmobileNumber, loginPassword);
+		Assert.assertEquals(homePage.getLoggedInUserName(), userName);
+		homePage.hoverOnUserName(userName);
+		homePage.logoutUser();
+	}
+
+	// @Test(priority = 4)
+	// public void verifyHotelsDisplayedOnSearch() {
+	//
+	// commonMethods.searchHotels(location, checkinDate, checkoutDate);
+	// Assert.assertEquals("", userName);
+	// Assert in this function is incomplete. So this has been commentedOut.
+	// }
+
+	@Test(priority = 5)
+	public void verifyViewAllLinkInMDD() {
+		homePage.hoverOnMDDLink();
+		homePage.clickOnMDDViewAllLink();
+	}
+
+	@Test(priority = 6)
+	public void verifyAllCitiesLinkInMDD() {
+		homePage.clickOnAllCitiesLink();
+	}
 }
