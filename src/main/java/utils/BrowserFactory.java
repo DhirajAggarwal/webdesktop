@@ -9,7 +9,7 @@ import org.testng.annotations.BeforeSuite;
 public class BrowserFactory {
 
 	static WebDriver driver;
-	String filePathHardData, filePathConfig, browserType;
+	String filePathConfig, browserType;
 	Helper helper = new Helper();
 
 	@BeforeSuite
