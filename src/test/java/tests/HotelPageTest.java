@@ -47,9 +47,4 @@ public class HotelPageTest extends BrowserFactory{
 		String confirmationMsgOnRequestCallbackActual = hotelPage.clickOnRequestCallBackButtonAndReturnMessage();
 		Assert.assertEquals(confirmationMsgOnRequestCallbackActual, confirmationMsgOnRequestCallbackExpected);
 	}
-	
-	@Test
-	public void verifyMessageForRoomsNotAvailable(){
-		
-	}
 }
