@@ -70,7 +70,7 @@ public class HomePage extends BasePage {
 	}
 	public void logoutUser() {
 		helper.findElementByLinkText(logoutLinkText).click();
-		helper.waitForElement(helper.locateByLinkText("myAccountLinkText"), 15, "User not getting logged out");
+		helper.waitForElement(helper.locateByLinkText(myAccountLinkText), 15, "User not getting logged out");
 		
 	}
 	
@@ -163,19 +163,19 @@ public class HomePage extends BasePage {
 	}
 
 	public String getCorporateEnquirySuccessMessage() {
-		helper.waitForElement(helper.locateById(corporateEnquirySuccessId), 3,
+		helper.waitForElement(helper.locateById(corporateEnquirySuccessId), 5,
 				"Corporate Success message not Displayed");
 		String enquirySuccessMessage = helper.findElementById(corporateEnquirySuccessId).getText();
 		return enquirySuccessMessage;
 	}
 
 	public void setCheckInDate(String checkInDate) {
-		helper.waitForElement(helper.locateByLinkText(checkInDate), 2, "No checkin date displayed");
+		helper.waitForElement(helper.locateByLinkText(checkInDate), 10, "No checkin date displayed");
 		helper.findElementByLinkText(checkInDate).click();
 	}
 
 	public void setCheckOutDate(String checkOutDate) {
-		helper.waitForElement(helper.locateByLinkText(checkOutDate), 2, "No checkout date displayed");
+		helper.waitForElement(helper.locateByLinkText(checkOutDate), 10, "No checkout date displayed");
 		helper.findElementByLinkText(checkOutDate).click();
 	}
 

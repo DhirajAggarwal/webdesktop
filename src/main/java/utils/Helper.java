@@ -30,6 +30,8 @@ public class Helper {
 	}
 
 	public void openURL() {
+		
+		
 		URL = parseJSONToString("oyoRoomsURL", filePathConfig);
 		driver.get(URL);
 	}

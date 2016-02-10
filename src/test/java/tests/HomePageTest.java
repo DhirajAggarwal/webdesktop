@@ -64,13 +64,13 @@ public class HomePageTest extends BrowserFactory {
 		homePage.logoutUser();
 	}
 
-	// @Test(priority = 4)
-	// public void verifyHotelsDisplayedOnSearch() {
-	//
-	// commonMethods.searchHotels(location, checkinDate, checkoutDate);
-	// Assert.assertEquals("", userName);
-	// Assert in this function is incomplete. So this has been commentedOut.
-	// }
+	 @Test(priority = 4)
+	 public void verifyHotelsDisplayedOnSearch() {
+	
+	 commonMethods.searchHotels(location, checkinDate, checkoutDate);
+	 Assert.assertEquals("", userName);
+	 //Assert in this function is incomplete. So this has been commentedOut.
+	 }
 
 	@Test(priority = 5)
 	public void verifyViewAllLinkInMDD() {
