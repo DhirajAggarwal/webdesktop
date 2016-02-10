@@ -1,7 +1,7 @@
 package tests;
 
 import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import pages.HotelPage;
@@ -23,7 +23,7 @@ public class HotelPageTest extends BrowserFactory{
 			confirmationMsgOnRequestCallbackExpected = helper.parseJSONToString("confirmationMsgOnRequestCallbackExpected", filePathHotelPageData);
 	
 
-	@BeforeClass
+	@BeforeMethod
 	public void openURL() {
 		helper.openHotelPage(hotelId, hotelType, hotelName);
 	}
@@ -33,14 +33,14 @@ public class HotelPageTest extends BrowserFactory{
 		hotelPage.isValid();
 	}
 	
-	@Test
+	@Test(priority=1)
 	public void verifyBulkBookingMessage(){
 		hotelPage.setRoomsCount(roomsCount);
 		String bulkBookingMessageActual = hotelPage.getBulkBookingMessage();
 		Assert.assertEquals(bulkBookingMessageActual, bulkBookingMessageExpected);
 	}
 	
-	@Test
+	@Test(priority=2)
 	public void verifyMessageOnRequestCallback(){
 		hotelPage.setRoomsCount(roomsCount);
 		hotelPage.setNumberForRequestCallBack(phoneNumberForRequestCallback);
