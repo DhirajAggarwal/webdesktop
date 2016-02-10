@@ -14,15 +14,15 @@ public class BookingConfirmationPageTest extends BrowserFactory{
 	HomePage homePage = new HomePage();
 	CommonMethods commonMethods = new CommonMethods();
 	
-	String filePathHardData = "./src/main/resources/data/HardData",
+	String filePathCommonTestData = "./src/main/resources/data/CommonTestData.json",
 			filePathBookingConfirmationPage = "./src/main/resources/objectRepo/BookingConfirmationPage.json",
-			loginMobileNumber=helper.parseJSONToString("mobileNumber", filePathHardData),
-			loginPassword=helper.parseJSONToString("password", filePathHardData),
-			location= helper.parseJSONToString("location", filePathHardData),
-			checkinDate= helper.parseJSONToString("checkinDate", filePathHardData),
-			checkoutDate= helper.parseJSONToString("checkoutDate", filePathHardData),
+			loginMobileNumber=helper.parseJSONToString("mobileNumber", filePathCommonTestData),
+			loginPassword=helper.parseJSONToString("password", filePathCommonTestData),
+			location= helper.parseJSONToString("location", filePathCommonTestData),
+			checkinDate= helper.parseJSONToString("checkinDate", filePathCommonTestData),
+			checkoutDate= helper.parseJSONToString("checkoutDate", filePathCommonTestData),
 			successfulBookingMessage = helper.parseJSONToString("successfulBookingMessage", filePathBookingConfirmationPage),
-			userName = helper.parseJSONToString("userName", filePathHardData);
+			userName = helper.parseJSONToString("userName", filePathCommonTestData);
 
 	
 	@BeforeClass
