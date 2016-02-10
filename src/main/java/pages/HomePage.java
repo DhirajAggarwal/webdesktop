@@ -170,11 +170,14 @@ public class HomePage extends BasePage {
 	}
 
 	public void setCheckInDate(String checkInDate) {
+		
+		helper.findElementById(checkInId).click();
 		helper.waitForElement(helper.locateByLinkText(checkInDate), 10, "No checkin date displayed");
 		helper.findElementByLinkText(checkInDate).click();
 	}
 
 	public void setCheckOutDate(String checkOutDate) {
+		helper.findElementById(checkOutId).click();
 		helper.waitForElement(helper.locateByLinkText(checkOutDate), 10, "No checkout date displayed");
 		helper.findElementByLinkText(checkOutDate).click();
 	}
