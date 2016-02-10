@@ -68,7 +68,7 @@ public class HomePageTest extends BrowserFactory {
 	 public void verifyHotelsDisplayedOnSearch() {
 	
 	 commonMethods.searchHotels(location, checkinDate, checkoutDate);
-	 Assert.assertEquals("", userName);
+	// Assert.assertEquals("", userName);
 	 //Assert in this function is incomplete. So this has been commentedOut.
 	 }
 
