@@ -27,6 +27,9 @@ public class HotelPage extends BasePage {
 			bulkBookingMessageId = helper.parseJSONToString("bulkBookingMessageId", filePathHotelPageOR),
 			requestCallBackTextFieldId = helper.parseJSONToString("requestCallBackTextFieldId", filePathHotelPageOR),
 			requestCallBackButtonId	=	helper.parseJSONToString("requestCallBackButtonId", filePathHotelPageOR),
+			guestNameId = helper.parseJSONToString("guestNameId", filePathHotelPageOR),
+			guestMobileNumber = helper.parseJSONToString("guestMobileNumber", filePathHotelPageOR),
+			guestEmailAddress = helper.parseJSONToString("guestEmailAddress", filePathHotelPageOR),
 			confirmationMessageOnRequestCallBackId = helper.parseJSONToString("confirmationMessageOnRequestCallBackId", filePathHotelPageOR),
 			hotelTermsAndConditionsLinkId	= helper.parseJSONToString("hotelTermsAndConditionsLinkId", filePathHotelPageOR);
 			
@@ -60,18 +63,17 @@ public class HotelPage extends BasePage {
 		return confirmationMsg;
 	}
 
-	private void validateHotelPageElements() {
-		Assert.assertTrue(helper.findElementByClassName(hotelGalleryClassName).isDisplayed());
-		Assert.assertTrue(helper.findElementById(hotelBookingBlockId).isDisplayed());
-		Assert.assertTrue(helper.findElementByClassName(hotelLocalityDetailsClassName).isDisplayed());
-		Assert.assertTrue(helper.findElementByClassName(hotelAmenitiesSectionClassName).isDisplayed());
-		Assert.assertTrue(helper.findElementByClassName(hotelHouseRulesSectionClassName).isDisplayed());
-		Assert.assertTrue(helper.findElementByClassName(hotelDescriptionSectionClassName).isDisplayed());
-		Assert.assertTrue(helper.findElementByClassName(hotelNearByHotelsSectionClassName).isDisplayed());
-	}
-
 	public void clickBookNow() {
 		helper.findElementById(bookNowId).click();
+	}
+	
+	public void setGuestDetails(String guestName, String guestMobile, String emailAddress){
+		helper.findElementById(guestNameId).clear();
+		helper.findElementById(guestNameId).sendKeys(guestName);
+		helper.findElementById(guestMobileNumber).clear();
+		helper.findElementById(guestMobileNumber).sendKeys(guestMobile);
+		helper.findElementById(guestEmailAddress).clear();
+		helper.findElementById(guestEmailAddress).sendKeys(emailAddress);
 	}
 
 	public void clickRequiredId() {
@@ -98,5 +100,16 @@ public class HotelPage extends BasePage {
 
 	public void clickPayAtHotel() {
 		helper.findElementById(payAtHotelId).click();
+	}
+	
+
+	private void validateHotelPageElements() {
+		Assert.assertTrue(helper.findElementByClassName(hotelGalleryClassName).isDisplayed());
+		Assert.assertTrue(helper.findElementById(hotelBookingBlockId).isDisplayed());
+		Assert.assertTrue(helper.findElementByClassName(hotelLocalityDetailsClassName).isDisplayed());
+		Assert.assertTrue(helper.findElementByClassName(hotelAmenitiesSectionClassName).isDisplayed());
+		Assert.assertTrue(helper.findElementByClassName(hotelHouseRulesSectionClassName).isDisplayed());
+		Assert.assertTrue(helper.findElementByClassName(hotelDescriptionSectionClassName).isDisplayed());
+		Assert.assertTrue(helper.findElementByClassName(hotelNearByHotelsSectionClassName).isDisplayed());
 	}
 }

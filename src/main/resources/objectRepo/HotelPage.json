@@ -15,5 +15,8 @@
 	"requestCallBackTextFieldId"	:	"js-callback-mobile-phone",
 	"requestCallBackButtonId"	:	"js-call-back",
 	"confirmationMessageOnRequestCallBackId" :	"js-message-box",
-	"hotelTermsAndConditionsLinkId"	:	"js-tnc"
+	"hotelTermsAndConditionsLinkId"	:	"js-tnc",
+	"guestNameId" :	"js-user-name",
+	"guestMobileNumber"	:	"js-user-phone",
+	"guestEmailAddress" :	"js-user-email"
 }
