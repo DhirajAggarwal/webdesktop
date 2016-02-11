@@ -28,7 +28,7 @@ public class HotelPageTest extends BrowserFactory{
 		helper.openHotelPage(hotelId, hotelType, hotelName);
 	}
 
-	@Test(priority=0)
+	@Test
 	public void verifyValidHotelPage(){
 		hotelPage.isValid();
 	}
@@ -47,4 +47,17 @@ public class HotelPageTest extends BrowserFactory{
 		String confirmationMsgOnRequestCallbackActual = hotelPage.clickOnRequestCallBackButtonAndReturnMessage();
 		Assert.assertEquals(confirmationMsgOnRequestCallbackActual, confirmationMsgOnRequestCallbackExpected);
 	}
+	/* This is just a dummy test to verify the methods I have added in Hotel Page. I am not deleting this since I will need it next time. 
+	 * Will delete once Dhiraj will use these methods in any test.
+	@Test
+	public void vtest(){
+		hotelPage.clickBookNow();
+		hotelPage.setGuestDetails("s", "0000089876", "g@gmail.com");
+		hotelPage.clickRequiredId();
+		hotelPage.setCoupon("oyo30");
+		hotelPage.clickApplyCoupon();
+		hotelPage.clickPayAtHotel();
+		hotelPage.setVerificationCode("098765");
+		hotelPage.clickConfirmAndBook();
+	}*/
 }

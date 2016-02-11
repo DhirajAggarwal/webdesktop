@@ -17,6 +17,11 @@
 	"confirmationMessageOnRequestCallBackId" :	"js-message-box",
 	"hotelTermsAndConditionsLinkId"	:	"js-tnc",
 	"guestNameId" :	"js-user-name",
-	"guestMobileNumber"	:	"js-user-phone",
-	"guestEmailAddress" :	"js-user-email"
+	"guestMobileNumberId"	:	"js-user-phone",
+	"guestEmailAddressId" :	"js-user-email",
+	"couponQuestionId" :	"js-show-apply-coupon",
+	"discountCouponTextBoxId" : "js-booking-coupon-val",
+	"couponApplyButtonId" :	"js-apply-coupon",
+	"otpFieldId"	:	"js-verification-code",
+	"confirmAndBookId" :	"js-confirm-book"
 }
