@@ -18,7 +18,7 @@ import org.openqa.selenium.NoSuchElementException;
 public class Helper {
 
 	Object obj = null;
-
+		
 	private static String filePathConfig = "./src/main/resources/config/config.json";
 	String URL, customURL;
 
@@ -54,7 +54,7 @@ public class Helper {
 		try {
 			WebDriverWait wait = null;
 			wait = new WebDriverWait(driver, timeOut);
-			wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+			wait.until(ExpectedConditions.presenceOfElementLocated(locator));
 		} catch (Exception e) {
 			System.out.println(message);
 		}
@@ -93,7 +93,6 @@ public class Helper {
 	}
 
 	public WebElement findElementByClassName(String element) {
-		waitForElement(locateByClassName(element), 10, element.toString() + " not found");
 		return driver.findElement(By.className(element));
 	}
 

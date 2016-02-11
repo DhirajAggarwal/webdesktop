@@ -2,17 +2,16 @@ package pages;
 
 import org.testng.Assert;
 
-import utils.Helper;
-
 public class HotelPage extends BasePage {
 	
-	Helper helper = new Helper();
 	HomePage homePage = new HomePage();
 
 	
-	String filePathHotelPage = "./src/main/resources/objectRepo/HotelPage.json",
+	protected String filePathHotelPage = "./src/main/resources/objectRepo/HotelPage.json",
 			bookNowId = helper.parseJSONToString("bookNowId", filePathHotelPage),
 			payAtHotelId  = helper.parseJSONToString("payAtHotelId", filePathHotelPage),
+			payNowId  = helper.parseJSONToString("payNowId", filePathHotelPage),
+			creditCardClassName  = helper.parseJSONToString("creditCardClassName", filePathHotelPage),
 			requiredIdClassName   = helper.parseJSONToString("requiredIdClassName", filePathHotelPage),
 			hotelGalleryClassName = helper.parseJSONToString("hotelGalleryClassName",filePathHotelPage),
 			hotelBookingBlockId = helper.parseJSONToString("hotelBookingBlockId",filePathHotelPage),
@@ -69,4 +68,24 @@ public class HotelPage extends BasePage {
 	public void clickPayAtHotel() {
 		helper.findElementById(payAtHotelId).click();
 	}
+	
+	public void clickPayNow() {
+		helper.findElementById(payNowId).click();
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	public void clickCreditCard() {
+		helper.findElementByClassName(creditCardClassName).click();
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}	
 }

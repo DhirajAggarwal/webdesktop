@@ -1,10 +1,6 @@
 package pages;
 
-import utils.Helper;
-
 public class SearchPage extends BasePage {
-
-	Helper helper = new Helper();
 	
 	String filePathSearchPage = "./src/main/resources/objectRepo/SearchPage.json",
 			priceClassName = helper.parseJSONToString("priceClassName", filePathSearchPage),

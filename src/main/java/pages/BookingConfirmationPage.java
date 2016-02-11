@@ -1,20 +1,16 @@
 package pages;
 
-import utils.Helper;
-
 public class BookingConfirmationPage extends BasePage {
-
-	Helper helper = new Helper();
 	
 	String filePathBookingConfirmationPage = "./src/main/resources/objectRepo/BookingConfirmationPage.json",
-			successfulTextClassName = helper.parseJSONToString("successfulTextClassName", filePathBookingConfirmationPage);
+			bookingSuccessfulTextClassName = helper.parseJSONToString("bookingSuccessfulTextClassName", filePathBookingConfirmationPage);
 	
 	public void isValid() {
 		// TODO Auto-generated method stub
 	}
 
 	public String getBookingSuccessMessage() {
-		return helper.findElementByClassName(successfulTextClassName).getText();
+		return helper.findElementByClassName(bookingSuccessfulTextClassName).getText();
 	}
 	
 }

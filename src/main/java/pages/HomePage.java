@@ -5,12 +5,8 @@ import java.util.List;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-import utils.Helper;
 
 public class HomePage extends BasePage {
-
-	Helper helper = new Helper();
-
 
 	String filePathCommonOR = "./src/main/resources/objectRepo/CommonOR.json",
 			filePathHomePage = "./src/main/resources/objectRepo/HomePage.json",
@@ -107,6 +103,10 @@ public class HomePage extends BasePage {
 		helper.waitForElement(helper.locateById(userNameId), 5, "Username not visible after Login");
 	}
 
+	public void clickUserName() {
+		helper.findElementById(userNameId).click();
+	}
+	
 	public String getLoggedInUserName() {
 		String userName = helper.findElementById(userNameId).getText();
 		return userName;

@@ -1,41 +1,52 @@
 package tests;
 
-import org.testng.annotations.BeforeClass;
+import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import pages.BookingConfirmationPage;
 import pages.CommonMethods;
+import pages.HomePage;
+import pages.ManageBookingPage;
 import utils.BrowserFactory;
-import utils.Helper;
 
-public class BookingConfirmationPageTest extends BrowserFactory{
-  
-	Helper helper = new Helper();
+public class BookingConfirmationPageTest extends BrowserFactory {
+
 	CommonMethods commonMethods = new CommonMethods();
-	
-	String filePathHardData = "./src/main/resources/data/HardData",
-			filePathBookingConfirmationPage = "./src/main/resources/objectRepo/BookingConfirmationPage.json",
-			loginMobileNumber=helper.parseJSONToString("mobileNumber", filePathHardData),
-			loginPassword=helper.parseJSONToString("password", filePathHardData),
-			location= helper.parseJSONToString("location", filePathHardData),
-			checkinDate= helper.parseJSONToString("checkinDate", filePathHardData),
-			checkoutDate= helper.parseJSONToString("checkoutDate", filePathHardData),
-			successfulBookingMessage = helper.parseJSONToString("successfulBookingMessage", filePathBookingConfirmationPage);
+	BookingConfirmationPage bookingConfirmationPage = new BookingConfirmationPage();
+	HomePage homePage = new HomePage();
+	ManageBookingPage manageBookingPage = new ManageBookingPage();
 
-	
-	@BeforeClass
+	String filePathHardData = "./src/main/resources/data/HardData",
+			filePathBookingConfirmationPageTestData = "./src/main/resources/data/BookingConfirmationPageTestData.json",
+			filePathManageBookingPageTestData = "./src/main/resources/data/ManageBookingPageTestData.json",
+			loginMobileNumber = helper.parseJSONToString("mobileNumber", filePathHardData),
+			loginPassword = helper.parseJSONToString("password", filePathHardData),
+			location = helper.parseJSONToString("location", filePathHardData),
+			checkinDate = helper.parseJSONToString("checkinDate", filePathHardData),
+			checkoutDate = helper.parseJSONToString("checkoutDate", filePathHardData),
+			successfulBookingMessage = helper.parseJSONToString("successfulBookingMessage",
+					filePathBookingConfirmationPageTestData),
+			bookingCancellationMessage = helper.parseJSONToString("bookingCancellationMessage",
+					filePathManageBookingPageTestData);
+
+	@BeforeMethod
 	public void openURL() {
 		helper.openURL();
 	}
-	
-	@Test(priority = 1)
-	public void verifySuccessfulBookingConfirmation() {
-		commonMethods.logInToOyoRooms(loginMobileNumber,loginPassword);
-		commonMethods.searchHotels(location,checkinDate,checkoutDate);
-		/*
-		 * Below code is to make Successful Booking and assert it. Currently
-		 * this is commented, so it doesn't make unnecessary bookings. This will
-		 * be uncommented as cancelBooking() is ready.
-		 */
-		 //Assert.assertEquals(commonMethods.bookingConfirmation(), successfulBookingMessage);
+
+	/*
+	 * This Test is Logging In, Making Successful Booking at PAH and finally
+	 * Canceling the Booking.
+	 */
+	@Test
+	public void verifySuccessfulBookingPAHafterLoginAndBookingCancellation() {
+		commonMethods.logInToOyoRooms(loginMobileNumber, loginPassword);
+		commonMethods.searchHotels(location, checkinDate, checkoutDate);
+		commonMethods.bookingConfirmationPAH();
+		Assert.assertEquals(successfulBookingMessage, bookingConfirmationPage.getBookingSuccessMessage());
+		homePage.clickUserName();
+		commonMethods.cancelBooking();
+		Assert.assertEquals(bookingCancellationMessage, manageBookingPage.getCancellationText());
 	}
 }

@@ -8,11 +8,8 @@ import pages.BookingConfirmationPage;
 import pages.CommonMethods;
 import pages.HomePage;
 import utils.BrowserFactory;
-import utils.Helper;
 
 public class HomePageTest extends BrowserFactory {
-
-	Helper helper = new Helper();
 
 	String filePathHardData = "./src/main/resources/data/HardData",
 			filePathHomePageData = "./src/main/resources/data/HomePageData.json",
@@ -54,8 +51,6 @@ public class HomePageTest extends BrowserFactory {
 		homePage.fillCorporateForm(corporateName,corporatePhoneNo,corporateEmail,corporateEnquiry);
 		homePage.clickOnCorporateenquirySubmit();
 		Assert.assertEquals(homePage.getCorporateEnquirySuccessMessage(),corporateSuccessMessage);
-		
-
 	}
 
 	@Test

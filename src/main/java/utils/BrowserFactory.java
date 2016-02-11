@@ -10,7 +10,7 @@ public class BrowserFactory {
 
 	static WebDriver driver;
 	String filePathHardData, filePathConfig, browserType;
-	Helper helper = new Helper();
+	protected Helper helper = new Helper();
 
 	@BeforeClass
 	public WebDriver initializeBrowser() {
