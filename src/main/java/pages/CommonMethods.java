@@ -20,7 +20,7 @@ public class CommonMethods {
 	public void searchHotels(String location,String checkinDate,String checkoutDate) {
 		homePage.setLocation(location);
 		homePage.setCheckInDate(checkinDate);
-		homePage.setCheckInDate(checkoutDate);
+		homePage.setCheckOutDate(checkoutDate);
 		homePage.clickOnSearchButton();		
 	}
 

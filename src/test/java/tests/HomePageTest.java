@@ -14,23 +14,23 @@ public class HomePageTest extends BrowserFactory {
 	CommonMethods commonMethods = new CommonMethods();
 	HomePage homePage = new HomePage();
 
-	String filePathHardData = "./src/main/resources/data/HardData";
+	String filePathCommonTestData = "./src/main/resources/data/CommonTestData.json";
 	String filePathHomePageData = "./src/main/resources/data/HomePageData.json",
 
-			loginmobileNumber = helper.parseJSONToString("mobileNumber", filePathHardData),
-			loginPassword = helper.parseJSONToString("password", filePathHardData),
-			userName = helper.parseJSONToString("userName", filePathHardData),
-			location = helper.parseJSONToString("location", filePathHardData),
-			checkinDate = helper.parseJSONToString("checkinDate", filePathHardData),
-			checkoutDate = helper.parseJSONToString("checkoutDate", filePathHardData),
+			loginmobileNumber = helper.parseJSONToString("mobileNumber", filePathCommonTestData),
+			loginPassword = helper.parseJSONToString("password", filePathCommonTestData),
+			userName = helper.parseJSONToString("userName", filePathCommonTestData),
+			location = helper.parseJSONToString("location", filePathCommonTestData),
+			checkinDate = helper.parseJSONToString("checkinDate", filePathCommonTestData),
+			checkoutDate = helper.parseJSONToString("checkoutDate", filePathCommonTestData),
 			corporateName = helper.parseJSONToString("corporateName", filePathHomePageData),
 			corporatePhoneNo = helper.parseJSONToString("corporatePhoneNo", filePathHomePageData),
 			corporateEmail = helper.parseJSONToString("corporateEmail", filePathHomePageData),
 			corporateEnquiry = helper.parseJSONToString("corporateEnquiry", filePathHomePageData),
 			corporateSuccessMessage = helper.parseJSONToString("corporateSuccessMessage", filePathHomePageData),
-			blankMobileNumber = helper.parseJSONToString("blankMobileNumber", filePathHardData),
-			blankLoginPassword = helper.parseJSONToString("blankLoginPassword", filePathHardData),
-			blankValidationMessage = helper.parseJSONToString("blankValidationMessage", filePathHardData);
+			blankMobileNumber = helper.parseJSONToString("blankMobileNumber", filePathCommonTestData),
+			blankLoginPassword = helper.parseJSONToString("blankLoginPassword", filePathCommonTestData),
+			blankValidationMessage = helper.parseJSONToString("blankValidationMessage", filePathCommonTestData);
 
 	@BeforeMethod
 	public void openURL() {
@@ -64,13 +64,13 @@ public class HomePageTest extends BrowserFactory {
 		homePage.logoutUser();
 	}
 
-	// @Test(priority = 4)
-	// public void verifyHotelsDisplayedOnSearch() {
-	//
-	// commonMethods.searchHotels(location, checkinDate, checkoutDate);
+	 @Test(priority = 4)
+	 public void verifyHotelsDisplayedOnSearch() {
+	
+	 commonMethods.searchHotels(location, checkinDate, checkoutDate);
 	// Assert.assertEquals("", userName);
-	// Assert in this function is incomplete. So this has been commentedOut.
-	// }
+	 //Assert in this function is incomplete. So this has been commentedOut.
+	 }
 
 	@Test(priority = 5)
 	public void verifyViewAllLinkInMDD() {

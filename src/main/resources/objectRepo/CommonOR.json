@@ -1,6 +1,7 @@
 {
   "checkInDateId"	:	"js-checkin" ,
   "checkOutDateId"			:	"js-checkout" ,
+  "guestCountId"	:	"searchbar__guestselect-js",
   "cityCountId"			:	168 ,
   "myAccountLinkText"		:"My Account" ,
   "logInId"				:	"js-login" ,

@@ -1,4 +1,5 @@
 {
+  "hotelNameId"			:	"js-hotel-name",
   "bookNowId"			:	"js-book-submit" ,
   "userNameId"			:	"js-user-name" ,
   "payAtHotelId"		:	"js-pay-hotel" ,
