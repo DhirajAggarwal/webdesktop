@@ -9,7 +9,6 @@ public class HotelPage extends BasePage {
 	
 	Helper helper = new Helper();
 	HomePage homePage = new HomePage();
-
 	
 	String 	filePathCommonOR = "./src/main/resources/objectRepo/CommonOR.json",
 			filePathHotelPageOR = "./src/main/resources/objectRepo/HotelPage.json",
@@ -28,8 +27,13 @@ public class HotelPage extends BasePage {
 			requestCallBackTextFieldId = helper.parseJSONToString("requestCallBackTextFieldId", filePathHotelPageOR),
 			requestCallBackButtonId	=	helper.parseJSONToString("requestCallBackButtonId", filePathHotelPageOR),
 			guestNameId = helper.parseJSONToString("guestNameId", filePathHotelPageOR),
-			guestMobileNumber = helper.parseJSONToString("guestMobileNumber", filePathHotelPageOR),
-			guestEmailAddress = helper.parseJSONToString("guestEmailAddress", filePathHotelPageOR),
+			guestMobileNumberId = helper.parseJSONToString("guestMobileNumberId", filePathHotelPageOR),
+			guestEmailAddressId = helper.parseJSONToString("guestEmailAddressId", filePathHotelPageOR),
+			couponQuestionId = helper.parseJSONToString("couponQuestionId", filePathHotelPageOR),
+			discountCouponTextBoxId = helper.parseJSONToString("discountCouponTextBoxId", filePathHotelPageOR),
+			couponApplyButtonId = helper.parseJSONToString("couponApplyButtonId", filePathHotelPageOR),
+			otpFieldId = helper.parseJSONToString("otpFieldId", filePathHotelPageOR),
+			confirmAndBookId = helper.parseJSONToString("confirmAndBookId", filePathHotelPageOR),
 			confirmationMessageOnRequestCallBackId = helper.parseJSONToString("confirmationMessageOnRequestCallBackId", filePathHotelPageOR),
 			hotelTermsAndConditionsLinkId	= helper.parseJSONToString("hotelTermsAndConditionsLinkId", filePathHotelPageOR);
 			
@@ -70,10 +74,10 @@ public class HotelPage extends BasePage {
 	public void setGuestDetails(String guestName, String guestMobile, String emailAddress){
 		helper.findElementById(guestNameId).clear();
 		helper.findElementById(guestNameId).sendKeys(guestName);
-		helper.findElementById(guestMobileNumber).clear();
-		helper.findElementById(guestMobileNumber).sendKeys(guestMobile);
-		helper.findElementById(guestEmailAddress).clear();
-		helper.findElementById(guestEmailAddress).sendKeys(emailAddress);
+		helper.findElementById(guestMobileNumberId).clear();
+		helper.findElementById(guestMobileNumberId).sendKeys(guestMobile);
+		helper.findElementById(guestEmailAddressId).clear();
+		helper.findElementById(guestEmailAddressId).sendKeys(emailAddress);
 	}
 
 	public void clickRequiredId() {
@@ -82,20 +86,22 @@ public class HotelPage extends BasePage {
 		}
 	}
 
-	public void setCoupon() {
-
+	public void setCoupon(String couponCode) {
+		helper.findElementById(couponQuestionId).click();
+		helper.findElementById(discountCouponTextBoxId).sendKeys(couponCode);
 	}
 
 	public void clickApplyCoupon() {
-
+		helper.findElementById(couponApplyButtonId).click();
 	}
 
-	public void setVerificationCode() {
-
+	public void setVerificationCode(String OTP) {
+		helper.waitForElement(helper.locateById(otpFieldId), 5, "OTP field not displayed");
+		helper.findElementById(otpFieldId).sendKeys(OTP);
 	}
 
 	public void clickConfirmAndBook() {
-
+		helper.findElementById(confirmAndBookId).click();
 	}
 
 	public void clickPayAtHotel() {
