@@ -1,7 +1,7 @@
 {
-	"bookingSuccessfulTextClassName"	:	"BookingConfirmation__elementOne" ,
-	"bookingTitleClassName"				:	"BookingConfirmation__bookingNumber--title" ,
-	"oyohotelNameClassname"				:	"BookingConfirmation__hotelName" ,
-	"realHotelNameId"					:	"js-bookingConfirmation-address" ,
-	"contactNumberClassName"			:	"BookingConfirmation__positionfix"
+	"bookingSuccessfulTextClassName":"BookingConfirmation__elementOne",
+	"bookingTitleClassName":"BookingConfirmation__bookingNumber--title",
+	"oyohotelNameClassname":"BookingConfirmation__hotelName",
+	"realHotelNameId":"js-bookingConfirmation-address",
+	"contactNumberClassName":"BookingConfirmation__positionfix"
 }

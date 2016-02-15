@@ -3,16 +3,17 @@ package utils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
 
 public class BrowserFactory {
 
 	static WebDriver driver;
-	String filePathHardData, filePathConfig, browserType;
+
+	String filePathConfig, browserType;
 	protected Helper helper = new Helper();
 
-	@BeforeClass
+	@BeforeSuite
 	public WebDriver initializeBrowser() {
 		filePathConfig = "./src/main/resources/config/config.json";
 		browserType = helper.parseJSONToString("browserType", filePathConfig);
@@ -52,7 +53,7 @@ public class BrowserFactory {
 		return driver;
 	}
 
-	@AfterClass
+	@AfterSuite
 	public void tearDown() {
 		driver.quit();
 	}

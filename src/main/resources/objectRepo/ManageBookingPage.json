@@ -1,12 +1,11 @@
 {
-	"bookingLinkClassName"	:	"accountDetails-link" ,
-	"upcomingBookingListId"	:	"js-sectionBtn-upcomingBookings" ,
-	"viewDetailClassName"	:	"js-bookingDetails" ,
-	"bookingIdClassName"	:	"js-bookingNo" ,
-	"cancelBookingButtonId"	:	"js-cancel-booking" ,
-	"bookingCancellatioTextClassName"	:	"mybookingPage__elementOne" ,
-	"makePartialPaymentId"			:	"js-make-payment" ,
-	"partialPaymentTextBoxClassName"	:	"mybooking__makepaymentInput" ,
-	"payNowId"						:	"js-paynow-mybooking"
+	"bookingLinkClassName":"accountDetails-link",
+	"upcomingBookingListId":"js-sectionBtn-upcomingBookings",
+	"viewDetailClassName":"js-bookingDetails",
+	"bookingIdClassName":"js-bookingNo",
+	"cancelBookingButtonId":"js-cancel-booking",
+	"bookingCancellatioTextClassName":"mybookingPage__elementOne",
+	"makePartialPaymentId":"js-make-payment",
+	"partialPaymentTextBoxClassName":"mybooking__makepaymentInput",
+	"payNowId":"js-paynow-mybooking"
 }
-

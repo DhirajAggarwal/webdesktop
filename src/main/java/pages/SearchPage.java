@@ -1,21 +1,115 @@
 package pages;
 
+import org.testng.Assert;
+
+import utils.Helper;
+
 public class SearchPage extends BasePage {
-	
+
+	Helper helper = new Helper();
+	HomePage homePage = new HomePage();
+
+	String filePathCommonOR = "./src/main/resources/objectRepo/CommonOR.json",
+			locationTextboxElementId = helper.parseJSONToString("locationTextboxId", filePathCommonOR),
+			checkInDateElementId = helper.parseJSONToString("checkInDateId", filePathCommonOR),
+			checkOutDateElementId = helper.parseJSONToString("checkOutDateId", filePathCommonOR),
+			guestCountElementId = helper.parseJSONToString("guestCountId", filePathCommonOR),
+			searchButtonElementId = helper.parseJSONToString("searchButtonId", filePathCommonOR);
+
 	String filePathSearchPage = "./src/main/resources/objectRepo/SearchPage.json",
 			priceClassName = helper.parseJSONToString("priceClassName", filePathSearchPage),
-			hotelClassName  = helper.parseJSONToString("hotelClassName", filePathSearchPage);
+			hotelClassName = helper.parseJSONToString("hotelClassName", filePathSearchPage),
+			hotelNameCss = helper.parseJSONToString("hotelNameCss", filePathSearchPage),
+			searchLocalityId = helper.parseJSONToString("searchLocalityId", filePathSearchPage),
+			sortByRelevanceId = helper.parseJSONToString("sortByRelevanceId", filePathSearchPage),
+			sortByDistanceId = helper.parseJSONToString("sortByDistanceId", filePathSearchPage),
+			sortByPriceCss = helper.parseJSONToString("sortByPriceCss", filePathSearchPage),
+			// distanceFilter = helper.parseJSONToString("distanceFilter",
+			// filePathSearchPage),
+			firstHotelSnippetCss = helper.parseJSONToString("firstHotelSnippetCss", filePathSearchPage);
 
+	String filePathHotelPage = "./src/main/resources/objectRepo/HotelPage.json",
+			hotelName = helper.parseJSONToString("hotelNameId", filePathHotelPage);
+
+	/**
+	 * Validate Header, Footer as well as Search Page specific element presence
+	 */
 	public void isValid() {
-		// TODO Auto-generated method stub
+		homePage.validateHeaderElements();
+		validateSearchPageElements();
+		homePage.validateFooterElements();
+	}
+
+	/**
+	 * Validate Search Page elements presence
+	 */
+	private void validateSearchPageElements() {
+
+		/* Search bar validation on Search Page */
+		Assert.assertTrue(helper.findElementById(locationTextboxElementId).isDisplayed());
+		Assert.assertTrue(helper.findElementById(checkInDateElementId).isDisplayed());
+		Assert.assertTrue(helper.findElementById(checkOutDateElementId).isDisplayed());
+		Assert.assertTrue(helper.findElementById(guestCountElementId).isDisplayed());
+		Assert.assertTrue(helper.findElementById(searchButtonElementId).isDisplayed());
+
+		Assert.assertTrue(helper.findElementById(searchLocalityId).isDisplayed());
+		Assert.assertTrue(helper.findElementById(sortByRelevanceId).isDisplayed());
+		// Assert.assertTrue(helper.findElementById(sortByDistanceId).isDisplayed());
+		Assert.assertTrue(helper.findElementByCss(sortByPriceCss).isDisplayed());
+		// Assert.assertTrue(helper.findElementByCss(distanceFilter).isDisplayed());
+
+	}
+
+	/**
+	 * Search hotel by locality
+	 * 
+	 * @param locality
+	 *            : Locality to be search
+	 */
+	public void searchByLocality(String locality) {
+		// TODO: use it in test to search for locality
+		// helper.findElementByCss(searchLocalityId).sendKeys(locality);
+		// helper.findElementByCss(searchLocalityId).sendKeys(Keys.ENTER);
+	}
+
+	/**
+	 * Click for sort by Relevance
+	 */
+	public void sortByRelevance() {
+		helper.findElementById(sortByRelevanceId).click();
+		// TODO: Use Assert for verifying the relevance sorting
+	}
+
+	/**
+	 * Click for sort by Distance
+	 */
+	public void sortByDistance() {
+		helper.findElementById(sortByDistanceId).click();
 
 	}
 
 	public void clickPriceSortByAscending() {
 		helper.findElementByClassName(priceClassName).click();
+
 	}
 
+	/**
+	 * Click always on First Hotel in the list
+	 */
 	public void clickFirstHotel() {
 		helper.findElementsByClassName(hotelClassName).get(0).click();
 	}
+
+	public String getHotelList() {
+		String hotelName = helper.findElementByCss(hotelNameCss).getText();
+		return hotelName;
+	}
+
+	/**
+	 * @return : Return the Hotel Name from the Hotel Page
+	 */
+	public String getHotelName() {
+		return helper.findElementById(hotelName).getText();
+	}
+
 }

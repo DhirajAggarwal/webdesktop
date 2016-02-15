@@ -30,7 +30,7 @@ public class CommonMethods {
 		hotelPage.clickRequiredId();
 	}
 	
-	public void bookingConfirmationPAH() {
+	public void bookingConfirmationPAHafterLogin() {
 		navigateToHotelPageFromSearchPage();
 		hotelPage.clickPayAtHotel();
 	}

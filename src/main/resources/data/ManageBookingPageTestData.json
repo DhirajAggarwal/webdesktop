@@ -1,4 +1,4 @@
 {
-	"bookingCancellationMessage"	:	"YOUR BOOKING IS CANCELLED!" ,
-	"amountPartialPayment"			:	"1.00"
+	"bookingCancellationMessage":"YOUR BOOKING IS CANCELLED!",
+	"amountPartialPayment":"1.00"
 }

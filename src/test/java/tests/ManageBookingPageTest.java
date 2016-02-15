@@ -51,7 +51,7 @@ public class ManageBookingPageTest extends BrowserFactory {
 	public void verifyPartialPayment() {
 		commonMethods.logInToOyoRooms(loginMobileNumber, loginPassword);
 		commonMethods.searchHotels(location, checkinDate, checkoutDate);
-		commonMethods.bookingConfirmationPAH();
+		commonMethods.bookingConfirmationPAHafterLogin();
 		homePage.clickUserName();
 		commonMethods.partialPayment();
 		Assert.assertEquals(creditCardTypeText, paymentGatewaypage.getCreditCardText());

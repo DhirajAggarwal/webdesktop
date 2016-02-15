@@ -5,7 +5,7 @@ import static utils.BrowserFactory.driver;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.List;
-
+import org.openqa.selenium.interactions.Actions;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -13,6 +13,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 import org.openqa.selenium.NoSuchElementException;
 
 public class Helper {
@@ -29,6 +30,8 @@ public class Helper {
 	}
 
 	public void openURL() {
+		
+		
 		URL = parseJSONToString("oyoRoomsURL", filePathConfig);
 		driver.get(URL);
 	}
@@ -49,12 +52,16 @@ public class Helper {
 		JSONObject jsonObj = (JSONObject) obj;
 		return (String) jsonObj.get(keyVal);
 	}
-
+	public void hoverOnElement(WebElement ele){
+		Actions action=new Actions(driver);
+		action.moveToElement(ele).perform();
+	}
+	
 	public void waitForElement(By locator, int timeOut, String message) {
 		try {
 			WebDriverWait wait = null;
 			wait = new WebDriverWait(driver, timeOut);
-			wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+			wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
 		} catch (Exception e) {
 			System.out.println(message);
 		}

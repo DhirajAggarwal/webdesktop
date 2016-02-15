@@ -1,4 +1,11 @@
 {
-  "hotelClassName"		:	"js-parameterized-url" ,
-  "priceClassName"		:	"sorter__sortingIconTwo"
+	"hotelClassName":"js-parameterized-url",
+	"hotelNameCss":"hotelsnippetSmall__name.js-clickable.js-parameterized-url",
+	"priceClassName":"sorter__sortingIconTwo",
+	"searchLocalityId":"js-search-locality",
+	"sortByRelevanceId":"js-sorter-relevance",
+	"sortByDistanceId":"js-sorter-distance",
+	"sortByPriceCss":".js-sorter-name.sorter__sortingIconTwo",
+	"distanceFilter":"js-distanceFilter-wrapper",
+	"firstHotelSnippetCss":"hotelsnippetSmall__overlay.js-parameterized-url"
 }

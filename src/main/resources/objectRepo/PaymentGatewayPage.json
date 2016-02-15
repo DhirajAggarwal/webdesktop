@@ -1,4 +1,4 @@
 {
-	"creditCardTypePaymentgatewayClassName"	:	"span-3" ,
-	"amountToBePaidId"						:	"totalAmount"
+	"creditCardTypePaymentgatewayClassName":"span-3",
+	"amountToBePaidId":"totalAmount"
 }

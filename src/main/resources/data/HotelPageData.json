@@ -1,0 +1,14 @@
+{
+	"hotelId":"843",
+	"hotelType":"premium",
+	"hotelName":"hotel-banjara-hills-road-no1-hyderabad",
+	"roomsCount":"6+",
+	"bulkBookingMessageExpected":"For Bulk Booking, leave your phone number. We'll call you back shortly.",
+	"phoneNumberForRequestCallback":"1234567890",
+	"confirmationMsgOnRequestCallbackExpected":"We have received your request and will get in touch with you shortly.",
+	"guestName":"Smita",
+	"guestMobile":"0000089875",
+	"emailAddress":"automation_test@oyorooms.com",
+	"couponCode":"OYO15",
+	"verificationCode":"098765"
+}
