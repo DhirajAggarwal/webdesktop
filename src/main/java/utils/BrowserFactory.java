@@ -1,10 +1,7 @@
 package utils;
 
 import java.net.InetAddress;
-import java.net.MalformedURLException;
 import java.net.URL;
-
-import javax.swing.plaf.synth.SynthScrollBarUI;
 
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
