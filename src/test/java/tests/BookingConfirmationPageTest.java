@@ -65,7 +65,7 @@ public class BookingConfirmationPageTest extends BrowserFactory {
 	 * User details, applying coupon, confirming OTP, Making Successful Booking
 	 * at PAH and finally Canceling the Booking.
 	 */
-	//@Test
+	@Test
 	public void verifySuccessfulBookingPAHAndBookingCancellation() {
 		commonMethods.searchHotels(location, checkinDate, checkoutDate);
 		commonMethods.navigateToHotelPageFromSearchPage();
