@@ -1,18 +1,15 @@
 package pages;
 
 import java.util.List;
+
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-import utils.Helper;
 
 public class HomePage extends BasePage {
 
-	Helper helper = new Helper();
-
-	String filePathCommonOR = "./src/main/resources/objectRepo/CommonOR.json";
-	String filePathHomePage = "./src/main/resources/objectRepo/HomePage.json",
-			userNameId = helper.parseJSONToString("userNameId", filePathCommonOR),
+	String filePathCommonOR = "./src/main/resources/objectRepo/CommonOR.json",
+			userNameClassName = helper.parseJSONToString("userNameClassName", filePathCommonOR),
 			locationId = helper.parseJSONToString("locationTextboxId", filePathCommonOR),
 			checkInId = helper.parseJSONToString("checkInDateId", filePathCommonOR),
 			checkOutId = helper.parseJSONToString("checkOutDateId", filePathCommonOR),
@@ -31,7 +28,9 @@ public class HomePage extends BasePage {
 			logInId = helper.parseJSONToString("logInId", filePathCommonOR),
 			mobileTextCss = helper.parseJSONToString("mobileTextCss", filePathCommonOR),
 			passwordTextCss = helper.parseJSONToString("passwordTextCss", filePathCommonOR),
-			loginSubmitButtonClassName = helper.parseJSONToString("submitButtonClassName", filePathCommonOR),
+			loginSubmitButtonClassName = helper.parseJSONToString("submitButtonClassName", filePathCommonOR);
+			
+	String filePathHomePage = "./src/main/resources/objectRepo/HomePage.json",
 			dealsClassName = helper.parseJSONToString("dealsLinksClassName", filePathHomePage),
 			corporateEnquiryFormLabelId = helper.parseJSONToString("corporateEnquiryFormLabelId", filePathHomePage),
 			hotelLinksClassName = helper.parseJSONToString("hotelLinksClassName", filePathHomePage),
@@ -106,7 +105,7 @@ public class HomePage extends BasePage {
 	}
 
 	public void clickOnMyAccounts() {
-		helper.waitForElement(helper.locateByLinkText(myAccountLinkText), 3, "My Account Link Not found");
+		//helper.waitForElement(helper.locateByLinkText(myAccountLinkText), 3, "My Account Link Not found");
 		helper.findElementByLinkText(myAccountLinkText).click();
 	}
 
@@ -138,21 +137,23 @@ public class HomePage extends BasePage {
 	}
 
 	public void clickOnLoginSubmitButton() {
-		helper.waitForElement(helper.locateByClassName(loginSubmitButtonClassName), 5, "Login Submit button not Found");
 		helper.findElementByClassName(loginSubmitButtonClassName).click();
-
 	}
 
+	public void clickUserName() {
+		helper.hoverOnElement(helper.findElementByClassName(userNameClassName));
+	}
+	
 	public String getLoggedInUserName() {
-		helper.waitForElement(helper.locateById(userNameId), 5, "Username not visible after Login");
-		String userName = helper.findElementById(userNameId).getText();
+		helper.waitForElement(helper.locateById(userNameClassName), 5, "Username not visible after Login");
+		String userName = helper.findElementById(userNameClassName).getText();
 		return userName;
 	}
 
 	public void setLocation(String location) {
 		helper.findElementById(locationId).sendKeys(location);
 		helper.findElementById(locationId).sendKeys(" ");
-		helper.waitForElement(helper.locateById(locationSuggestionsId), 5, "No Suggestions on Search");
+		//helper.waitForElement(helper.locateById(locationSuggestionsId), 5, "No Suggestions on Search");
 		helper.findElementById(locationId).sendKeys(Keys.DOWN);
 		helper.findElementById(locationId).sendKeys(Keys.ENTER);
 	}
@@ -172,13 +173,13 @@ public class HomePage extends BasePage {
 	public void setCheckInDate(String checkInDate) {
 		
 		helper.findElementById(checkInId).click();
-		helper.waitForElement(helper.locateByLinkText(checkInDate), 10, "No checkin date displayed");
+		//helper.waitForElement(helper.locateByLinkText(checkInDate), 10, "No checkin date displayed");
 		helper.findElementByLinkText(checkInDate).click();
 	}
 
 	public void setCheckOutDate(String checkOutDate) {
 		helper.findElementById(checkOutId).click();
-		helper.waitForElement(helper.locateByLinkText(checkOutDate), 10, "No checkout date displayed");
+		//helper.waitForElement(helper.locateByLinkText(checkOutDate), 10, "No checkout date displayed");
 		helper.findElementByLinkText(checkOutDate).click();
 	}
 
@@ -199,9 +200,9 @@ public class HomePage extends BasePage {
 	}
 
 	public void clickOnSearchButton() {
-		helper.waitForElement(helper.locateById(searchButtonId), 3, "Search Button Not visible");
+		//helper.waitForElement(helper.locateById(searchButtonId), 3, "Search Button Not visible");
 		helper.findElementById(searchButtonId).click();
-		helper.waitForElement(helper.locateByClassName(hotelClassName), 20, "Hotels Not Displayed After Search");
+		//helper.waitForElement(helper.locateByClassName(hotelClassName), 20, "Hotels Not Displayed After Search");
 	}
 
 	public void clickOnCorporateEnquirySubmit() {

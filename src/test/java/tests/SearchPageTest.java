@@ -1,7 +1,5 @@
 package tests;
 
-import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -15,12 +13,12 @@ public class SearchPageTest extends BrowserFactory {
 
 	Helper helper = new Helper();
 	CommonMethods commonMethod = new CommonMethods();
-	SearchPage searchPage =  new SearchPage();
-	
+	SearchPage searchPage = new SearchPage();
+
 	String filePathCommonTestData = "./src/main/resources/data/CommonTestData.json",
-	locality = helper.parseJSONToString("locality", filePathCommonTestData),
-	checkInDate = helper.parseJSONToString("checkinDate", filePathCommonTestData),
-	checkOutDate = helper.parseJSONToString("checkoutDate", filePathCommonTestData);
+			locality = helper.parseJSONToString("locality", filePathCommonTestData),
+			checkInDate = helper.parseJSONToString("checkinDate", filePathCommonTestData),
+			checkOutDate = helper.parseJSONToString("checkoutDate", filePathCommonTestData);
 
 	CommonMethods commonMethods = new CommonMethods();
 	HomePage homePage = new HomePage();
@@ -33,8 +31,8 @@ public class SearchPageTest extends BrowserFactory {
 	}
 
 	@Test
-	public void validateSearchPageElement(){
+	public void validateSearchPageElement() {
 		searchPage.isValid();
 	}
-	
+
 }

@@ -6,31 +6,29 @@ import org.testng.annotations.Test;
 import pages.CommonMethods;
 import pages.HomePage;
 import utils.BrowserFactory;
-import utils.Helper;
 
 public class HomePageTest extends BrowserFactory {
 
-	Helper helper = new Helper();
 	CommonMethods commonMethods = new CommonMethods();
 	HomePage homePage = new HomePage();
 
-	String filePathCommonTestData = "./src/main/resources/data/CommonTestData.json";
-	String filePathHomePageData = "./src/main/resources/data/HomePageData.json",
-
+	String filePathCommonTestData = "./src/main/resources/data/CommonTestData.json",
 			loginmobileNumber = helper.parseJSONToString("mobileNumber", filePathCommonTestData),
 			loginPassword = helper.parseJSONToString("password", filePathCommonTestData),
 			userName = helper.parseJSONToString("userName", filePathCommonTestData),
 			location = helper.parseJSONToString("location", filePathCommonTestData),
 			checkinDate = helper.parseJSONToString("checkinDate", filePathCommonTestData),
 			checkoutDate = helper.parseJSONToString("checkoutDate", filePathCommonTestData),
+			blankMobileNumber = helper.parseJSONToString("blankMobileNumber", filePathCommonTestData),
+			blankLoginPassword = helper.parseJSONToString("blankLoginPassword", filePathCommonTestData),
+			blankValidationMessage = helper.parseJSONToString("blankValidationMessage", filePathCommonTestData);
+
+	String filePathHomePageData = "./src/main/resources/data/HomePageData.json",
 			corporateName = helper.parseJSONToString("corporateName", filePathHomePageData),
 			corporatePhoneNo = helper.parseJSONToString("corporatePhoneNo", filePathHomePageData),
 			corporateEmail = helper.parseJSONToString("corporateEmail", filePathHomePageData),
 			corporateEnquiry = helper.parseJSONToString("corporateEnquiry", filePathHomePageData),
-			corporateSuccessMessage = helper.parseJSONToString("corporateSuccessMessage", filePathHomePageData),
-			blankMobileNumber = helper.parseJSONToString("blankMobileNumber", filePathCommonTestData),
-			blankLoginPassword = helper.parseJSONToString("blankLoginPassword", filePathCommonTestData),
-			blankValidationMessage = helper.parseJSONToString("blankValidationMessage", filePathCommonTestData);
+			corporateSuccessMessage = helper.parseJSONToString("corporateSuccessMessage", filePathHomePageData);
 
 	@BeforeMethod
 	public void openURL() {
@@ -64,13 +62,15 @@ public class HomePageTest extends BrowserFactory {
 		homePage.logoutUser();
 	}
 
-	 @Test(priority = 4)
-	 public void verifyHotelsDisplayedOnSearch() {
-	
-	 commonMethods.searchHotels(location, checkinDate, checkoutDate);
-	// Assert.assertEquals("", userName);
-	 //Assert in this function is incomplete. So this has been commentedOut.
-	 }
+	@Test(priority = 4)
+	public void verifyHotelsDisplayedOnSearch() {
+		/*
+		 * Assert in this function is incomplete. So this has been commentedOut.
+		 */
+		commonMethods.searchHotels(location, checkinDate, checkoutDate);
+		// Assert.assertEquals("", userName);
+
+	}
 
 	@Test(priority = 5)
 	public void verifyViewAllLinkInMDD() {

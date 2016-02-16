@@ -1,7 +1,10 @@
 package pages;
 
-abstract class BasePage {
-	
-	public abstract void isValid();
+import utils.Helper;
 
+abstract class BasePage {
+
+	protected Helper helper = new Helper();
+
+	public abstract void isValid();
 }
