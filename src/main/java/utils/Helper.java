@@ -98,6 +98,10 @@ public class Helper {
 	public WebElement findElementById(String element) {
 		return driver.findElement(By.id(element));
 	}
+	
+	public List<WebElement> findElementsById(String element) {
+		return driver.findElements(By.id(element));
+	}
 
 	public WebElement findElementByClassName(String element) {
 		waitForElement(locateByClassName(element), 10, element.toString() + " not found");
@@ -115,9 +119,15 @@ public class Helper {
 	public WebElement findElementByCss(String element) {
 		return driver.findElement(By.cssSelector(element));
 	}
+	public List<WebElement> findElementsByCss(String element) {
+		return driver.findElements(By.cssSelector(element));
+	}
 
 	public WebElement findElementByLinkText(String element) {
 		return driver.findElement(By.linkText(element));
+	}
+	public List<WebElement> findElementsByLinkText(String element) {
+		return driver.findElements(By.linkText(element));
 	}
 
 	public WebElement findElementByPartialLinkText(String element) {
