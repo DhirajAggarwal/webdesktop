@@ -105,7 +105,7 @@ public class HomePage extends BasePage {
 	}
 
 	public void clickOnMyAccounts() {
-		helper.waitForElement(helper.locateByLinkText(myAccountLinkText), 3, "My Account Link Not found");
+		//helper.waitForElement(helper.locateByLinkText(myAccountLinkText), 3, "My Account Link Not found");
 		helper.findElementByLinkText(myAccountLinkText).click();
 	}
 
@@ -137,23 +137,11 @@ public class HomePage extends BasePage {
 	}
 
 	public void clickOnLoginSubmitButton() {
-		helper.waitForElement(helper.locateByClassName(loginSubmitButtonClassName), 5, "Login Submit button not Found");
 		helper.findElementByClassName(loginSubmitButtonClassName).click();
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
 	}
 
 	public void clickUserName() {
 		helper.hoverOnElement(helper.findElementByClassName(userNameClassName));
-		//helper.findElementByClassName(userNameClassName).click();
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
 	}
 	
 	public String getLoggedInUserName() {
@@ -165,7 +153,7 @@ public class HomePage extends BasePage {
 	public void setLocation(String location) {
 		helper.findElementById(locationId).sendKeys(location);
 		helper.findElementById(locationId).sendKeys(" ");
-		helper.waitForElement(helper.locateById(locationSuggestionsId), 5, "No Suggestions on Search");
+		//helper.waitForElement(helper.locateById(locationSuggestionsId), 5, "No Suggestions on Search");
 		helper.findElementById(locationId).sendKeys(Keys.DOWN);
 		helper.findElementById(locationId).sendKeys(Keys.ENTER);
 	}
@@ -185,13 +173,13 @@ public class HomePage extends BasePage {
 	public void setCheckInDate(String checkInDate) {
 		
 		helper.findElementById(checkInId).click();
-		helper.waitForElement(helper.locateByLinkText(checkInDate), 10, "No checkin date displayed");
+		//helper.waitForElement(helper.locateByLinkText(checkInDate), 10, "No checkin date displayed");
 		helper.findElementByLinkText(checkInDate).click();
 	}
 
 	public void setCheckOutDate(String checkOutDate) {
 		helper.findElementById(checkOutId).click();
-		helper.waitForElement(helper.locateByLinkText(checkOutDate), 10, "No checkout date displayed");
+		//helper.waitForElement(helper.locateByLinkText(checkOutDate), 10, "No checkout date displayed");
 		helper.findElementByLinkText(checkOutDate).click();
 	}
 
@@ -212,9 +200,9 @@ public class HomePage extends BasePage {
 	}
 
 	public void clickOnSearchButton() {
-		helper.waitForElement(helper.locateById(searchButtonId), 3, "Search Button Not visible");
+		//helper.waitForElement(helper.locateById(searchButtonId), 3, "Search Button Not visible");
 		helper.findElementById(searchButtonId).click();
-		helper.waitForElement(helper.locateByClassName(hotelClassName), 20, "Hotels Not Displayed After Search");
+		//helper.waitForElement(helper.locateByClassName(hotelClassName), 20, "Hotels Not Displayed After Search");
 	}
 
 	public void clickOnCorporateEnquirySubmit() {

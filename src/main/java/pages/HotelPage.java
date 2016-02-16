@@ -102,26 +102,16 @@ public class HotelPage extends BasePage {
 	}
 
 	public void setVerificationCode(String OTP) {
-		helper.waitForElement(helper.locateById(otpFieldId), 5, "OTP field not displayed");
+		//helper.waitForElement(helper.locateById(otpFieldId), 5, "OTP field not displayed");
 		helper.findElementById(otpFieldId).sendKeys(OTP);
 	}
 
 	public void clickConfirmAndBook() {
 		helper.findElementById(confirmAndBookId).click();
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
 	}
 
 	public void clickPayAtHotel() {
 		helper.findElementById(payAtHotelId).click();
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
 	}
 
 	public void clickPayNow() {

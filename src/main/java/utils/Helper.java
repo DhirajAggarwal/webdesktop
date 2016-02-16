@@ -63,7 +63,7 @@ public class Helper {
 			wait = new WebDriverWait(driver, timeOut);
 			wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
 		} catch (Exception e) {
-			System.out.println(message);
+			System.out.println(message + " not found");
 		}
 	}
 
@@ -94,36 +94,48 @@ public class Helper {
 	public By locateByXpath(String element) {
 		return By.xpath(element);
 	}
+	
+	public By locateByTagName(String element) {
+		return By.tagName(element);
+	}
 
 	public WebElement findElementById(String element) {
+		waitForElement(locateById(element), 10, element);
 		return driver.findElement(By.id(element));
 	}
 
 	public WebElement findElementByClassName(String element) {
+		waitForElement(locateByClassName(element), 10, element);
 		return driver.findElement(By.className(element));
 	}
 
 	public WebElement findElementByTagName(String element) {
+		waitForElement(locateByTagName(element), 10, element);
 		return driver.findElement(By.tagName(element));
 	}
 
 	public WebElement findElementByXpath(String element) {
+		waitForElement(locateByXpath(element), 10, element);
 		return driver.findElement(By.xpath(element));
 	}
 
 	public WebElement findElementByCss(String element) {
+		waitForElement(locateByCssSelector(element), 10, element);
 		return driver.findElement(By.cssSelector(element));
 	}
 
 	public WebElement findElementByLinkText(String element) {
+		waitForElement(locateByLinkText(element), 10, element);
 		return driver.findElement(By.linkText(element));
 	}
 
 	public WebElement findElementByPartialLinkText(String element) {
+		waitForElement(locateByPartialLinkText(element), 10, element);
 		return driver.findElement(By.partialLinkText(element));
 	}
 
 	public List<WebElement> findElementsByClassName(String element) {
+		waitForElement(locateByClassName(element), 10, element);
 		return driver.findElements(By.className(element));
 	}
 	
