@@ -1,6 +1,6 @@
 package pages;
 
-import junit.framework.Assert;
+import org.testng.Assert;
 import utils.Helper;
 
 public class AllCities extends BasePage {
