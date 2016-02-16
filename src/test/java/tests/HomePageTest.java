@@ -84,7 +84,7 @@ public class HomePageTest extends BrowserFactory {
 	 @Test(priority = 4)
 	 public void verifyHotelsDisplayedOnSearch() {
 	 commonMethods.searchHotels(location, checkinDate, checkoutDate);
-	 searchPage.isValid();
+	 cityPage.isValid();	
 	 }
 	 @Test(priority = 11)
 		public void verifyCityLinkInMDD() {
