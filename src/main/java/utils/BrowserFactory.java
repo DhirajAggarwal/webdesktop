@@ -14,12 +14,12 @@ import org.testng.annotations.BeforeSuite;
 
 public class BrowserFactory {
 
-	static WebDriver driver;
+	static RemoteWebDriver driver;
 	String filePathConfig, browserType;
 	Helper helper = new Helper();
 
 	@BeforeSuite
-	public WebDriver initializeBrowser() {
+	public RemoteWebDriver initializeBrowser() {
 		filePathConfig = "./src/main/resources/config/config.json";
 		browserType = helper.parseJSONToString("browserType", filePathConfig);
 		try {
@@ -30,7 +30,7 @@ public class BrowserFactory {
 		return driver;
 	}
 
-	public WebDriver setDriver(String browserType) throws Exception {
+	public RemoteWebDriver setDriver(String browserType) throws Exception {
 		try
 		{
 		switch (browserType) {
@@ -55,7 +55,7 @@ public class BrowserFactory {
 		return driver;
 	}
 
-	public WebDriver initFireFoxDriver() throws Exception {
+	public RemoteWebDriver initFireFoxDriver() throws Exception {
 		String nodeUrl1 = "http://";
 		String nodeip = "";
 		String nodeUrl2 ="/wd/hub";
@@ -102,7 +102,7 @@ public class BrowserFactory {
 		return driver;
 	}
 
-	public WebDriver initChromeDriver() {
+	public RemoteWebDriver initChromeDriver() {
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		return driver;
