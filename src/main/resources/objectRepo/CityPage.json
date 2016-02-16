@@ -2,5 +2,6 @@
 "titleClassName":"title",
 "titleDescriptionClassName":"desc",
 "cityDetailsClassName":"city__oyoCityDetails",
-
+"cityNameOnCityPage":"js-cityname",
+"malaysiaHeader":"header__byline"
 }

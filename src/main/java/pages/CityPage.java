@@ -19,8 +19,10 @@ public class CityPage extends BasePage {
 			sortByPriceCss = helper.parseJSONToString("sortByPriceCss", filePathSearchPage),
 			titleClassName = helper.parseJSONToString("titleClassName", filePathCityPage),
 			titleDescriptionClassName = helper.parseJSONToString("titleDescriptionClassName", filePathCityPage),
-			cityDetailsClassName = helper.parseJSONToString("cityDetailsClassName", filePathCityPage);
-
+			cityDetailsClassName = helper.parseJSONToString("cityDetailsClassName", filePathCityPage),
+			cityNameOnCityPage=helper.parseJSONToString("cityNameOnCityPage", filePathCityPage),
+			malaysiaHeader=helper.parseJSONToString("malaysiaHeader", filePathCityPage);
+	
 	public void isValid() {
 		Assert.assertTrue(helper.findElementByClassName(titleClassName).isDisplayed());
 		Assert.assertTrue(helper.findElementByClassName(titleDescriptionClassName).isDisplayed());
@@ -35,7 +37,7 @@ public class CityPage extends BasePage {
 	}
 	
 	public String getCityNameInSearch() {
-		String cityName=helper.findElementById(locationTextboxElementId).getText();
+		String cityName=helper.findElementById(cityNameOnCityPage).getAttribute("value");
 		return cityName;
 		// TODO Auto-generated method stub
 
@@ -43,6 +45,12 @@ public class CityPage extends BasePage {
 	public String getCityPageTitle() {
 		String cityName=helper.findElementByClassName(titleClassName).getText();
 		return cityName;
+		// TODO Auto-generated method stub
+
+	}
+	public String getMalaysiaHeader() {
+		String malaysiaPageHeader=helper.findElementByClassName(malaysiaHeader).getText();
+		return malaysiaPageHeader;
 		// TODO Auto-generated method stub
 
 	}

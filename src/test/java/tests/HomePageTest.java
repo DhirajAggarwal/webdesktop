@@ -47,7 +47,8 @@ public class HomePageTest extends BrowserFactory {
 			hillsDealName= helper.parseJSONToString("hillsDealName", filePathHomePageData),
 			malaysiaCityName=helper.parseJSONToString("malaysiaCityName", filePathHomePageData),
 			kerelaDealName=helper.parseJSONToString("kerelaDealName", filePathHomePageData),
-			cityPageTitle=helper.parseJSONToString("cityPageTitle", filePathHomePageData);
+			cityPageTitle=helper.parseJSONToString("cityPageTitle", filePathHomePageData),
+			malaysiaHeader=helper.parseJSONToString("malaysiaHeader", filePathHomePageData);
 
 	@BeforeMethod
 	public void openURL() {
@@ -116,7 +117,8 @@ public class HomePageTest extends BrowserFactory {
 		homePage.clickOnOyosInMalaysiaLink();
 		cityPage.isValid();
 		Assert.assertEquals(cityPageTitle,cityPage.getCityPageTitle());
-		//Assert.assertEquals(malaysiaCityName,cityPage.getCityNameInSearch());
+		Assert.assertEquals(malaysiaCityName,cityPage.getCityNameInSearch());
+		Assert.assertEquals(malaysiaHeader,cityPage.getMalaysiaHeader());
 		
 	}
 	@Test(priority = 9)
