@@ -50,6 +50,7 @@ public class HomePage extends BasePage {
 			allCitiesLinkText = helper.parseJSONToString("allCitiesLinkText", filePathHomePage),
 			heartCanvas = helper.parseJSONToString("heartCanvas", filePathCommonOR),
 			logoutLinkText = helper.parseJSONToString("logoutLinkText", filePathCommonOR),
+			nowInMalaysiaLinkText=helper.parseJSONToString("nowInMalaysiaLinkText",filePathHomePage ),
 			dealsLinksClassName = helper.parseJSONToString("dealsLinksClassName", filePathHomePage);
 
 	public void isValid() {
@@ -248,6 +249,11 @@ public class HomePage extends BasePage {
 	public void clickOnCorporateEnquirySubmit() {
 		helper.findElementById(corporateEnquirySubmitButtonId).click();
 		// TODO Auto-generated method stub
+	}
+
+	public void clickOnNowInMalaysiaLink() {
+		helper.findElementByLinkText(nowInMalaysiaLinkText).click();
+		
 	}
 
 }

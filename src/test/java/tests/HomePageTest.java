@@ -133,4 +133,12 @@ public class HomePageTest extends BrowserFactory {
 		kerelaPage.isValid();
 		Assert.assertEquals(kerelaDealName,kerelaPage.getDealName());
 	}
+	@Test(priority = 10)
+	public void verifyNowInMalaysiaLink() {
+		homePage.clickOnNowInMalaysiaLink();
+		cityPage.isValid();
+		Assert.assertEquals(cityPageTitle,cityPage.getCityPageTitle());
+		Assert.assertEquals(malaysiaCityName,cityPage.getCityNameInSearch());
+		Assert.assertEquals(malaysiaHeader,cityPage.getMalaysiaHeader());
+	}
 }
