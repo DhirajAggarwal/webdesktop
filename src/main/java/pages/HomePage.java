@@ -85,7 +85,8 @@ public class HomePage extends BasePage {
 
 	public void clickOnMDDViewAllLink() {
 		helper.waitForElement(helper.locateByLinkText(viewAllLinkText), 2, "MDD View All Link Not Found");
-		helper.findElementByLinkText(viewAllLinkText).click();
+		List<WebElement> viewAll=helper.findElementsByLinkText(viewAllLinkText);
+		viewAll.get(1).click();		
 	}
 
 	public void clickOnAllCitiesLink() {
@@ -184,9 +185,7 @@ public class HomePage extends BasePage {
 	public String getFirstCollectionName() {
 		helper.waitForElement(helper.locateByClassName(viewAllCollectionNameClassName), 15, "Collection Name Not visible");
 		List<WebElement> collectionName = helper.findElementsByClassName(viewAllCollectionNameClassName);
-		String collection=collectionName.get(0).getText();
-		//String collectionName = helper.findElementByXpath("//li[@class='megadropdown__subListItem megadropdown__sublistHeading js-md-hotel-collection']").getText();
-		System.out.println("Smita's Log " + collection);
+		String collection=collectionName.get(1).getText();
 		return collection;
 	}
 

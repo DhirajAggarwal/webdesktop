@@ -8,5 +8,5 @@
   "sortByPriceCss"				:	".js-sorter-name.sorter__sortingIconTwo",
   "distanceFilter"				:	"js-distanceFilter-wrapper",
   "firstHotelSnippetCss"		:	"hotelsnippetSmall__overlay.js-parameterized-url"
-  "tagId"							:	"js-filters-collections"
+  "tagId"							:	"extra-tag"
 }

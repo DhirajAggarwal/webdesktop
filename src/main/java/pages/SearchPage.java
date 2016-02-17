@@ -89,6 +89,7 @@ public class SearchPage extends BasePage {
 	}
 	
 	public String getTagName() {
+		helper.waitForElement(helper.locateById(tagId), 15, "Tag not Found On Search Page");
 		String tagName=helper.findElementById(tagId).getText();
 		return tagName;
 		

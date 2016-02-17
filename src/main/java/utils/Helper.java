@@ -111,6 +111,9 @@ public class Helper {
 	public WebElement findElementByTagName(String element) {
 		return driver.findElement(By.tagName(element));
 	}
+	public List<WebElement> findElementsByTagName(String element) {
+		return driver.findElements(By.tagName(element));
+	}
 
 	public WebElement findElementByXpath(String element) {
 		return driver.findElement(By.xpath(element));

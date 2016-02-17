@@ -92,14 +92,14 @@ public class HomePageTest extends BrowserFactory {
 			homePage.clickOnCityLink();
 			cityPage.isValid();	
 		}
-/*	@Test(priority = 5)
+	@Test(priority = 5)
 	public void verifyViewAllLinkInMDD() {
 		homePage.hoverOnMDDLink();
 		String collectionName=homePage.getFirstCollectionName();
 		homePage.clickOnMDDViewAllLink();
 		String tagName=searchPage.getTagName();
 		Assert.assertEquals(collectionName,tagName);
-}*/
+}
 
 	@Test(priority = 6)
 	public void verifyAllCitiesLinkInMDD() {
@@ -128,7 +128,7 @@ public class HomePageTest extends BrowserFactory {
 		Assert.assertEquals(hillsDealName,hillsPage.getDealName());
 	}
 	@Test(priority = 10)
-	public void verifyKeralsLink() {
+	public void verifyKeralaLink() {
 		homePage.clickOnOyosInKeralaLink();
 		kerelaPage.isValid();
 		Assert.assertEquals(kerelaDealName,kerelaPage.getDealName());
