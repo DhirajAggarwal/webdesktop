@@ -29,6 +29,7 @@ public class SearchPage extends BasePage {
 			distanceFilter = helper.parseJSONToString("distanceFilter", filePathSearchPage),
 			firstHotelSnippetCss = helper.parseJSONToString("firstHotelSnippetCss", filePathSearchPage),
 			tagId=helper.parseJSONToString("tagId", filePathSearchPage);
+			//localityNameOnCityPage=helper.parseJSONToString("localityNameOnCityPage", filePathSearchPage);
 
 	String filePathHotelPage = "./src/main/resources/objectRepo/HotelPage.json",
 			hotelName  = helper.parseJSONToString("hotelNameId", filePathHotelPage);
@@ -60,6 +61,12 @@ public class SearchPage extends BasePage {
 		//Assert.assertTrue(helper.findElementByCss(distanceFilter).isDisplayed());
 			
 	}
+	public String getlocalityNameInSearch() {
+		String localityName=helper.findElementById(locationTextboxElementId).getAttribute("value");
+		return localityName;
+		// TODO Auto-generated method stub
+
+	}
 	
 	/**
 	 * Search hotel by locality
@@ -75,7 +82,7 @@ public class SearchPage extends BasePage {
 	/**
 	 * Click for sort by Relevance
 	 */
-	public void sortByRelevance() {
+	public void clickOnSortByRelevance() {
 		helper.findElementById(sortByRelevanceId).click();
 		//TODO: Use Assert for verifying the relevance sorting
 	}

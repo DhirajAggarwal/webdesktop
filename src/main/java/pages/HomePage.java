@@ -51,6 +51,7 @@ public class HomePage extends BasePage {
 			heartCanvas = helper.parseJSONToString("heartCanvas", filePathCommonOR),
 			logoutLinkText = helper.parseJSONToString("logoutLinkText", filePathCommonOR),
 			nowInMalaysiaLinkText=helper.parseJSONToString("nowInMalaysiaLinkText",filePathHomePage ),
+			megaDDlocationCss=helper.parseJSONToString("megaDDlocationCss", filePathHomePage),
 			dealsLinksClassName = helper.parseJSONToString("dealsLinksClassName", filePathHomePage);
 
 	public void isValid() {
@@ -123,6 +124,10 @@ public class HomePage extends BasePage {
 		List<WebElement> KerelaLink = helper.findElementsByClassName(hotelLinksClassName);
 		KerelaLink.get(2).click();
 
+	}
+	
+	public void clickOnMddLocation(String location){
+		helper.findElementByLinkText(location).click();
 	}
 
 	public void validateHeaderElements() {
@@ -254,6 +259,12 @@ public class HomePage extends BasePage {
 	public void clickOnNowInMalaysiaLink() {
 		helper.findElementByLinkText(nowInMalaysiaLinkText).click();
 		
+	}
+
+	public String getFirstLocationName(String location) {
+		helper.waitForElement(helper.locateByLinkText(location),30, "Location Not Visible");
+		String locationName=helper.findElementByLinkText(location).getText();
+		return locationName;
 	}
 
 }
