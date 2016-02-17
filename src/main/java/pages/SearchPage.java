@@ -26,8 +26,9 @@ public class SearchPage extends BasePage {
 			sortByRelevanceId = helper.parseJSONToString("sortByRelevanceId", filePathSearchPage),
 			sortByDistanceId = helper.parseJSONToString("sortByDistanceId", filePathSearchPage),
 			sortByPriceCss = helper.parseJSONToString("sortByPriceCss", filePathSearchPage),
-			//distanceFilter = helper.parseJSONToString("distanceFilter", filePathSearchPage),
-			firstHotelSnippetCss = helper.parseJSONToString("firstHotelSnippetCss", filePathSearchPage);
+			distanceFilter = helper.parseJSONToString("distanceFilter", filePathSearchPage),
+			firstHotelSnippetCss = helper.parseJSONToString("firstHotelSnippetCss", filePathSearchPage),
+			tagId=helper.parseJSONToString("tagId", filePathSearchPage);
 
 	String filePathHotelPage = "./src/main/resources/objectRepo/HotelPage.json",
 			hotelName  = helper.parseJSONToString("hotelNameId", filePathHotelPage);
@@ -52,11 +53,10 @@ public class SearchPage extends BasePage {
 		Assert.assertTrue(helper.findElementById(checkOutDateElementId).isDisplayed());
 		Assert.assertTrue(helper.findElementById(guestCountElementId).isDisplayed());
 		Assert.assertTrue(helper.findElementById(searchButtonElementId).isDisplayed());
-		
 		Assert.assertTrue(helper.findElementById(searchLocalityId).isDisplayed());
 		Assert.assertTrue(helper.findElementById(sortByRelevanceId).isDisplayed());
-		//Assert.assertTrue(helper.findElementById(sortByDistanceId).isDisplayed());
 		Assert.assertTrue(helper.findElementByCss(sortByPriceCss).isDisplayed());
+		Assert.assertTrue(helper.findElementById(sortByDistanceId).isDisplayed());
 		//Assert.assertTrue(helper.findElementByCss(distanceFilter).isDisplayed());
 			
 	}
@@ -80,13 +80,20 @@ public class SearchPage extends BasePage {
 		//TODO: Use Assert for verifying the relevance sorting
 	}
 	
+	
 	/**
 	 * Click for sort by Distance
 	 */
-	public void sortByDistance() {
-		helper.findElementById(sortByDistanceId).click();
+	public void clickOnSortByDistance() {
+		helper.findElementById(sortByDistanceId).click();	
+	}
+	
+	public String getTagName() {
+		String tagName=helper.findElementById(tagId).getText();
+		return tagName;
 		
 	}
+	
 	
 	public void clickPriceSortByAscending() {
 		helper.findElementByClassName(priceClassName).click();

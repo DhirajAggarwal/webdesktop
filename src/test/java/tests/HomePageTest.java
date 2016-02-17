@@ -5,6 +5,12 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.CommonMethods;
 import pages.HomePage;
+import pages.SearchPage;
+import pages.AllCities;
+import pages.CityPage;
+import pages.DealsPage;
+import pages.OyosAtHills;
+import pages.OyosInKerela;
 import utils.BrowserFactory;
 import utils.Helper;
 
@@ -13,6 +19,13 @@ public class HomePageTest extends BrowserFactory {
 	Helper helper = new Helper();
 	CommonMethods commonMethods = new CommonMethods();
 	HomePage homePage = new HomePage();
+	SearchPage searchPage =  new SearchPage();
+	AllCities allCities = new AllCities();
+	CityPage cityPage =new CityPage();
+	DealsPage dealsPage = new DealsPage();
+	OyosAtHills hillsPage =new OyosAtHills();
+	OyosInKerela kerelaPage =new OyosInKerela();
+	
 
 	String filePathCommonTestData = "./src/main/resources/data/CommonTestData.json";
 	String filePathHomePageData = "./src/main/resources/data/HomePageData.json",
@@ -30,7 +43,12 @@ public class HomePageTest extends BrowserFactory {
 			corporateSuccessMessage = helper.parseJSONToString("corporateSuccessMessage", filePathHomePageData),
 			blankMobileNumber = helper.parseJSONToString("blankMobileNumber", filePathCommonTestData),
 			blankLoginPassword = helper.parseJSONToString("blankLoginPassword", filePathCommonTestData),
-			blankValidationMessage = helper.parseJSONToString("blankValidationMessage", filePathCommonTestData);
+			blankValidationMessage = helper.parseJSONToString("blankValidationMessage", filePathCommonTestData),
+			hillsDealName= helper.parseJSONToString("hillsDealName", filePathHomePageData),
+			malaysiaCityName=helper.parseJSONToString("malaysiaCityName", filePathHomePageData),
+			kerelaDealName=helper.parseJSONToString("kerelaDealName", filePathHomePageData),
+			cityPageTitle=helper.parseJSONToString("cityPageTitle", filePathHomePageData),
+			malaysiaHeader=helper.parseJSONToString("malaysiaHeader", filePathHomePageData);
 
 	@BeforeMethod
 	public void openURL() {
@@ -66,20 +84,53 @@ public class HomePageTest extends BrowserFactory {
 
 	 @Test(priority = 4)
 	 public void verifyHotelsDisplayedOnSearch() {
-	
 	 commonMethods.searchHotels(location, checkinDate, checkoutDate);
-	// Assert.assertEquals("", userName);
-	 //Assert in this function is incomplete. So this has been commentedOut.
+	 cityPage.isValid();	
 	 }
-
-	@Test(priority = 5)
+	 @Test(priority = 11)
+		public void verifyCityLinkInMDD() {
+			homePage.clickOnCityLink();
+			cityPage.isValid();	
+		}
+/*	@Test(priority = 5)
 	public void verifyViewAllLinkInMDD() {
 		homePage.hoverOnMDDLink();
+		String collectionName=homePage.getFirstCollectionName();
 		homePage.clickOnMDDViewAllLink();
-	}
+		String tagName=searchPage.getTagName();
+		Assert.assertEquals(collectionName,tagName);
+}*/
 
 	@Test(priority = 6)
 	public void verifyAllCitiesLinkInMDD() {
 		homePage.clickOnAllCitiesLink();
+		allCities.isValid();
+	}
+	
+	@Test(priority = 7)
+	public void verifyDealsLink() {
+		homePage.clickOnFirstDealLink();
+		dealsPage.isValid();
+	}
+	@Test(priority = 8)
+	public void verifyMalaysiaLink() {
+		homePage.clickOnOyosInMalaysiaLink();
+		cityPage.isValid();
+		Assert.assertEquals(cityPageTitle,cityPage.getCityPageTitle());
+		Assert.assertEquals(malaysiaCityName,cityPage.getCityNameInSearch());
+		Assert.assertEquals(malaysiaHeader,cityPage.getMalaysiaHeader());
+		
+	}
+	@Test(priority = 9)
+	public void verifyOyosAtHillsLink() {
+		homePage.clickOnOyosAtHillsLink();
+		hillsPage.isValid();
+		Assert.assertEquals(hillsDealName,hillsPage.getDealName());
+	}
+	@Test(priority = 10)
+	public void verifyKeralsLink() {
+		homePage.clickOnOyosInKeralaLink();
+		kerelaPage.isValid();
+		Assert.assertEquals(kerelaDealName,kerelaPage.getDealName());
 	}
 }
