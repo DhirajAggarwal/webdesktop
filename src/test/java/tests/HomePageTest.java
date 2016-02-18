@@ -69,7 +69,6 @@ public class HomePageTest extends BrowserFactory {
 		 */
 		commonMethods.searchHotels(location, checkinDate, checkoutDate);
 		// Assert.assertEquals("", userName);
-
 	}
 
 	@Test(priority = 5)

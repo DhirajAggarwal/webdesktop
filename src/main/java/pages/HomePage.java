@@ -122,7 +122,7 @@ public class HomePage extends BasePage {
 	}
 
 	public void hoverOnMDDLink() {
-		helper.waitForElement(helper.locateByLinkText(megaDDLink), 3, "MDD City Link Not found");
+		//helper.waitForElement(helper.locateByLinkText(megaDDLink), 3, "MDD City Link Not found");
 		WebElement mDDLink = helper.findElementByLinkText(megaDDLink);
 		helper.hoverOnElement(mDDLink);
 	}
@@ -145,8 +145,8 @@ public class HomePage extends BasePage {
 	}
 	
 	public String getLoggedInUserName() {
-		helper.waitForElement(helper.locateById(userNameClassName), 5, "Username not visible after Login");
-		String userName = helper.findElementById(userNameClassName).getText();
+		//helper.waitForElement(helper.locateById(userNameClassName), 5, "Username not visible after Login");
+		String userName = helper.findElementByClassName(userNameClassName).getText();
 		return userName;
 	}
 
@@ -154,6 +154,12 @@ public class HomePage extends BasePage {
 		helper.findElementById(locationId).sendKeys(location);
 		helper.findElementById(locationId).sendKeys(" ");
 		//helper.waitForElement(helper.locateById(locationSuggestionsId), 5, "No Suggestions on Search");
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		helper.findElementById(locationId).sendKeys(Keys.DOWN);
 		helper.findElementById(locationId).sendKeys(Keys.ENTER);
 	}
@@ -164,8 +170,7 @@ public class HomePage extends BasePage {
 	}
 
 	public String getCorporateEnquirySuccessMessage() {
-		helper.waitForElement(helper.locateById(corporateEnquirySuccessId), 5,
-				"Corporate Success message not Displayed");
+		//helper.waitForElement(helper.locateById(corporateEnquirySuccessId), 5, "Corporate Success message not Displayed");
 		String enquirySuccessMessage = helper.findElementById(corporateEnquirySuccessId).getText();
 		return enquirySuccessMessage;
 	}

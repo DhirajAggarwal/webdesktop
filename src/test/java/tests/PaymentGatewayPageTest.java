@@ -13,13 +13,14 @@ public class PaymentGatewayPageTest extends BrowserFactory {
 	CommonMethods commonMethods = new CommonMethods();
 	PaymentGatewayPage paymentGatewaypage = new PaymentGatewayPage();
 
-	String filePathHardData = "./src/main/resources/data/HardData",
-			filePathPaymentGatewayPageTestData = "./src/main/resources/data/PaymentGatewayPageTestData.json",
-			loginMobileNumber=helper.parseJSONToString("mobileNumber", filePathHardData),
-			loginPassword=helper.parseJSONToString("password", filePathHardData),
-			location= helper.parseJSONToString("location", filePathHardData),
-			checkinDate= helper.parseJSONToString("checkinDate", filePathHardData),
-			checkoutDate= helper.parseJSONToString("checkoutDate", filePathHardData),
+	String filePathCommonTestData = "./src/main/resources/data/CommonTestData.json",
+			loginMobileNumber=helper.parseJSONToString("mobileNumber", filePathCommonTestData),
+			loginPassword=helper.parseJSONToString("password", filePathCommonTestData),
+			location= helper.parseJSONToString("location", filePathCommonTestData),
+			checkinDate= helper.parseJSONToString("checkinDate", filePathCommonTestData),
+			checkoutDate= helper.parseJSONToString("checkoutDate", filePathCommonTestData);
+	
+	String filePathPaymentGatewayPageTestData = "./src/main/resources/data/PaymentGatewayPageTestData.json",
 			creditCardTypeText = helper.parseJSONToString("creditCardTypeText", filePathPaymentGatewayPageTestData);
 
 	@BeforeMethod

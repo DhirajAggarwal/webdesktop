@@ -83,7 +83,7 @@ public class BrowserFactory {
 			driver = new RemoteWebDriver(new URL(nodeUrl), Dcp);
 
 			// Uncomment below section for running on local
-			//driver = new FirefoxDriver();
+			// driver = new FirefoxDriver();
 
 			driver.manage().window().maximize();
 			// driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);

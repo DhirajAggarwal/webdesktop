@@ -1,6 +1,7 @@
 {
 	"payNowId":"js-pay-now",
-	"creditCardClassName":"js-credit-card""hotelNameId":"js-hotel-name",
+	"creditCardClassName":"guestDetails__paymentOptionsItem",
+	"hotelNameId":"js-hotel-name",
 	"bookNowId":"js-book-submit",
 	"userNameId":"js-user-name",
 	"payAtHotelId":"js-pay-hotel",

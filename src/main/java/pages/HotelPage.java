@@ -119,7 +119,7 @@ public class HotelPage extends BasePage {
 	}
 
 	public void clickCreditCard() {
-		helper.findElementByClassName(creditCardClassName).click();
+		helper.findElementsByClassName(creditCardClassName).get(1).click();
 	}
 
 	private void validateHotelPageElements() {

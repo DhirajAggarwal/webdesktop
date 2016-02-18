@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 
 import pages.CommonMethods;
 import pages.HomePage;
+import pages.HotelPage;
 import pages.ManageBookingPage;
 import pages.PaymentGatewayPage;
 import utils.BrowserFactory;
@@ -16,17 +17,20 @@ public class ManageBookingPageTest extends BrowserFactory {
 	ManageBookingPage manageBookingPage = new ManageBookingPage();
 	HomePage homePage = new HomePage();
 	PaymentGatewayPage paymentGatewaypage = new PaymentGatewayPage();
+	HotelPage hotelPage = new HotelPage();
 
-	String filePathHardData = "./src/main/resources/data/HardData",
-			filePathPaymentGatewayPageTestData = "./src/main/resources/data/PaymentGatewayPageTestData.json",
-			filePathManageBookingPageTestData = "./src/main/resources/data/ManageBookingPageTestData.json",
-			loginMobileNumber = helper.parseJSONToString("mobileNumber", filePathHardData),
-			loginPassword = helper.parseJSONToString("password", filePathHardData),
-			location = helper.parseJSONToString("location", filePathHardData),
-			checkinDate = helper.parseJSONToString("checkinDate", filePathHardData),
-			checkoutDate = helper.parseJSONToString("checkoutDate", filePathHardData), 
+	String filePathCommonTestData = "./src/main/resources/data/CommonTestData.json",
+			loginMobileNumber = helper.parseJSONToString("mobileNumber", filePathCommonTestData),
+			loginPassword = helper.parseJSONToString("password", filePathCommonTestData),
+			location = helper.parseJSONToString("location", filePathCommonTestData),
+			checkinDate = helper.parseJSONToString("checkinDate", filePathCommonTestData),
+			checkoutDate = helper.parseJSONToString("checkoutDate", filePathCommonTestData);
+	
+	String filePathPaymentGatewayPageTestData = "./src/main/resources/data/PaymentGatewayPageTestData.json",
+			creditCardTypeText = helper.parseJSONToString("creditCardTypeText", filePathPaymentGatewayPageTestData);
+
+	String	filePathManageBookingPageTestData = "./src/main/resources/data/ManageBookingPageTestData.json",		
 			bookingCancellationMessage = helper.parseJSONToString("bookingCancellationMessage", filePathManageBookingPageTestData),
-			creditCardTypeText = helper.parseJSONToString("creditCardTypeText", filePathPaymentGatewayPageTestData),
 			amountPartialPayment = helper.parseJSONToString("amountPartialPayment", filePathManageBookingPageTestData);
 
 	
@@ -44,7 +48,7 @@ public class ManageBookingPageTest extends BrowserFactory {
 	}
 	
 	/*
-	 * This Test is making booking and processing 
+	 * This Test is making booking after Login and processing 
 	 * partial payments.
 	*/
 	@Test
@@ -54,6 +58,7 @@ public class ManageBookingPageTest extends BrowserFactory {
 		commonMethods.bookingConfirmationPAHafterLogin();
 		homePage.clickUserName();
 		commonMethods.partialPayment();
+		hotelPage.clickCreditCard();
 		Assert.assertEquals(creditCardTypeText, paymentGatewaypage.getCreditCardText());
 		Assert.assertEquals(amountPartialPayment, paymentGatewaypage.getAmountToBePaid());
 	}
