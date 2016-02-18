@@ -2,12 +2,15 @@ package utils;
 
 import static utils.BrowserFactory.driver;
 
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import org.openqa.selenium.interactions.Actions;
+import org.apache.commons.io.FileUtils;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -16,11 +19,15 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 
 public class Helper {
 
 	Object obj = null;
 
+	String filePathScreenShot = "./src/main/resources/screenshots";
+	private static String fileSeperator = System.getProperty("file.separator");
 	private static String filePathConfig = "./src/main/resources/config/config.json";
 	String URL, customURL;
 
@@ -158,4 +165,37 @@ public class Helper {
 		int currentMonth = monthInInteger + 1;
 		return currentMonth;
 	}
+	
+	public void takeScreenShot(String methodName) {
+		
+		// getting current date and time into string Ex: Thu Feb 18 18:13:38 IST 2016
+		Date currentDate = new Date();
+		String currentDateAndTime = currentDate.toString();
+		System.out.println("date and time in string format......"+currentDateAndTime);
+		
+		// splitting the date string Ex: "Thu Feb 18 18" out of "Thu Feb 18 18:13:38 IST 2016"
+		String[] dateFolder = currentDateAndTime.split(":");
+		
+		System.out.println();
+		String newFolderName = filePathScreenShot + fileSeperator + dateFolder[0] + fileSeperator;
+		
+		File targetFolder = new File(newFolderName);
+		if (!targetFolder.exists()) {
+			System.out.println("File created " + targetFolder);
+			targetFolder.mkdir();
+		}
+		
+		File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+
+		File targetFile = new File(newFolderName + methodName + ".png");
+		
+		// The below method will save the screen shot with test method name
+		try {
+			FileUtils.copyFile(scrFile, targetFile);
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
 }

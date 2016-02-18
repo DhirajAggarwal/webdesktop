@@ -1,0 +1,1 @@
+Keep screenshots of failed test cases in this folder
