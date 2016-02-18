@@ -48,7 +48,10 @@ public class HomePageTest extends BrowserFactory {
 			malaysiaCityName=helper.parseJSONToString("malaysiaCityName", filePathHomePageData),
 			kerelaDealName=helper.parseJSONToString("kerelaDealName", filePathHomePageData),
 			cityPageTitle=helper.parseJSONToString("cityPageTitle", filePathHomePageData),
-			malaysiaHeader=helper.parseJSONToString("malaysiaHeader", filePathHomePageData);
+			malaysiaHeader=helper.parseJSONToString("malaysiaHeader", filePathHomePageData),
+			megaDDlocationLinkText=helper.parseJSONToString("megaDDlocationLinkText", filePathHomePageData),
+			megaDDcityLinkText=helper.parseJSONToString("megaDDcityLinkText", filePathHomePageData);
+			
 
 	@BeforeMethod
 	public void openURL() {
@@ -92,14 +95,22 @@ public class HomePageTest extends BrowserFactory {
 			homePage.clickOnCityLink();
 			cityPage.isValid();	
 		}
-/*	@Test(priority = 5)
+	@Test(priority = 5)
 	public void verifyViewAllLinkInMDD() {
 		homePage.hoverOnMDDLink();
 		String collectionName=homePage.getFirstCollectionName();
 		homePage.clickOnMDDViewAllLink();
 		String tagName=searchPage.getTagName();
 		Assert.assertEquals(collectionName,tagName);
-}*/
+}
+	@Test(priority = 5)
+	public void verifyLocationLinkInMDD() {
+		homePage.hoverOnMDDLink();
+		String locationName=homePage.getFirstLocationName(megaDDlocationLinkText);
+		homePage.clickOnMddLocation(megaDDlocationLinkText);
+		Assert.assertEquals(megaDDlocationLinkText +", " + megaDDcityLinkText +", India" , searchPage.getlocalityNameInSearch());
+		searchPage.isValid();
+	}
 
 	@Test(priority = 6)
 	public void verifyAllCitiesLinkInMDD() {
@@ -128,9 +139,17 @@ public class HomePageTest extends BrowserFactory {
 		Assert.assertEquals(hillsDealName,hillsPage.getDealName());
 	}
 	@Test(priority = 10)
-	public void verifyKeralsLink() {
+	public void verifyKeralaLink() {
 		homePage.clickOnOyosInKeralaLink();
 		kerelaPage.isValid();
 		Assert.assertEquals(kerelaDealName,kerelaPage.getDealName());
+	}
+	@Test(priority = 11)
+	public void verifyNowInMalaysiaLink() {
+		homePage.clickOnNowInMalaysiaLink();
+		cityPage.isValid();
+		Assert.assertEquals(cityPageTitle,cityPage.getCityPageTitle());
+		Assert.assertEquals(malaysiaCityName,cityPage.getCityNameInSearch());
+		Assert.assertEquals(malaysiaHeader,cityPage.getMalaysiaHeader());
 	}
 }

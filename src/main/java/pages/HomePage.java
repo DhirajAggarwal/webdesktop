@@ -50,6 +50,8 @@ public class HomePage extends BasePage {
 			allCitiesLinkText = helper.parseJSONToString("allCitiesLinkText", filePathHomePage),
 			heartCanvas = helper.parseJSONToString("heartCanvas", filePathCommonOR),
 			logoutLinkText = helper.parseJSONToString("logoutLinkText", filePathCommonOR),
+			nowInMalaysiaLinkText=helper.parseJSONToString("nowInMalaysiaLinkText",filePathHomePage ),
+			megaDDlocationCss=helper.parseJSONToString("megaDDlocationCss", filePathHomePage),
 			dealsLinksClassName = helper.parseJSONToString("dealsLinksClassName", filePathHomePage);
 
 	public void isValid() {
@@ -85,7 +87,8 @@ public class HomePage extends BasePage {
 
 	public void clickOnMDDViewAllLink() {
 		helper.waitForElement(helper.locateByLinkText(viewAllLinkText), 2, "MDD View All Link Not Found");
-		helper.findElementByLinkText(viewAllLinkText).click();
+		List<WebElement> viewAll=helper.findElementsByLinkText(viewAllLinkText);
+		viewAll.get(1).click();		
 	}
 
 	public void clickOnAllCitiesLink() {
@@ -121,6 +124,10 @@ public class HomePage extends BasePage {
 		List<WebElement> KerelaLink = helper.findElementsByClassName(hotelLinksClassName);
 		KerelaLink.get(2).click();
 
+	}
+	
+	public void clickOnMddLocation(String location){
+		helper.findElementByLinkText(location).click();
 	}
 
 	public void validateHeaderElements() {
@@ -184,9 +191,7 @@ public class HomePage extends BasePage {
 	public String getFirstCollectionName() {
 		helper.waitForElement(helper.locateByClassName(viewAllCollectionNameClassName), 15, "Collection Name Not visible");
 		List<WebElement> collectionName = helper.findElementsByClassName(viewAllCollectionNameClassName);
-		String collection=collectionName.get(0).getText();
-		//String collectionName = helper.findElementByXpath("//li[@class='megadropdown__subListItem megadropdown__sublistHeading js-md-hotel-collection']").getText();
-		System.out.println("Smita's Log " + collection);
+		String collection=collectionName.get(1).getText();
 		return collection;
 	}
 
@@ -249,6 +254,17 @@ public class HomePage extends BasePage {
 	public void clickOnCorporateEnquirySubmit() {
 		helper.findElementById(corporateEnquirySubmitButtonId).click();
 		// TODO Auto-generated method stub
+	}
+
+	public void clickOnNowInMalaysiaLink() {
+		helper.findElementByLinkText(nowInMalaysiaLinkText).click();
+		
+	}
+
+	public String getFirstLocationName(String location) {
+		helper.waitForElement(helper.locateByLinkText(location),30, "Location Not Visible");
+		String locationName=helper.findElementByLinkText(location).getText();
+		return locationName;
 	}
 
 }
