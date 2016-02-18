@@ -29,6 +29,11 @@ public class BrowserFactory {
 		}
 		return driver;
 	}
+	
+	@AfterSuite
+	public void tearDown() {
+		driver.close();
+	}
 
 	public RemoteWebDriver setDriver(String browserType) throws Exception {
 		try
@@ -63,6 +68,7 @@ public class BrowserFactory {
 		String ipAddress = "saurabhthemenace:9a9c95fb-a726-4958-9dba-34d265d15b71@ondemand.saucelabs.com:80";
 		String port1 = ":4444";
 		String publicipAddress = "124.124.44.49";
+		//String publicipAddress = "10.10.1.148";
 		
 		try
 		{
@@ -108,9 +114,6 @@ public class BrowserFactory {
 		return driver;
 	}
 
-	@AfterSuite
-	public void tearDown() {
-		driver.quit();
-	}
+	
 
 }
