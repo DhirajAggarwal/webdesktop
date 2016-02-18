@@ -4,6 +4,7 @@ import java.util.List;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+
 import utils.Helper;
 
 public class HomePage extends BasePage {
@@ -216,11 +217,18 @@ public class HomePage extends BasePage {
 		return enquirySuccessMessage;
 	}
 
-	public void setCheckInDate(String checkInDate) {
-
+	public void setCheckInDate(String date, int month) {
+		int monthCounter = 0;
+		int currentMonth = helper.getCurrentMonth();
+		if(month>=currentMonth){
+			monthCounter = month - currentMonth;
+		}
 		helper.findElementById(checkInId).click();
-		helper.waitForElement(helper.locateByLinkText(checkInDate), 10, "No checkin date displayed");
-		helper.findElementByLinkText(checkInDate).click();
+		helper.waitForElement(helper.locateByLinkText(date), 6, "No checkin date displayed");
+		for(int i=1; i<=monthCounter; i++){
+		helper.findElementByLinkText("Next").click();
+		}
+		helper.findElementByLinkText(date).click();
 	}
 
 	public void setCheckOutDate(String checkOutDate) {
@@ -230,7 +238,6 @@ public class HomePage extends BasePage {
 	}
 
 	public void setGuestCount() {
-
 	}
 
 	public void setRoomCount() {

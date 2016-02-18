@@ -4,7 +4,9 @@ import static utils.BrowserFactory.driver;
 
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Calendar;
 import java.util.List;
+
 import org.openqa.selenium.interactions.Actions;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -13,7 +15,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import org.openqa.selenium.NoSuchElementException;
 
 public class Helper {
@@ -149,5 +150,12 @@ public class Helper {
 	    catch (NoSuchElementException e) {
 	      return false;
 	    }
+	}
+	
+	public int getCurrentMonth() {
+		Calendar cal = Calendar.getInstance();
+		int monthInInteger = cal.get(Calendar.MONTH);
+		int currentMonth = monthInInteger + 1;
+		return currentMonth;
 	}
 }

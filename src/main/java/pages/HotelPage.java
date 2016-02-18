@@ -35,6 +35,8 @@ public class HotelPage extends BasePage {
 			otpFieldId = helper.parseJSONToString("otpFieldId", filePathHotelPageOR),
 			confirmAndBookId = helper.parseJSONToString("confirmAndBookId", filePathHotelPageOR),
 			confirmationMessageOnRequestCallBackId = helper.parseJSONToString("confirmationMessageOnRequestCallBackId", filePathHotelPageOR),
+			limitedRoomMessageId = helper.parseJSONToString("limitedRoomMessageId", filePathHotelPageOR),
+			noRoomAvailableMessageId = helper.parseJSONToString("noRoomAvailableMessageId", filePathHotelPageOR),
 			hotelTermsAndConditionsLinkId	= helper.parseJSONToString("hotelTermsAndConditionsLinkId", filePathHotelPageOR);
 			
 			
@@ -106,6 +108,12 @@ public class HotelPage extends BasePage {
 
 	public void clickPayAtHotel() {
 		helper.findElementById(payAtHotelId).click();
+	}
+	
+	public String getLimitedAvailabilityMessage(){
+		String limitedAvailabilityMsg = helper.findElementById(limitedRoomMessageId).getText();
+		return limitedAvailabilityMsg;
+		
 	}
 	
 

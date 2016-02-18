@@ -17,9 +17,9 @@ public class CommonMethods {
 		homePage.setPasswordForLogin(password);
 		homePage.clickOnLoginSubmitButton();
 	}
-	public void searchHotels(String location,String checkinDate,String checkoutDate) {
+	public void searchHotels(String location,String checkinDate, int checkInMonth, String checkoutDate) {
 		homePage.setLocation(location);
-		homePage.setCheckInDate(checkinDate);
+		homePage.setCheckInDate(checkinDate, checkInMonth);
 		homePage.setCheckOutDate(checkoutDate);
 		homePage.clickOnSearchButton();		
 	}
