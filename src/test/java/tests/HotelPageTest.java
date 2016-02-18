@@ -33,14 +33,14 @@ public class HotelPageTest extends BrowserFactory{
 		hotelPage.isValid();
 	}
 	
-	@Test(priority=1)
+	@Test
 	public void verifyBulkBookingMessage(){
 		hotelPage.setRoomsCount(roomsCount);
 		String bulkBookingMessageActual = hotelPage.getBulkBookingMessage();
 		Assert.assertEquals(bulkBookingMessageActual, bulkBookingMessageExpected);
 	}
 	
-	@Test(priority=2)
+	@Test
 	public void verifyMessageOnRequestCallback(){
 		hotelPage.setRoomsCount(roomsCount);
 		hotelPage.setNumberForRequestCallBack(phoneNumberForRequestCallback);

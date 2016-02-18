@@ -30,7 +30,7 @@ public class BookingConfirmationPageTest extends BrowserFactory{
 		helper.openURL();
 	}
 	
-	@Test(priority = 0)
+	@Test 
 	public void verifySuccessfulBookingConfirmation() {
 		commonMethods.logInToOyoRooms(loginMobileNumber,loginPassword);
 		commonMethods.searchHotels(location,checkinDate,checkoutDate);

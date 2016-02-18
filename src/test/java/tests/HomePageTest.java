@@ -58,12 +58,12 @@ public class HomePageTest extends BrowserFactory {
 		helper.openURL();
 	}
 
-	@Test(priority = 0)
+	@Test 
 	public void isValid() {
 		homePage.isValid();
 	}
 
-	@Test(priority = 1)
+	@Test 
 	public void verifySubmissionOfCorporateEnquiry() {
 		homePage.clickOnCorporateEnquiry();
 		homePage.fillCorporateForm(corporateName, corporatePhoneNo, corporateEmail, corporateEnquiry);
@@ -71,13 +71,13 @@ public class HomePageTest extends BrowserFactory {
 		Assert.assertEquals(homePage.getCorporateEnquirySuccessMessage(), corporateSuccessMessage);
 	}
 
-	@Test(priority = 2)
+	@Test 
 	public void verifyBlankLoginValidation() {
 		commonMethods.logInToOyoRooms(blankMobileNumber, blankLoginPassword);
 		Assert.assertEquals(homePage.getBlankLoginValidationMessage(), blankValidationMessage);
 	}
 
-	@Test(priority = 3)
+	@Test 
 	public void verifySuccessFulLogin() {
 		commonMethods.logInToOyoRooms(loginmobileNumber, loginPassword);
 		Assert.assertEquals(homePage.getLoggedInUserName(), userName);
@@ -85,17 +85,13 @@ public class HomePageTest extends BrowserFactory {
 		homePage.logoutUser();
 	}
 
-	 @Test(priority = 4)
+	 @Test 
 	 public void verifyHotelsDisplayedOnSearch() {
 	 commonMethods.searchHotels(location, checkinDate, checkoutDate);
 	 cityPage.isValid();	
 	 }
-	 @Test(priority = 11)
-		public void verifyCityLinkInMDD() {
-			homePage.clickOnCityLink();
-			cityPage.isValid();	
-		}
-	@Test(priority = 5)
+	
+	@Test 
 	public void verifyViewAllLinkInMDD() {
 		homePage.hoverOnMDDLink();
 		String collectionName=homePage.getFirstCollectionName();
@@ -103,27 +99,20 @@ public class HomePageTest extends BrowserFactory {
 		String tagName=searchPage.getTagName();
 		Assert.assertEquals(collectionName,tagName);
 }
-	@Test(priority = 5)
-	public void verifyLocationLinkInMDD() {
-		homePage.hoverOnMDDLink();
-		String locationName=homePage.getFirstLocationName(megaDDlocationLinkText);
-		homePage.clickOnMddLocation(megaDDlocationLinkText);
-		Assert.assertEquals(megaDDlocationLinkText +", " + megaDDcityLinkText +", India" , searchPage.getlocalityNameInSearch());
-		searchPage.isValid();
-	}
+	
 
-	@Test(priority = 6)
+	@Test 
 	public void verifyAllCitiesLinkInMDD() {
 		homePage.clickOnAllCitiesLink();
 		allCities.isValid();
 	}
 	
-	@Test(priority = 7)
+	@Test 
 	public void verifyDealsLink() {
 		homePage.clickOnFirstDealLink();
 		dealsPage.isValid();
 	}
-	@Test(priority = 8)
+	@Test 
 	public void verifyMalaysiaLink() {
 		homePage.clickOnOyosInMalaysiaLink();
 		cityPage.isValid();
@@ -132,19 +121,19 @@ public class HomePageTest extends BrowserFactory {
 		Assert.assertEquals(malaysiaHeader,cityPage.getMalaysiaHeader());
 		
 	}
-	@Test(priority = 9)
+	@Test 
 	public void verifyOyosAtHillsLink() {
 		homePage.clickOnOyosAtHillsLink();
 		hillsPage.isValid();
 		Assert.assertEquals(hillsDealName,hillsPage.getDealName());
 	}
-	@Test(priority = 10)
+	@Test 
 	public void verifyKeralaLink() {
 		homePage.clickOnOyosInKeralaLink();
 		kerelaPage.isValid();
 		Assert.assertEquals(kerelaDealName,kerelaPage.getDealName());
 	}
-	@Test(priority = 11)
+	@Test 
 	public void verifyNowInMalaysiaLink() {
 		homePage.clickOnNowInMalaysiaLink();
 		cityPage.isValid();
@@ -152,4 +141,17 @@ public class HomePageTest extends BrowserFactory {
 		Assert.assertEquals(malaysiaCityName,cityPage.getCityNameInSearch());
 		Assert.assertEquals(malaysiaHeader,cityPage.getMalaysiaHeader());
 	}
+	 @Test
+		public void verifyCityLinkInMDD() {
+			homePage.clickOnCityLink();
+			cityPage.isValid();	
+		}
+	 @Test
+		public void verifyLocationLinkInMDD() {
+			homePage.hoverOnMDDLink();
+			String locationName=homePage.getFirstLocationName(megaDDlocationLinkText);
+			homePage.clickOnMddLocation(megaDDlocationLinkText);
+			Assert.assertEquals(megaDDlocationLinkText +", " + megaDDcityLinkText +", India" , searchPage.getlocalityNameInSearch());
+			searchPage.isValid();
+		}
 }
