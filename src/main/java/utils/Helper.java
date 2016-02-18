@@ -99,6 +99,10 @@ public class Helper {
 	public WebElement findElementById(String element) {
 		return driver.findElement(By.id(element));
 	}
+	
+	public List<WebElement> findElementsById(String element) {
+		return driver.findElements(By.id(element));
+	}
 
 	public WebElement findElementByClassName(String element) {
 		waitForElement(locateByClassName(element), 10, element.toString() + " not found");
@@ -108,6 +112,9 @@ public class Helper {
 	public WebElement findElementByTagName(String element) {
 		return driver.findElement(By.tagName(element));
 	}
+	public List<WebElement> findElementsByTagName(String element) {
+		return driver.findElements(By.tagName(element));
+	}
 
 	public WebElement findElementByXpath(String element) {
 		return driver.findElement(By.xpath(element));
@@ -116,9 +123,15 @@ public class Helper {
 	public WebElement findElementByCss(String element) {
 		return driver.findElement(By.cssSelector(element));
 	}
+	public List<WebElement> findElementsByCss(String element) {
+		return driver.findElements(By.cssSelector(element));
+	}
 
 	public WebElement findElementByLinkText(String element) {
 		return driver.findElement(By.linkText(element));
+	}
+	public List<WebElement> findElementsByLinkText(String element) {
+		return driver.findElements(By.linkText(element));
 	}
 
 	public WebElement findElementByPartialLinkText(String element) {
@@ -143,7 +156,6 @@ public class Helper {
 		Calendar cal = Calendar.getInstance();
 		int monthInInteger = cal.get(Calendar.MONTH);
 		int currentMonth = monthInInteger + 1;
-		System.out.println(currentMonth);
 		return currentMonth;
 	}
 }

@@ -22,18 +22,20 @@ public class BookingConfirmationPageTest extends BrowserFactory{
 			checkinDate= helper.parseJSONToString("checkinDate", filePathCommonTestData),
 			checkoutDate= helper.parseJSONToString("checkoutDate", filePathCommonTestData),
 			successfulBookingMessage = helper.parseJSONToString("successfulBookingMessage", filePathBookingConfirmationPage),
-			userName = helper.parseJSONToString("userName", filePathCommonTestData);
+			userName = helper.parseJSONToString("userName", filePathCommonTestData),
+			checkInMonth = helper.parseJSONToString("checkInMonth", filePathCommonTestData);
 
+			int checkInMonthInt = Integer.parseInt(checkInMonth);
 	
 	@BeforeClass
 	public void openURL() {
 		helper.openURL();
 	}
 	
-	@Test(priority = 0)
+	@Test
 	public void verifySuccessfulBookingConfirmation() {
 		commonMethods.logInToOyoRooms(loginMobileNumber,loginPassword);
-		commonMethods.searchHotels(location,checkinDate,checkoutDate);
+		commonMethods.searchHotels(location,checkinDate,checkInMonthInt, checkoutDate);
 		homePage.hoverOnUserName(userName);
 		homePage.logoutUser();
 		/*

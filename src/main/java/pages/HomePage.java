@@ -1,8 +1,6 @@
 package pages;
 
-import java.util.Calendar;
 import java.util.List;
-
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -45,12 +43,17 @@ public class HomePage extends BasePage {
 			corporateEnquiryId = helper.parseJSONToString("corporateEnquiryId", filePathHomePage),
 			corporateEnquirySubmitButtonId = helper.parseJSONToString("corporateEnquirySubmitButtonId",
 					filePathHomePage),
+			viewAllCollectionNameClassName = helper.parseJSONToString("viewAllCollectionNameClassName", filePathHomePage),
 			corporateEnquirySuccessId = helper.parseJSONToString("corporateEnquirySuccessId", filePathHomePage),
 			blankLoginValidationMessageId = helper.parseJSONToString("blankLoginValidationMessageId", filePathCommonOR),
 			megaDDLink = helper.parseJSONToString("megaDDLinkText", filePathHomePage),
 			viewAllLinkText = helper.parseJSONToString("viewAllLinkText", filePathHomePage),
 			allCitiesLinkText = helper.parseJSONToString("allCitiesLinkText", filePathHomePage),
-			logoutLinkText =helper.parseJSONToString("logoutLinkText",filePathCommonOR );
+			heartCanvas = helper.parseJSONToString("heartCanvas", filePathCommonOR),
+			logoutLinkText = helper.parseJSONToString("logoutLinkText", filePathCommonOR),
+			nowInMalaysiaLinkText=helper.parseJSONToString("nowInMalaysiaLinkText",filePathHomePage ),
+			megaDDlocationCss=helper.parseJSONToString("megaDDlocationCss", filePathHomePage),
+			dealsLinksClassName = helper.parseJSONToString("dealsLinksClassName", filePathHomePage);
 
 	public void isValid() {
 		validateHeaderElements();
@@ -59,7 +62,7 @@ public class HomePage extends BasePage {
 		Assert.assertTrue(helper.findElementById(corporateEnquiryFormLabelId).isDisplayed());
 		Assert.assertTrue(helper.findElementByClassName(megadropdownClassName).isDisplayed());
 		List<WebElement> links = helper.findElementsByClassName(hotelLinksClassName);
- 		for (int i = 0; i < links.size(); i++) {
+		for (int i = 0; i < links.size(); i++) {
 			Assert.assertTrue(links.get(i).isEnabled());
 		}
 	}
@@ -71,12 +74,13 @@ public class HomePage extends BasePage {
 		return loginValidationMessage;
 
 	}
+
 	public void logoutUser() {
 		helper.findElementByLinkText(logoutLinkText).click();
 		helper.waitForElement(helper.locateByLinkText(myAccountLinkText), 15, "User not getting logged out");
-		
+
 	}
-	
+
 	public void hoverOnUserName(String user) {
 		WebElement userName = helper.findElementByLinkText(user);
 		helper.hoverOnElement(userName);
@@ -84,14 +88,47 @@ public class HomePage extends BasePage {
 
 	public void clickOnMDDViewAllLink() {
 		helper.waitForElement(helper.locateByLinkText(viewAllLinkText), 2, "MDD View All Link Not Found");
-		helper.findElementByLinkText(viewAllLinkText).click();
+		List<WebElement> viewAll=helper.findElementsByLinkText(viewAllLinkText);
+		viewAll.get(1).click();		
 	}
+
 	public void clickOnAllCitiesLink() {
 		helper.waitForElement(helper.locateByLinkText(allCitiesLinkText), 2, "MDD All Cities Link Not Found");
 		helper.findElementByLinkText(allCitiesLinkText).click();
 	}
+
 	public void clickOnCorporateEnquiry() {
 		helper.findElementById(corporateEnquiryFormLabelId).click();
+	}
+
+	public void clickOnCityLink() {
+		helper.findElementByLinkText(megaDDLink).click();
+	}
+
+	public void clickOnFirstDealLink() {
+		List<WebElement> dealsLink = helper.findElementsByClassName(dealsLinksClassName);
+		dealsLink.get(0).click();
+	}
+
+	public void clickOnOyosInMalaysiaLink() {
+		List<WebElement> malaysiaLink = helper.findElementsByClassName(hotelLinksClassName);
+		malaysiaLink.get(0).click();
+	}
+
+	public void clickOnOyosAtHillsLink() {
+		List<WebElement> hillsLink = helper.findElementsByClassName(hotelLinksClassName);
+		hillsLink.get(1).click();
+
+	}
+
+	public void clickOnOyosInKeralaLink() {
+		List<WebElement> KerelaLink = helper.findElementsByClassName(hotelLinksClassName);
+		KerelaLink.get(2).click();
+
+	}
+	
+	public void clickOnMddLocation(String location){
+		helper.findElementByLinkText(location).click();
 	}
 
 	public void validateHeaderElements() {
@@ -152,7 +189,15 @@ public class HomePage extends BasePage {
 		return userName;
 	}
 
+	public String getFirstCollectionName() {
+		helper.waitForElement(helper.locateByClassName(viewAllCollectionNameClassName), 15, "Collection Name Not visible");
+		List<WebElement> collectionName = helper.findElementsByClassName(viewAllCollectionNameClassName);
+		String collection=collectionName.get(1).getText();
+		return collection;
+	}
+
 	public void setLocation(String location) {
+		helper.findElementById(locationId).clear();
 		helper.findElementById(locationId).sendKeys(location);
 		helper.findElementById(locationId).sendKeys(" ");
 		helper.waitForElement(helper.locateById(locationSuggestionsId), 5, "No Suggestions on Search");
@@ -178,7 +223,6 @@ public class HomePage extends BasePage {
 		if(month>=currentMonth){
 			monthCounter = month - currentMonth;
 		}
-
 		helper.findElementById(checkInId).click();
 		helper.waitForElement(helper.locateByLinkText(date), 6, "No checkin date displayed");
 		for(int i=1; i<=monthCounter; i++){
@@ -218,5 +262,16 @@ public class HomePage extends BasePage {
 		helper.findElementById(corporateEnquirySubmitButtonId).click();
 		// TODO Auto-generated method stub
 	}
-	
+
+	public void clickOnNowInMalaysiaLink() {
+		helper.findElementByLinkText(nowInMalaysiaLinkText).click();
+		
+	}
+
+	public String getFirstLocationName(String location) {
+		helper.waitForElement(helper.locateByLinkText(location),30, "Location Not Visible");
+		String locationName=helper.findElementByLinkText(location).getText();
+		return locationName;
+	}
+
 }
