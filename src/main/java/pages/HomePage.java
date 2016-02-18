@@ -146,7 +146,7 @@ public class HomePage extends BasePage {
 	}
 
 	public void clickOnMyAccounts() {
-		helper.waitForElement(helper.locateByLinkText(myAccountLinkText), 3, "My Account Link Not found");
+		helper.waitForElement(helper.locateByLinkText(myAccountLinkText), 8, "My Account Link Not found");
 		helper.findElementByLinkText(myAccountLinkText).click();
 	}
 
