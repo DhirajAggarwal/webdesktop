@@ -33,7 +33,7 @@ public class SearchPageTest extends BrowserFactory {
 	}
 
 	@Test
-	public void validateSearchPageElement(){
+	public void verifySearchPageElement(){
 		searchPage.isValid();
 	}
 	
