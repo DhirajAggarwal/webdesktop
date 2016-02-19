@@ -54,7 +54,7 @@ public class HomePageTest extends BrowserFactory {
 			megaDDlocationLinkText=helper.parseJSONToString("megaDDlocationLinkText", filePathHomePageData),
 			megaDDcityLinkText=helper.parseJSONToString("megaDDcityLinkText", filePathHomePageData);
 	
-	int checkInMonthInt = Integer.parseInt(checkInMonth);
+int checkInMonthInt = Integer.parseInt(checkInMonth);
 			
 
 	@BeforeMethod
