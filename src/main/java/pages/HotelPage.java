@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.testng.Assert;
 
@@ -35,6 +36,8 @@ public class HotelPage extends BasePage {
 			otpFieldId = helper.parseJSONToString("otpFieldId", filePathHotelPageOR),
 			confirmAndBookId = helper.parseJSONToString("confirmAndBookId", filePathHotelPageOR),
 			confirmationMessageOnRequestCallBackId = helper.parseJSONToString("confirmationMessageOnRequestCallBackId", filePathHotelPageOR),
+			limitedRoomMessageId = helper.parseJSONToString("limitedRoomMessageId", filePathHotelPageOR),
+			noRoomAvailableMessageId = helper.parseJSONToString("noRoomAvailableMessageId", filePathHotelPageOR),
 			hotelTermsAndConditionsLinkId	= helper.parseJSONToString("hotelTermsAndConditionsLinkId", filePathHotelPageOR);
 			
 			
@@ -106,6 +109,13 @@ public class HotelPage extends BasePage {
 
 	public void clickPayAtHotel() {
 		helper.findElementById(payAtHotelId).click();
+	}
+	
+	public String getLimitedAvailabilityMessage(){
+		helper.waitForElement(By.id(limitedRoomMessageId), 3, "Only 1 rooms availabe Message Dispayed");
+		String limitedAvailabilityMsg = helper.findElementById(limitedRoomMessageId).getText();
+		return limitedAvailabilityMsg;
+		
 	}
 	
 
