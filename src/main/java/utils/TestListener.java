@@ -1,15 +1,6 @@
 
 package utils;
 
-import static utils.BrowserFactory.driver;
-
-import java.io.File;
-import java.io.IOException;
-import java.util.Date;
-
-import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
@@ -45,8 +36,9 @@ public class TestListener implements ITestListener {
 	public void onTestFailure(ITestResult result) {
 		System.out.println(result.getName() + " Test has FAILED *****"+"\n");
 		
-    	String methodName = result.getName().toString().trim();
-    	helper.takeScreenShot(methodName);
+		String testClassName = helper.getTestClassName(result.getInstanceName()).trim();
+    	String testMethodName = result.getName().toString().trim();
+    	helper.takeScreenShot(testClassName, testMethodName);
 	}
 
 	/* (non-Javadoc)

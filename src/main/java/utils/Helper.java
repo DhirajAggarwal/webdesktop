@@ -166,12 +166,11 @@ public class Helper {
 		return currentMonth;
 	}
 	
-	public void takeScreenShot(String methodName) {
+	public void takeScreenShot(String testClassName, String testMethodName) {
 		
 		// getting current date and time into string Ex: Thu Feb 18 18:13:38 IST 2016
 		Date currentDate = new Date();
 		String currentDateAndTime = currentDate.toString();
-		System.out.println("date and time in string format......"+currentDateAndTime);
 		
 		// splitting the date string Ex: "Thu Feb 18 18" out of "Thu Feb 18 18:13:38 IST 2016"
 		String[] dateFolder = currentDateAndTime.split(":");
@@ -181,21 +180,27 @@ public class Helper {
 		
 		File targetFolder = new File(newFolderName);
 		if (!targetFolder.exists()) {
-			System.out.println("File created " + targetFolder);
+			//System.out.println("File created " + targetFolder);
 			targetFolder.mkdir();
 		}
 		
+		// taking screenshot
 		File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 
-		File targetFile = new File(newFolderName + methodName + ".png");
+		//adding test class name before the test method while creating screenshot file
+		File targetFile = new File(newFolderName + testClassName + "_" + testMethodName + ".png");
 		
-		// The below method will save the screen shot with test method name
+		// The below method will save the screen shot with test class and method name
 		try {
 			FileUtils.copyFile(scrFile, targetFile);
-			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 	
+	public String getTestClassName(String testName) {
+		String[] reqTestClassname = testName.split("\\.");
+		int i = reqTestClassname.length - 1;
+		return reqTestClassname[i];
+	}
 }
