@@ -151,13 +151,12 @@ public class HomePage extends BasePage {
 	}
 
 	public void setLocation(String location) {
-		helper.findElementById(locationId).sendKeys(location);
+		helper.findElementById(locationId).sendKeys(location + ", ");
 		helper.findElementById(locationId).sendKeys(" ");
-		//helper.waitForElement(helper.locateById(locationSuggestionsId), 5, "No Suggestions on Search");
+		helper.waitForElement(helper.locateById(locationSuggestionsId), 5, "No Suggestions on Search");
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		helper.findElementById(locationId).sendKeys(Keys.DOWN);
