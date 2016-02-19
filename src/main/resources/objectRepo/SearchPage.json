@@ -9,5 +9,5 @@
 	"distanceFilter":"js-distanceFilter-wrapper",
 	"firstHotelSnippetCss":"hotelsnippetSmall__overlay.js-parameterized-url",
 	"tagId":"extra-tag",
-	"localityNameOnSearchPage":"",	
+	"localityNameOnSearchPage":""
 }

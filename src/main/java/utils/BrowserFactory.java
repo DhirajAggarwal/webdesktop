@@ -5,7 +5,6 @@ import java.net.URL;
 
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterSuite;
@@ -83,9 +82,9 @@ public class BrowserFactory {
 				nodeip = ipAddress;
 				nodeUrl = nodeUrl1 + nodeip + nodeUrl2;
 			}
-			// driver = new RemoteWebDriver(new URL(nodeUrl), Dcp);
+			driver = new RemoteWebDriver(new URL(nodeUrl), Dcp);
 			// Uncomment below section for running on local
-			driver = new FirefoxDriver();
+			// driver = new FirefoxDriver();
 
 			driver.manage().window().maximize();
 			// driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);

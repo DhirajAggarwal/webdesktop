@@ -2,12 +2,15 @@ package utils;
 
 import static utils.BrowserFactory.driver;
 
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import org.openqa.selenium.interactions.Actions;
+import org.apache.commons.io.FileUtils;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -16,11 +19,15 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 
 public class Helper {
 
 	Object obj = null;
-		
+
+	String filePathScreenShot = "./src/main/resources/screenshots";
+	private static String fileSeperator = System.getProperty("file.separator");
 	private static String filePathConfig = "./src/main/resources/config/config.json";
 	String URL, customURL;
 
@@ -31,13 +38,12 @@ public class Helper {
 	}
 
 	public void openURL() {
-		
-		
+
 		URL = parseJSONToString("oyoRoomsURL", filePathConfig);
 		driver.get(URL);
 	}
-	
-	public void openHotelPage(String hotelId, String hotelType, String hotelName){
+
+	public void openHotelPage(String hotelId, String hotelType, String hotelName) {
 		URL = parseJSONToString("oyoRoomsURL", filePathConfig);
 		customURL = URL + hotelId + "-" + hotelType + "-" + hotelName;
 		driver.get(customURL);
@@ -53,11 +59,12 @@ public class Helper {
 		JSONObject jsonObj = (JSONObject) obj;
 		return (String) jsonObj.get(keyVal);
 	}
-	public void hoverOnElement(WebElement ele){
-		Actions action=new Actions(driver);
+
+	public void hoverOnElement(WebElement ele) {
+		Actions action = new Actions(driver);
 		action.moveToElement(ele).perform();
 	}
-	
+
 	public void waitForElement(By locator, int timeOut, String message) {
 		try {
 			WebDriverWait wait = null;
@@ -95,7 +102,7 @@ public class Helper {
 	public By locateByXpath(String element) {
 		return By.xpath(element);
 	}
-	
+
 	public By locateByTagName(String element) {
 		return By.tagName(element);
 	}
@@ -104,7 +111,7 @@ public class Helper {
 		waitForElement(locateById(element), 10, element);
 		return driver.findElement(By.id(element));
 	}
-	
+
 	public List<WebElement> findElementsById(String element) {
 		return driver.findElements(By.id(element));
 	}
@@ -118,6 +125,7 @@ public class Helper {
 		waitForElement(locateByTagName(element), 10, element);
 		return driver.findElement(By.tagName(element));
 	}
+
 	public List<WebElement> findElementsByTagName(String element) {
 		return driver.findElements(By.tagName(element));
 	}
@@ -131,6 +139,7 @@ public class Helper {
 		waitForElement(locateByCssSelector(element), 10, element);
 		return driver.findElement(By.cssSelector(element));
 	}
+
 	public List<WebElement> findElementsByCss(String element) {
 		return driver.findElements(By.cssSelector(element));
 	}
@@ -139,6 +148,7 @@ public class Helper {
 		waitForElement(locateByLinkText(element), 10, element);
 		return driver.findElement(By.linkText(element));
 	}
+
 	public List<WebElement> findElementsByLinkText(String element) {
 		return driver.findElements(By.linkText(element));
 	}
@@ -152,21 +162,62 @@ public class Helper {
 		waitForElement(locateByClassName(element), 10, element);
 		return driver.findElements(By.className(element));
 	}
-	
+
 	public boolean isElementPresent(By by) {
-	    try {
-	      driver.findElement(by);
-	      return true;
-	    } 
-	    catch (NoSuchElementException e) {
-	      return false;
-	    }
+		try {
+			driver.findElement(by);
+			return true;
+		} catch (NoSuchElementException e) {
+			return false;
+		}
 	}
-	
+
 	public int getCurrentMonth() {
 		Calendar cal = Calendar.getInstance();
 		int monthInInteger = cal.get(Calendar.MONTH);
 		int currentMonth = monthInInteger + 1;
 		return currentMonth;
+	}
+
+	public void takeScreenShot(String testClassName, String testMethodName) {
+
+		// getting current date and time into string Ex: Thu Feb 18 18:13:38 IST
+		// 2016
+		Date currentDate = new Date();
+		String currentDateAndTime = currentDate.toString();
+
+		// splitting the date string Ex: "Thu Feb 18 18" out of "Thu Feb 18
+		// 18:13:38 IST 2016"
+		String[] dateFolder = currentDateAndTime.split(":");
+
+		System.out.println();
+		String newFolderName = filePathScreenShot + fileSeperator + dateFolder[0] + fileSeperator;
+
+		File targetFolder = new File(newFolderName);
+		if (!targetFolder.exists()) {
+			// System.out.println("File created " + targetFolder);
+			targetFolder.mkdir();
+		}
+
+		// taking screenshot
+		File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+
+		// adding test class name before the test method while creating
+		// screenshot file
+		File targetFile = new File(newFolderName + testClassName + "_" + testMethodName + ".png");
+
+		// The below method will save the screen shot with test class and method
+		// name
+		try {
+			FileUtils.copyFile(scrFile, targetFile);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public String getTestClassName(String testName) {
+		String[] reqTestClassname = testName.split("\\.");
+		int i = reqTestClassname.length - 1;
+		return reqTestClassname[i];
 	}
 }

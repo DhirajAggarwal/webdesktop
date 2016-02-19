@@ -43,16 +43,16 @@ public class HomePageTest extends BrowserFactory {
 			corporateEmail = helper.parseJSONToString("corporateEmail", filePathHomePageData),
 			corporateEnquiry = helper.parseJSONToString("corporateEnquiry", filePathHomePageData),
 			corporateSuccessMessage = helper.parseJSONToString("corporateSuccessMessage", filePathHomePageData),
-			hillsDealName = helper.parseJSONToString("hillsDealName", filePathHomePageData),
-			malaysiaCityName = helper.parseJSONToString("malaysiaCityName", filePathHomePageData),
-			kerelaDealName = helper.parseJSONToString("kerelaDealName", filePathHomePageData),
-			cityPageTitle = helper.parseJSONToString("cityPageTitle", filePathHomePageData),
-			malaysiaHeader = helper.parseJSONToString("malaysiaHeader", filePathHomePageData),
-			megaDDlocationLinkText = helper.parseJSONToString("megaDDlocationLinkText", filePathHomePageData),
-			megaDDcityLinkText = helper.parseJSONToString("megaDDcityLinkText", filePathHomePageData);
-
-	int checkInMonthInt = Integer.parseInt(checkInMonth); //why Conversion? why not take int from json?
-
+			hillsDealName= helper.parseJSONToString("hillsDealName", filePathHomePageData),
+			malaysiaCityName=helper.parseJSONToString("malaysiaCityName", filePathHomePageData),
+			kerelaDealName=helper.parseJSONToString("kerelaDealName", filePathHomePageData),
+			cityPageTitle=helper.parseJSONToString("cityPageTitle", filePathHomePageData),
+			malaysiaHeader=helper.parseJSONToString("malaysiaHeader", filePathHomePageData),
+			megaDDlocationLinkText=helper.parseJSONToString("megaDDlocationLinkText", filePathHomePageData),
+			megaDDcityLinkText=helper.parseJSONToString("megaDDcityLinkText", filePathHomePageData);
+	
+int checkInMonthInt = Integer.parseInt(checkInMonth);
+			
 	@BeforeMethod
 	public void openURL() {
 		helper.openURL();

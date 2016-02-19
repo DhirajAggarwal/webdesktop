@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.testng.Assert;
 
@@ -125,6 +126,7 @@ public class HotelPage extends BasePage {
 	}
 	
 	public String getLimitedAvailabilityMessage(){
+		helper.waitForElement(By.id(limitedRoomMessageId), 3, "Only 1 rooms availabe Message Dispayed");
 		String limitedAvailabilityMsg = helper.findElementById(limitedRoomMessageId).getText();
 		return limitedAvailabilityMsg;
 	}

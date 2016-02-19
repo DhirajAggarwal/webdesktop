@@ -2,7 +2,7 @@ package pages;
 
 import java.util.List;
 
-import org.openqa.selenium.Keys;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
@@ -234,6 +234,7 @@ public class HomePage extends BasePage {
 		helper.findElementById(checkInId).click();
 		//helper.waitForElement(helper.locateByLinkText(date), 6, "No checkin date displayed");
 		for(int i=1; i<=monthCounter; i++){
+		helper.waitForElement(By.linkText("Next"), 3, "Calendar Next Link Not Working");
 		helper.findElementByLinkText("Next").click();
 		}
 		helper.findElementByLinkText(date).click();

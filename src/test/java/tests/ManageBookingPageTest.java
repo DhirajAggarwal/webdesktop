@@ -41,7 +41,7 @@ public class ManageBookingPageTest extends BrowserFactory {
 		helper.openURL();
 	}
 
-	@Test
+	//@Test
 	public void verifyCancellationOfBooking() {
 		commonMethods.logInToOyoRooms(loginMobileNumber, loginPassword);
 		homePage.clickUserName();
@@ -53,7 +53,7 @@ public class ManageBookingPageTest extends BrowserFactory {
 	 * This Test is making booking after Login and processing 
 	 * partial payments.
 	*/
-	//@Test
+	@Test
 	public void verifyPartialPayment() {
 		commonMethods.logInToOyoRooms(loginMobileNumber, loginPassword);
 		homePage.clickCancelLoginWindow();
