@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<suite name="OyoroomsSanityTests" verbose="1" >
-  <test name="Regression suite 1" >
-    <classes>
-    <class name="tests.HomePageTest"/>
-      <class name="tests.SearchPageTest" />
-      <class name="tests.HotelPageTest" />
-       <class name="tests.BookingConfirmationPageTest" />
-    </classes>
- </test>
+
+<suite name="OyoroomsSanityTests" verbose="1">
+	<listeners>
+		<listener class-name="utils.TestListener" />
+	</listeners>
+	<test name="Regression suite 1">
+		<classes>
+			<class name="tests.HomePageTest" />
+			<class name="tests.SearchPageTest" />
+			<class name="tests.HotelPageTest" />
+			<class name="tests.BookingConfirmationPageTest" />
+		</classes>
+	</test>
 </suite>
