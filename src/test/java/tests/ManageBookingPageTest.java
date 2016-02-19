@@ -24,6 +24,7 @@ public class ManageBookingPageTest extends BrowserFactory {
 			loginPassword = helper.parseJSONToString("password", filePathCommonTestData),
 			location = helper.parseJSONToString("location", filePathCommonTestData),
 			checkinDate = helper.parseJSONToString("checkinDate", filePathCommonTestData),
+			checkInMonth = helper.parseJSONToString("checkInMonth", filePathCommonTestData),
 			checkoutDate = helper.parseJSONToString("checkoutDate", filePathCommonTestData);
 	
 	String filePathPaymentGatewayPageTestData = "./src/main/resources/data/PaymentGatewayPageTestData.json",
@@ -33,13 +34,14 @@ public class ManageBookingPageTest extends BrowserFactory {
 			bookingCancellationMessage = helper.parseJSONToString("bookingCancellationMessage", filePathManageBookingPageTestData),
 			amountPartialPayment = helper.parseJSONToString("amountPartialPayment", filePathManageBookingPageTestData);
 
-	
+	int checkInMonthInt = Integer.parseInt(checkInMonth);
+
 	@BeforeMethod
 	public void openURL() {
 		helper.openURL();
 	}
 
-	//@Test
+	@Test
 	public void verifyCancellationOfBooking() {
 		commonMethods.logInToOyoRooms(loginMobileNumber, loginPassword);
 		homePage.clickUserName();
@@ -51,10 +53,11 @@ public class ManageBookingPageTest extends BrowserFactory {
 	 * This Test is making booking after Login and processing 
 	 * partial payments.
 	*/
-	@Test
+	//@Test
 	public void verifyPartialPayment() {
 		commonMethods.logInToOyoRooms(loginMobileNumber, loginPassword);
-		commonMethods.searchHotels(location, checkinDate, checkoutDate);
+		homePage.clickCancelLoginWindow();
+		commonMethods.searchHotels(location, checkinDate, checkInMonthInt, checkoutDate);
 		commonMethods.bookingConfirmationPAHafterLogin();
 		homePage.clickUserName();
 		commonMethods.partialPayment();

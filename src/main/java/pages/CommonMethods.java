@@ -16,11 +16,15 @@ public class CommonMethods {
 		homePage.clickOnLoginSubmitButton();
 	}
 
-	public void searchHotels(String location, String checkinDate, String checkoutDate) {
+	public void searchHotels(String location, String checkinDate, int checkInMonth, String checkoutDate) {
 		homePage.setLocation(location);
-		homePage.setCheckInDate(checkinDate);
-		homePage.setCheckInDate(checkoutDate);
+		homePage.setCheckInDate(checkinDate, checkInMonth);
+		homePage.setCheckOutDate(checkoutDate);
 		homePage.clickOnSearchButton();
+	}
+
+	public void payAtHotel() {
+
 	}
 
 	public void navigateToHotelPageFromSearchPage() {
@@ -29,7 +33,7 @@ public class CommonMethods {
 		hotelPage.clickBookNow();
 		hotelPage.clickRequiredId();
 	}
-	
+
 	public void bookingConfirmationPAHafterLogin() {
 		navigateToHotelPageFromSearchPage();
 		hotelPage.clickPayAtHotel();
@@ -40,14 +44,14 @@ public class CommonMethods {
 		hotelPage.clickPayNow();
 		hotelPage.clickCreditCard();
 	}
-	
+
 	public void cancelBooking() {
 		manageBookingPage.clickBooking();
 		manageBookingPage.clickUpcomingBooking();
 		manageBookingPage.clickFirstBooking();
-		manageBookingPage.clickCancelBooking();	
+		manageBookingPage.clickCancelBooking();
 	}
-	
+
 	public void partialPayment() {
 		manageBookingPage.clickBooking();
 		manageBookingPage.clickUpcomingBooking();
@@ -56,5 +60,10 @@ public class CommonMethods {
 		manageBookingPage.setPartialPayment();
 		manageBookingPage.clickPayNow();
 	}
-	
+
+	public void logOutToOyoRooms() {
+		homePage.clickUserName();
+		homePage.logoutUser();
+	}
+
 }

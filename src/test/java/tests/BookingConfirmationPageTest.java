@@ -24,6 +24,7 @@ public class BookingConfirmationPageTest extends BrowserFactory {
 			loginPassword = helper.parseJSONToString("password", filePathCommonTestData),
 			location = helper.parseJSONToString("location", filePathCommonTestData),
 			checkinDate = helper.parseJSONToString("checkinDate", filePathCommonTestData),
+			checkInMonth = helper.parseJSONToString("checkInMonth", filePathCommonTestData),
 			checkoutDate = helper.parseJSONToString("checkoutDate", filePathCommonTestData);
 
 	String filePathBookingConfirmationPageTestData = "./src/main/resources/data/BookingConfirmationPageTestData.json",
@@ -40,6 +41,8 @@ public class BookingConfirmationPageTest extends BrowserFactory {
 			couponCode = helper.parseJSONToString("couponCode", filePathHotelPageData),
 			verificationCode = helper.parseJSONToString("verificationCode", filePathHotelPageData);
 
+	int checkInMonthInt = Integer.parseInt(checkInMonth);
+
 	@BeforeMethod
 	public void openURL() {
 		helper.openURL();
@@ -52,12 +55,14 @@ public class BookingConfirmationPageTest extends BrowserFactory {
 	@Test
 	public void verifySuccessfulBookingPAHafterLoginAndBookingCancellation() throws InterruptedException {
 		commonMethods.logInToOyoRooms(loginMobileNumber, loginPassword);
-		commonMethods.searchHotels(location, checkinDate, checkoutDate);
+		homePage.clickCancelLoginWindow();
+		commonMethods.searchHotels(location, checkinDate, checkInMonthInt, checkoutDate);
 		commonMethods.bookingConfirmationPAHafterLogin();
 		Assert.assertEquals(successfulBookingMessage, bookingConfirmationPage.getBookingSuccessMessage());
 		homePage.clickUserName();
 		commonMethods.cancelBooking();
 		Assert.assertEquals(bookingCancellationMessage, manageBookingPage.getCancellationText());
+		commonMethods.logOutToOyoRooms();
 	}
 
 	/*
@@ -67,7 +72,7 @@ public class BookingConfirmationPageTest extends BrowserFactory {
 	 */
 	@Test
 	public void verifySuccessfulBookingPAHAndBookingCancellation() {
-		commonMethods.searchHotels(location, checkinDate, checkoutDate);
+		commonMethods.searchHotels(location, checkinDate, checkInMonthInt, checkoutDate);
 		commonMethods.navigateToHotelPageFromSearchPage();
 		hotelPage.setGuestDetails(guestName, guestMobile, emailAddress);
 		hotelPage.setCoupon(couponCode);
@@ -80,5 +85,6 @@ public class BookingConfirmationPageTest extends BrowserFactory {
 		homePage.clickUserName();
 		commonMethods.cancelBooking();
 		Assert.assertEquals(bookingCancellationMessage, manageBookingPage.getCancellationText());
+		commonMethods.logOutToOyoRooms();
 	}
 }

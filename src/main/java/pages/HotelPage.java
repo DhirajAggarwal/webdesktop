@@ -40,9 +40,11 @@ public class HotelPage extends BasePage {
 			confirmationMessageOnRequestCallBackId = helper.parseJSONToString("confirmationMessageOnRequestCallBackId",
 					filePathHotelPage),
 			hotelTermsAndConditionsLinkId = helper.parseJSONToString("hotelTermsAndConditionsLinkId",
-					filePathHotelPage);
-
-	public void isValid() {
+					filePathHotelPage),
+			limitedRoomMessageId = helper.parseJSONToString("limitedRoomMessageId", filePathHotelPage),
+			noRoomAvailableMessageId = helper.parseJSONToString("noRoomAvailableMessageId", filePathHotelPage);
+			
+		public void isValid() {
 		homePage.validateHeaderElements();
 		validateHotelPageElements();
 		homePage.validateFooterElements();
@@ -121,7 +123,12 @@ public class HotelPage extends BasePage {
 	public void clickCreditCard() {
 		helper.findElementsByClassName(creditCardClassName).get(1).click();
 	}
-
+	
+	public String getLimitedAvailabilityMessage(){
+		String limitedAvailabilityMsg = helper.findElementById(limitedRoomMessageId).getText();
+		return limitedAvailabilityMsg;
+	}
+	
 	private void validateHotelPageElements() {
 		Assert.assertTrue(helper.findElementByClassName(hotelGalleryClassName).isDisplayed());
 		Assert.assertTrue(helper.findElementById(hotelBookingBlockId).isDisplayed());

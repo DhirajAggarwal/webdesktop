@@ -26,5 +26,8 @@
 	"discountCouponTextBoxId":"js-booking-coupon-val",
 	"couponApplyButtonId":"js-apply-coupon",
 	"otpFieldId":"js-verification-code",
-	"confirmAndBookId":"js-confirm-book"
+	"confirmAndBookId":"js-confirm-book",
+	"requiredIdClassName":"icon-check",
+	"limitedRoomMessageId":"js-limited-room-avail-msg",
+	"noRoomAvailableMessageId":"js-no-room-avail-msg"
 }

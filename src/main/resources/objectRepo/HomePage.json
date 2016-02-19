@@ -40,5 +40,8 @@
 	"userLoginPassword":"password",
 	"userLoginPhone":"phone",
 	"allCitiesLinkText":"ALL CITIES",
-	"viewAllLinkText":"View All"
+	"viewAllLinkText":"View All",
+	"nowInMalaysiaLinkText":"NOW IN MALAYSIA!",
+	"viewAllCollectionNameClassName":"js-md-hotel-collection",
+	"cancelLoginId":"js-modal-close"
 }

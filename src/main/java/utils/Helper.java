@@ -4,7 +4,9 @@ import static utils.BrowserFactory.driver;
 
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Calendar;
 import java.util.List;
+
 import org.openqa.selenium.interactions.Actions;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -13,7 +15,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import org.openqa.selenium.NoSuchElementException;
 
 public class Helper {
@@ -103,6 +104,10 @@ public class Helper {
 		waitForElement(locateById(element), 10, element);
 		return driver.findElement(By.id(element));
 	}
+	
+	public List<WebElement> findElementsById(String element) {
+		return driver.findElements(By.id(element));
+	}
 
 	public WebElement findElementByClassName(String element) {
 		waitForElement(locateByClassName(element), 10, element);
@@ -112,6 +117,9 @@ public class Helper {
 	public WebElement findElementByTagName(String element) {
 		waitForElement(locateByTagName(element), 10, element);
 		return driver.findElement(By.tagName(element));
+	}
+	public List<WebElement> findElementsByTagName(String element) {
+		return driver.findElements(By.tagName(element));
 	}
 
 	public WebElement findElementByXpath(String element) {
@@ -123,10 +131,16 @@ public class Helper {
 		waitForElement(locateByCssSelector(element), 10, element);
 		return driver.findElement(By.cssSelector(element));
 	}
+	public List<WebElement> findElementsByCss(String element) {
+		return driver.findElements(By.cssSelector(element));
+	}
 
 	public WebElement findElementByLinkText(String element) {
 		waitForElement(locateByLinkText(element), 10, element);
 		return driver.findElement(By.linkText(element));
+	}
+	public List<WebElement> findElementsByLinkText(String element) {
+		return driver.findElements(By.linkText(element));
 	}
 
 	public WebElement findElementByPartialLinkText(String element) {
@@ -147,5 +161,12 @@ public class Helper {
 	    catch (NoSuchElementException e) {
 	      return false;
 	    }
+	}
+	
+	public int getCurrentMonth() {
+		Calendar cal = Calendar.getInstance();
+		int monthInInteger = cal.get(Calendar.MONTH);
+		int currentMonth = monthInInteger + 1;
+		return currentMonth;
 	}
 }

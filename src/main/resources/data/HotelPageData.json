@@ -10,5 +10,13 @@
 	"guestMobile":"0000089875",
 	"emailAddress":"automation_test@oyorooms.com",
 	"couponCode":"OYO15",
-	"verificationCode":"098765"
+	"verificationCode":"098765",
+	"limitedAvailabilityMsgExpected":"Only 1 rooms available on these dates.",
+	"testBudgetHotelId":"5669",
+	"testBudgetHotelType":"budget",
+	"testBudgetHotelName":"oyo-test-budget-other",
+	"checkInDateLimitedAvailability":"1",
+	"checkInMonthLimitedAvailability":"8",
+	"checkOutDateLimitedAvailability":"3",
+	"roomsCountLimitedAvailability":"2"
 }

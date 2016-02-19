@@ -18,7 +18,10 @@ public class SearchPageTest extends BrowserFactory {
 	String filePathCommonTestData = "./src/main/resources/data/CommonTestData.json",
 			locality = helper.parseJSONToString("locality", filePathCommonTestData),
 			checkInDate = helper.parseJSONToString("checkinDate", filePathCommonTestData),
+			checkInMonth = helper.parseJSONToString("checkInMonth", filePathCommonTestData),
 			checkOutDate = helper.parseJSONToString("checkoutDate", filePathCommonTestData);
+
+	int checkInMonthInt = Integer.parseInt(checkInMonth);
 
 	CommonMethods commonMethods = new CommonMethods();
 	HomePage homePage = new HomePage();
@@ -26,12 +29,11 @@ public class SearchPageTest extends BrowserFactory {
 	@BeforeMethod
 	public void openUrlAndSearchHotel() {
 		helper.openURL();
-		// go to Search page by searching locality
-		commonMethods.searchHotels(locality, checkInDate, checkOutDate);
+		commonMethods.searchHotels(locality, checkInDate, checkInMonthInt, checkOutDate);
 	}
 
 	@Test
-	public void validateSearchPageElement() {
+	public void verifySearchPageElement() {
 		searchPage.isValid();
 	}
 

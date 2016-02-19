@@ -24,9 +24,10 @@ public class SearchPage extends BasePage {
 			sortByRelevanceId = helper.parseJSONToString("sortByRelevanceId", filePathSearchPage),
 			sortByDistanceId = helper.parseJSONToString("sortByDistanceId", filePathSearchPage),
 			sortByPriceCss = helper.parseJSONToString("sortByPriceCss", filePathSearchPage),
-			// distanceFilter = helper.parseJSONToString("distanceFilter",
-			// filePathSearchPage),
-			firstHotelSnippetCss = helper.parseJSONToString("firstHotelSnippetCss", filePathSearchPage);
+			distanceFilter = helper.parseJSONToString("distanceFilter", filePathSearchPage),
+			firstHotelSnippetCss = helper.parseJSONToString("firstHotelSnippetCss", filePathSearchPage),
+			tagId = helper.parseJSONToString("tagId", filePathSearchPage);
+	// localityNameOnCityPage=helper.parseJSONToString("localityNameOnCityPage",filePathSearchPage);
 
 	String filePathHotelPage = "./src/main/resources/objectRepo/HotelPage.json",
 			hotelName = helper.parseJSONToString("hotelNameId", filePathHotelPage);
@@ -44,20 +45,23 @@ public class SearchPage extends BasePage {
 	 * Validate Search Page elements presence
 	 */
 	private void validateSearchPageElements() {
-
 		/* Search bar validation on Search Page */
 		Assert.assertTrue(helper.findElementById(locationTextboxElementId).isDisplayed());
 		Assert.assertTrue(helper.findElementById(checkInDateElementId).isDisplayed());
 		Assert.assertTrue(helper.findElementById(checkOutDateElementId).isDisplayed());
 		Assert.assertTrue(helper.findElementById(guestCountElementId).isDisplayed());
 		Assert.assertTrue(helper.findElementById(searchButtonElementId).isDisplayed());
-
 		Assert.assertTrue(helper.findElementById(searchLocalityId).isDisplayed());
 		Assert.assertTrue(helper.findElementById(sortByRelevanceId).isDisplayed());
-		// Assert.assertTrue(helper.findElementById(sortByDistanceId).isDisplayed());
 		Assert.assertTrue(helper.findElementByCss(sortByPriceCss).isDisplayed());
+		Assert.assertTrue(helper.findElementById(sortByDistanceId).isDisplayed());
 		// Assert.assertTrue(helper.findElementByCss(distanceFilter).isDisplayed());
+	}
 
+	public String getlocalityNameInSearch() {
+		String localityName = helper.findElementById(locationTextboxElementId).getAttribute("value");
+		return localityName;
+		// TODO Auto-generated method stub
 	}
 
 	/**
@@ -75,7 +79,7 @@ public class SearchPage extends BasePage {
 	/**
 	 * Click for sort by Relevance
 	 */
-	public void sortByRelevance() {
+	public void clickOnSortByRelevance() {
 		helper.findElementById(sortByRelevanceId).click();
 		// TODO: Use Assert for verifying the relevance sorting
 	}
@@ -83,14 +87,19 @@ public class SearchPage extends BasePage {
 	/**
 	 * Click for sort by Distance
 	 */
-	public void sortByDistance() {
+	public void clickOnSortByDistance() {
 		helper.findElementById(sortByDistanceId).click();
+	}
+
+	public String getTagName() {
+		helper.waitForElement(helper.locateById(tagId), 15, "Tag not Found On Search Page");
+		String tagName = helper.findElementById(tagId).getText();
+		return tagName;
 
 	}
 
 	public void clickPriceSortByAscending() {
 		helper.findElementByClassName(priceClassName).click();
-
 	}
 
 	/**
