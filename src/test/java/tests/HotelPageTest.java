@@ -7,19 +7,18 @@ import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.HotelPage;
 import utils.BrowserFactory;
-import utils.Helper;
 
-public class HotelPageTest extends BrowserFactory{
-	
-	Helper helper = new Helper();
+public class HotelPageTest extends BrowserFactory {
+
 	HotelPage hotelPage = new HotelPage();
+
 	HomePage homePage = new HomePage();
 	
 	String filePathHotelPageData = "./src/main/resources/data/HotelPageData.json",
-			hotelId	= helper.parseJSONToString("hotelId", filePathHotelPageData),
-			hotelType	= helper.parseJSONToString("hotelType", filePathHotelPageData),
-			hotelName	= helper.parseJSONToString("hotelName", filePathHotelPageData),
-			roomsCount	= helper.parseJSONToString("roomsCount", filePathHotelPageData),
+			hotelId = helper.parseJSONToString("hotelId", filePathHotelPageData),
+			hotelType = helper.parseJSONToString("hotelType", filePathHotelPageData),
+			hotelName = helper.parseJSONToString("hotelName", filePathHotelPageData),
+			roomsCount = helper.parseJSONToString("roomsCount", filePathHotelPageData),
 			bulkBookingMessageExpected = helper.parseJSONToString("bulkBookingMessageExpected", filePathHotelPageData),
 			phoneNumberForRequestCallback = helper.parseJSONToString("phoneNumberForRequestCallback", filePathHotelPageData),
 			confirmationMsgOnRequestCallbackExpected = helper.parseJSONToString("confirmationMsgOnRequestCallbackExpected", filePathHotelPageData),
@@ -40,7 +39,7 @@ public class HotelPageTest extends BrowserFactory{
 	}
 
 	@Test
-	public void verifyValidHotelPage(){
+	public void verifyValidHotelPage() {
 		hotelPage.isValid();
 	}
 	
@@ -50,7 +49,7 @@ public class HotelPageTest extends BrowserFactory{
 		String bulkBookingMessageActual = hotelPage.getBulkBookingMessage();
 		Assert.assertEquals(bulkBookingMessageActual, bulkBookingMessageExpected);
 	}
-	
+
 	@Test
 	public void verifyMessageOnRequestCallback(){
 		hotelPage.setRoomsCount(roomsCount);
@@ -69,7 +68,8 @@ public class HotelPageTest extends BrowserFactory{
 		Assert.assertEquals(limitedAvailabilityMsgActual, limitedAvailabilityMsgExpected);
 	}
 	
-	/* This is just a dummy test to verify the methods I have added in Hotel Page. I am not deleting this since I will need it next time. 
+	/* This is just a dummy test to verify the methods I have added in Hotel Page. 
+	 * I am not deleting this since I will need it next time. 
 	 * Will delete once Dhiraj will use these methods in any test.
 	@Test
 	public void vtest(){

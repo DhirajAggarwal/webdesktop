@@ -1,7 +1,5 @@
 package tests;
 
-import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -15,29 +13,28 @@ public class SearchPageTest extends BrowserFactory {
 
 	Helper helper = new Helper();
 	CommonMethods commonMethod = new CommonMethods();
-	SearchPage searchPage =  new SearchPage();
-	
+	SearchPage searchPage = new SearchPage();
+
 	String filePathCommonTestData = "./src/main/resources/data/CommonTestData.json",
-	locality = helper.parseJSONToString("locality", filePathCommonTestData),
-	checkInDate = helper.parseJSONToString("checkinDate", filePathCommonTestData),
-	checkInMonth = helper.parseJSONToString("checkInMonth", filePathCommonTestData),
-	checkOutDate = helper.parseJSONToString("checkoutDate", filePathCommonTestData);
+			locality = helper.parseJSONToString("locality", filePathCommonTestData),
+			checkInDate = helper.parseJSONToString("checkinDate", filePathCommonTestData),
+			checkInMonth = helper.parseJSONToString("checkInMonth", filePathCommonTestData),
+			checkOutDate = helper.parseJSONToString("checkoutDate", filePathCommonTestData);
 
 	int checkInMonthInt = Integer.parseInt(checkInMonth);
-	
+
 	CommonMethods commonMethods = new CommonMethods();
 	HomePage homePage = new HomePage();
 
 	@BeforeMethod
 	public void openUrlAndSearchHotel() {
 		helper.openURL();
-		// go to Search page by searching locality
-		commonMethods.searchHotels(locality, checkInDate,checkInMonthInt, checkOutDate);
+		commonMethods.searchHotels(locality, checkInDate, checkInMonthInt, checkOutDate);
 	}
 
 	@Test
-	public void verifySearchPageElement(){
+	public void verifySearchPageElement() {
 		searchPage.isValid();
 	}
-	
+
 }

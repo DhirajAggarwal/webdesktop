@@ -1,13 +1,13 @@
 {
-	"userName"	:	"smita" ,
+	"userName":"smita",
 	"mobileNumber"	:"0000089875",
 	"password"	:"098765",
 	"location"	:"Delhi",
-	"checkinDate"	:"23",
-	"checkInMonth" : "2",
-	"checkoutDate"	:"24",
-	"locality"	:	"Sohna Road, Sector 49, Gurgaon, Haryana, India",
-	"blankLoginPassword"	:"",
-	"blankMobileNumber"		:"",
-	"blankValidationMessage" : "Invalid Mobile Number/Password"
+	"checkinDate":"23",
+	"checkInMonth":"4",
+	"checkoutDate":"24",
+	"locality":"Sohna Road, Sector 49, Gurgaon, Haryana, India",
+	"blankLoginPassword":"",
+	"blankMobileNumber":"",
+	"blankValidationMessage":"Invalid Mobile Number/Password"
 }

@@ -4,68 +4,74 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.testng.Assert;
 
-import utils.Helper;
-
 public class HotelPage extends BasePage {
-	
-	Helper helper = new Helper();
+
 	HomePage homePage = new HomePage();
-	
-	String 	filePathCommonOR = "./src/main/resources/objectRepo/CommonOR.json",
-			filePathHotelPageOR = "./src/main/resources/objectRepo/HotelPage.json",
-			bookNowId = helper.parseJSONToString("bookNowId", filePathHotelPageOR),
-			payAtHotelId  = helper.parseJSONToString("payAtHotelId", filePathHotelPageOR),
-			requiredIdClassName   = helper.parseJSONToString("requiredIdClassName", filePathHotelPageOR),
-			hotelGalleryClassName = helper.parseJSONToString("hotelGalleryClassName",filePathHotelPageOR),
-			hotelBookingBlockId = helper.parseJSONToString("hotelBookingBlockId",filePathHotelPageOR),
-			hotelLocalityDetailsClassName = helper.parseJSONToString("hotelLocalityDetailsClassName", filePathHotelPageOR),
-			hotelAmenitiesSectionClassName = helper.parseJSONToString("hotelAmenitiesSectionClassName", filePathHotelPageOR),
-			hotelHouseRulesSectionClassName = helper.parseJSONToString("hotelHouseRulesSectionClassName", filePathHotelPageOR),
-			hotelDescriptionSectionClassName = helper.parseJSONToString("hotelDescriptionSectionClassName", filePathHotelPageOR),
-			hotelNearByHotelsSectionClassName = helper.parseJSONToString("hotelNearByHotelsSectionClassName", filePathHotelPageOR),
-			hotelRoomsCountId = helper.parseJSONToString("hotelRoomsCountId", filePathHotelPageOR),
-			bulkBookingMessageId = helper.parseJSONToString("bulkBookingMessageId", filePathHotelPageOR),
-			requestCallBackTextFieldId = helper.parseJSONToString("requestCallBackTextFieldId", filePathHotelPageOR),
-			requestCallBackButtonId	=	helper.parseJSONToString("requestCallBackButtonId", filePathHotelPageOR),
-			guestNameId = helper.parseJSONToString("guestNameId", filePathHotelPageOR),
-			guestMobileNumberId = helper.parseJSONToString("guestMobileNumberId", filePathHotelPageOR),
-			guestEmailAddressId = helper.parseJSONToString("guestEmailAddressId", filePathHotelPageOR),
-			couponQuestionId = helper.parseJSONToString("couponQuestionId", filePathHotelPageOR),
-			discountCouponTextBoxId = helper.parseJSONToString("discountCouponTextBoxId", filePathHotelPageOR),
-			couponApplyButtonId = helper.parseJSONToString("couponApplyButtonId", filePathHotelPageOR),
-			otpFieldId = helper.parseJSONToString("otpFieldId", filePathHotelPageOR),
-			confirmAndBookId = helper.parseJSONToString("confirmAndBookId", filePathHotelPageOR),
-			confirmationMessageOnRequestCallBackId = helper.parseJSONToString("confirmationMessageOnRequestCallBackId", filePathHotelPageOR),
-			limitedRoomMessageId = helper.parseJSONToString("limitedRoomMessageId", filePathHotelPageOR),
-			noRoomAvailableMessageId = helper.parseJSONToString("noRoomAvailableMessageId", filePathHotelPageOR),
-			hotelTermsAndConditionsLinkId	= helper.parseJSONToString("hotelTermsAndConditionsLinkId", filePathHotelPageOR);
+
+	protected String filePathHotelPage = "./src/main/resources/objectRepo/HotelPage.json",
+			bookNowId = helper.parseJSONToString("bookNowId", filePathHotelPage),
+			payAtHotelId = helper.parseJSONToString("payAtHotelId", filePathHotelPage),
+			payNowId = helper.parseJSONToString("payNowId", filePathHotelPage),
+			creditCardClassName = helper.parseJSONToString("creditCardClassName", filePathHotelPage),
+			requiredId = helper.parseJSONToString("requiredId", filePathHotelPage),
+			hotelGalleryClassName = helper.parseJSONToString("hotelGalleryClassName", filePathHotelPage),
+			hotelBookingBlockId = helper.parseJSONToString("hotelBookingBlockId", filePathHotelPage),
+			hotelLocalityDetailsClassName = helper.parseJSONToString("hotelLocalityDetailsClassName",
+					filePathHotelPage),
+			hotelAmenitiesSectionClassName = helper.parseJSONToString("hotelAmenitiesSectionClassName",
+					filePathHotelPage),
+			hotelHouseRulesSectionClassName = helper.parseJSONToString("hotelHouseRulesSectionClassName",
+					filePathHotelPage),
+			hotelDescriptionSectionClassName = helper.parseJSONToString("hotelDescriptionSectionClassName",
+					filePathHotelPage),
+			hotelNearByHotelsSectionClassName = helper.parseJSONToString("hotelNearByHotelsSectionClassName",
+					filePathHotelPage),
+			hotelRoomsCountId = helper.parseJSONToString("hotelRoomsCountId", filePathHotelPage),
+			bulkBookingMessageId = helper.parseJSONToString("bulkBookingMessageId", filePathHotelPage),
+			requestCallBackTextFieldId = helper.parseJSONToString("requestCallBackTextFieldId", filePathHotelPage),
+			requestCallBackButtonId = helper.parseJSONToString("requestCallBackButtonId", filePathHotelPage),
+			guestNameId = helper.parseJSONToString("guestNameId", filePathHotelPage),
+			guestMobileNumberId = helper.parseJSONToString("guestMobileNumberId", filePathHotelPage),
+			guestEmailAddressId = helper.parseJSONToString("guestEmailAddressId", filePathHotelPage),
+			couponQuestionId = helper.parseJSONToString("couponQuestionId", filePathHotelPage),
+			discountCouponTextBoxId = helper.parseJSONToString("discountCouponTextBoxId", filePathHotelPage),
+			couponApplyButtonId = helper.parseJSONToString("couponApplyButtonId", filePathHotelPage),
+			otpFieldId = helper.parseJSONToString("otpFieldId", filePathHotelPage),
+			confirmAndBookId = helper.parseJSONToString("confirmAndBookId", filePathHotelPage),
+			confirmationMessageOnRequestCallBackId = helper.parseJSONToString("confirmationMessageOnRequestCallBackId",
+					filePathHotelPage),
+			hotelTermsAndConditionsLinkId = helper.parseJSONToString("hotelTermsAndConditionsLinkId",
+					filePathHotelPage),
+			limitedRoomMessageId = helper.parseJSONToString("limitedRoomMessageId", filePathHotelPage),
+			noRoomAvailableMessageId = helper.parseJSONToString("noRoomAvailableMessageId", filePathHotelPage);
 			
-			
-	public void isValid() {
+		public void isValid() {
 		homePage.validateHeaderElements();
 		validateHotelPageElements();
 		homePage.validateFooterElements();
 	}
-	
-	public void setRoomsCount(String rooms){
+
+	public void setRoomsCount(String rooms) {
 		helper.findElementById(hotelRoomsCountId).sendKeys(rooms);
 		helper.findElementById(hotelRoomsCountId).sendKeys(Keys.ENTER);
-		helper.waitForElement(helper.locateById(hotelTermsAndConditionsLinkId), 5,"Terms and Conditions link not Found");
+		helper.waitForElement(helper.locateById(hotelTermsAndConditionsLinkId), 5,
+				"Terms and Conditions link not Found");
 	}
-	
-	public String getBulkBookingMessage(){
+
+	public String getBulkBookingMessage() {
 		String message = helper.findElementById(bulkBookingMessageId).getText();
 		return message;
 	}
-	
-	public void setNumberForRequestCallBack(String phoneNumber){
+
+	public void setNumberForRequestCallBack(String phoneNumber) {
 		helper.waitForElement(helper.locateById(requestCallBackButtonId), 4, "Request CallBack Button not displayed");
 		helper.findElementById(requestCallBackTextFieldId).sendKeys(phoneNumber);
 	}
-	
-	public String clickOnRequestCallBackButtonAndReturnMessage(){
+
+	public String clickOnRequestCallBackButtonAndReturnMessage() {
 		helper.findElementById(requestCallBackButtonId).click();
-		helper.waitForElement(helper.locateById(confirmationMessageOnRequestCallBackId), 5, "Confirmation message not yet displayed");
+		helper.waitForElement(helper.locateById(confirmationMessageOnRequestCallBackId), 5,
+				"Confirmation message not yet displayed");
 		String confirmationMsg = helper.findElementById(confirmationMessageOnRequestCallBackId).getText();
 		return confirmationMsg;
 	}
@@ -73,8 +79,8 @@ public class HotelPage extends BasePage {
 	public void clickBookNow() {
 		helper.findElementById(bookNowId).click();
 	}
-	
-	public void setGuestDetails(String guestName, String guestMobile, String emailAddress){
+
+	public void setGuestDetails(String guestName, String guestMobile, String emailAddress) {
 		helper.findElementById(guestNameId).clear();
 		helper.findElementById(guestNameId).sendKeys(guestName);
 		helper.findElementById(guestMobileNumberId).clear();
@@ -84,8 +90,8 @@ public class HotelPage extends BasePage {
 	}
 
 	public void clickRequiredId() {
-		if( helper.findElementByClassName(requiredIdClassName)!= null){
-			helper.findElementByClassName(requiredIdClassName).click();
+		if (helper.findElementById(requiredId) != null) {
+			helper.findElementById(requiredId).click();
 		}
 	}
 
@@ -99,7 +105,7 @@ public class HotelPage extends BasePage {
 	}
 
 	public void setVerificationCode(String OTP) {
-		helper.waitForElement(helper.locateById(otpFieldId), 5, "OTP field not displayed");
+		//helper.waitForElement(helper.locateById(otpFieldId), 5, "OTP field not displayed");
 		helper.findElementById(otpFieldId).sendKeys(OTP);
 	}
 
@@ -110,15 +116,21 @@ public class HotelPage extends BasePage {
 	public void clickPayAtHotel() {
 		helper.findElementById(payAtHotelId).click();
 	}
+
+	public void clickPayNow() {
+		helper.findElementById(payNowId).click();
+	}
+
+	public void clickCreditCard() {
+		helper.findElementsByClassName(creditCardClassName).get(1).click();
+	}
 	
 	public String getLimitedAvailabilityMessage(){
 		helper.waitForElement(By.id(limitedRoomMessageId), 3, "Only 1 rooms availabe Message Dispayed");
 		String limitedAvailabilityMsg = helper.findElementById(limitedRoomMessageId).getText();
 		return limitedAvailabilityMsg;
-		
 	}
 	
-
 	private void validateHotelPageElements() {
 		Assert.assertTrue(helper.findElementByClassName(hotelGalleryClassName).isDisplayed());
 		Assert.assertTrue(helper.findElementById(hotelBookingBlockId).isDisplayed());
